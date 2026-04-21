@@ -1,0 +1,314 @@
+import { useState, useRef } from "react";
+
+export default function ContrlPanel() {
+
+    const [intensity, setIntensity] = useState(100);
+    const [mode, setMode] = useState("maximum");
+    const [muted, setMuted] = useState(true);
+    const sliderRef = useRef(null);
+
+
+
+
+    const modes = [
+        { id: "transparency", label: "Transparency Mode" },
+        { id: "adaptive", label: "Adaptive Mode" },
+        { id: "maximum", label: "Maximum Isolation" },
+    ];
+
+    const handleModeChange = (id) => {
+        setMode(id);
+        if (id === "transparency") setIntensity(0);
+        else if (id === "adaptive") setIntensity(50);
+        else setIntensity(100);
+    };
+
+
+    // 3
+    const frequencies = [
+        "31Hz",
+        "62Hz",
+        "125Hz",
+        "250Hz",
+        "500Hz",
+        "1kHz",
+        "2kHz",
+        "4kHz",
+        "8kHz",
+        "16kHz",
+    ];
+
+    const [values, setValues] = useState([80, 80, 80, 70, 80, 80, 80, 30, 25, 30]);
+
+    const handleChange = (index, val) => {
+        const newVals = [...values];
+        newVals[index] = val;
+        setValues(newVals);
+    };
+
+
+    return (
+        <section className="px-58 py-40 ">
+
+            <h2 className="text-3xl font-semibold mb-2">Hardware Controls </h2>
+            <p className="text-sm mb-6">Calibrate your INDEV acoustic experience. </p>
+            <hr />
+
+            {/* sound */}
+            <div className="  my-12 flex justify-center ">
+
+
+
+                <div
+                    className="w-full max-w-6xl rounded-2xl border border-zinc-800 bg-zinc-950 px-10 py-10"
+                    style={{ boxShadow: "0 0 60px rgba(0,0,0,0.8)" }}
+                >
+                    {/* Header Row */}
+                    <div className="flex items-start justify-between mb-8">
+                        <div>
+                            <p className="text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-1">
+                                Active Noise Cancellation
+                            </p>
+                            <h2 className="text-xl font-bold text-white tracking-tight">
+                                Isolation Intensity
+                            </h2>
+                        </div>
+
+                        {/* Mute Toggle with Checkbox */}
+                        <label className="flex items-center gap-2 cursor-pointer group">
+                            {/* Hidden real checkbox */}
+                            <input
+                                type="checkbox"
+                                checked={muted}
+                                onChange={(e) => setMuted(e.target.checked)}
+                                className="sr-only"
+                            />
+                            {/* Custom styled button that acts as checkbox */}
+                            <div
+                                className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 select-none
+                                                ${muted
+                                        ? "bg-white text-black shadow-lg"
+                                        : "bg-zinc-800 text-zinc-400 border border-zinc-700"
+                                    }
+                                            group-hover:scale-105`}
+                                title={muted ? "Muted" : "Unmuted"}
+                            >
+                                {muted ? (
+                                    /* Muted icon */
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="w-5 h-5"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    >
+                                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                                        <line x1="23" y1="9" x2="17" y2="15" />
+                                        <line x1="17" y1="9" x2="23" y2="15" />
+                                    </svg>
+                                ) : (
+                                    /* Unmuted icon */
+                                    <svg
+                                        icon="http://www.w3.org/2000/svg"
+                                        className="w-5 h-5"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    >
+                                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+                                    </svg>
+                                )}
+                            </div>
+                            {/* Checkbox state label */}
+                            <span className="text-xs text-zinc-500 select-none">
+                                {muted ? "Muted" : "Active"}
+                            </span>
+                        </label>
+                    </div>
+
+                    {/* Slider Row */}
+                    <div className="flex items-center gap-4 mb-8">
+                        <span className="text-sm text-zinc-500 w-8 text-right select-none">
+                            0%
+                        </span>
+
+                        <div className="relative flex-1 h-1 group">
+                            {/* Track background */}
+                            <div className="absolute inset-0 rounded-full bg-zinc-700" />
+                            {/* Filled track */}
+                            <div
+                                className="absolute top-0 left-0 h-full rounded-full bg-white transition-all duration-150"
+                                style={{ width: `${intensity}%` }}
+                            />
+                            {/* Actual range input */}
+                            <input
+                                ref={sliderRef}
+                                type="range"
+                                min={0}
+                                max={100}
+                                value={intensity}
+                                onChange={(e) => {
+                                    const val = Number(e.target.value);
+                                    setIntensity(val);
+                                    if (val === 0) setMode("transparency");
+                                    else if (val === 50) setMode("adaptive");
+                                    else if (val === 100) setMode("maximum");
+                                    else setMode(null);
+                                }}
+                                className="absolute inset-0 w-full opacity-0 cursor-pointer h-full"
+                                style={{ zIndex: 10 }}
+                            />
+                            {/* Thumb visual */}
+                            <div
+                                className="absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-white shadow-md border-2 border-white transition-all duration-150 pointer-events-none"
+                                style={{
+                                    left: `calc(${intensity}% - 10px)`,
+                                }}
+                            />
+                        </div>
+
+                        <span className="text-sm text-zinc-300 w-10 select-none">
+                            {intensity}%
+                        </span>
+                    </div>
+
+                    {/* Mode Buttons */}
+                    <div className="grid grid-cols-3 gap-3">
+                        {modes.map(({ id, label }) => (
+                            <button
+                                key={id}
+                                onClick={() => handleModeChange(id)}
+                                className={`py-3 px-4 rounded-xl text-sm font-semibold tracking-wide transition-all duration-200 border
+${mode === id
+                                        ? "bg-white text-black border-white shadow-lg"
+                                        : "bg-transparent text-zinc-300 border-zinc-700 hover:border-zinc-500 hover:text-white"
+                                    }`}
+                            >
+                                {label}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            {/* 3 */}
+
+            <div>
+
+                <div className=" flex items-center justify-center p-6">
+                    <div className="w-full max-w-6xl bg-[#0b0b0b] rounded-2xl p-8 border border-gray-800">
+                        {/* Header */}
+                        <div className="mb-6">
+                            <p className="text-xs mb-2 text-gray-500 tracking-widest uppercase">
+                                Graph Based Equalizer
+                            </p>
+                            <h1 className="text-2xl text-white font-semibold mt-1">
+                                Acoustic Tuning & Presets
+                            </h1>
+                        </div>
+
+                        {/* Presets */}
+                        <div className="flex gap-3 mb-10 flex-wrap">
+                            {["Studio Reference", "Low Frequency+", "Vocal Clarity", "High Fidelity"].map(
+                                (item, i) => (
+                                    <button
+                                        key={i}
+                                        className="px-4 py-2 text-sm rounded-full border border-gray-700 text-gray-300 hover:bg-gray-800 transition"
+                                    >
+                                        {item}
+                                    </button>
+                                )
+                            )}
+                            <button className="px-5 py-2 text-sm rounded-full bg-white text-black font-medium">
+                                Custom Profile
+                            </button>
+                        </div>
+
+                        {/* Sliders */}
+                        <div className="flex items-end justify-between pt-8  ">
+                            {values.map((val, i) => (
+                                <div key={i} className="flex flex-col items-center w-full">
+                                    <div className="relative flex items-end justify-center h-50 w-3">
+                                        {/* Track */}
+                                        <div className="absolute w-1.5 h-full bg-gray-700 rounded-full" />
+
+                                        {/* Active Track */}
+                                        <div
+                                            className="absolute w-1 bg-blue-500 rounded-full bottom-0"
+                                            style={{ height: `${val}%` }}
+                                        />
+
+                                        {/* Thumb */}
+                                        <input
+                                            type="range"
+                                            min="0"
+                                            max="100"
+                                            value={val}
+                                            onChange={(e) => handleChange(i, e.target.value)}
+                                            className="absolute w-full h-full opacity-0 cursor-pointer"
+                                        />
+
+                                        <div
+                                            className="absolute w-4 h-4 bg-blue-500 rounded-full shadow-lg"
+                                            style={{ bottom: `calc(${val}% - 8px)` }}
+                                        />
+                                    </div>
+
+                                    <span className="text-xs text-gray-500 mt-3">{frequencies[i]}</span>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Footer */}
+                        <div className="flex justify-between items-center mt-10">
+                            <button className="text-xs text-gray-500 uppercase tracking-wider">
+                                Reset Flat
+                            </button>
+                            <button className="px-6 py-2 rounded-full bg-white text-black text-sm font-medium">
+                                Save to Device
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+{/* 4 */}
+<div>
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </section>
+    )
+}

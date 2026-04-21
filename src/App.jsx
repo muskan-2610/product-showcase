@@ -5,6 +5,7 @@ import NavBar from './components/navbar'
 import BuyPage from './components/buypage';
 import Features from './components/features';
 import LandingPage from './components/landingPage';
+import ControlPanel from './components/controlPanel';
 
 const App = () => {
   return (
@@ -16,7 +17,7 @@ const App = () => {
         <Route path="/features" element={<Features />} />
         <Route path="/buy" element={<BuyPage />} />
         <Route path="/" element={<LandingPage />} />
-        <Route  />
+        <Route path="/controls" element={<ControlPanel />} />
       </Routes>
 
 

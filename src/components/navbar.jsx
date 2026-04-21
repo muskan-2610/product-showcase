@@ -9,7 +9,7 @@ export default function NavBar() {
                 <a href="/features"> Features</a>
                 <a href="/buy">Buy</a>
                 <a href="/dashboard">Dashboard</a>
-                <a href="/control-panel">Control Panel</a>
+                <a href="/controls">Control Panel</a>
             </div>
 
         </div>
