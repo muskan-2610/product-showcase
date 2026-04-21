@@ -61,7 +61,7 @@ export default function HeroSection() {
     ];
 
     return (
-        <section className=" ">
+        <section className="">
 
             {/* 1 */}
             <div className="py-24 bg-red-100 px-94   ">
@@ -69,7 +69,7 @@ export default function HeroSection() {
                 <div className=" mb-18">
                     <h4>The Problem</h4>
                     <h2 className="font-bold text-4xl my-4 mt-3 ">Noise is everywhere.</h2>
-                    <p className=" ">From bustling Indian streets to crowded offices, constant distractions break your focus and drain your energy. Generic noise cancellation doesn't adapt to your unique, ever-changing environment.</p>
+                    <p className="">From bustling Indian streets to crowded offices, constant distractions break your focus and drain your energy. Generic noise cancellation doesn't adapt to your unique, ever-changing environment.</p>
                 </div>
 
                 <div>
