@@ -47,6 +47,19 @@ export default function ContrlPanel() {
     };
 
 
+
+    const options = [
+        "Cycle Noise Control",
+        "Invoke Assistant",
+        "Play / Pause",
+        "Skip Forward",
+        "Skip Backward",
+        "Answer / End Call",
+    ];
+
+    const [leftSelected, setLeftSelected] = useState(0);
+    const [rightSelected, setRightSelected] = useState(1);
+
     return (
         <section className="px-58 py-40 ">
 
@@ -286,28 +299,163 @@ ${mode === id
             </div>
 
 
-{/* 4 */}
-<div>
-    
-</div>
+            {/* 4 */}
+            <div>
+
+            </div>
 
 
 
 
 
+            <div className="min-h-screen bg-black flex items-center justify-center p-6">
+                <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    {/* LEFT CARD */}
+                    <div className="bg-[#0b0b0b] border border-gray-800 rounded-2xl p-6 transition hover:border-gray-600">
+                        <p className="text-xs text-gray-500 tracking-widest uppercase flex items-center gap-2 mb-1">
+                            <span>#</span> HARDWARE MAPPING
+                        </p>
+                        <h2 className="text-white text-lg font-semibold mb-6">
+                            Left Chassis Button
+                        </h2>
+
+                        <div className="space-y-3">
+                            {options.map((item, i) => {
+                                const active = leftSelected === i;
+                                return (
+                                    <div
+                                        key={i}
+                                        onClick={() => setLeftSelected(i)}
+                                        className={`flex items-center justify-between px-4 py-3 rounded-xl cursor-pointer transition-all duration-200
+                    ${active
+                                                ? "bg-gradient-to-r from-[#1a1a1a] to-[#111] border border-gray-500"
+                                                : "text-gray-500 hover:text-white hover:bg-[#121212]"}`}
+                                    >
+                                        <div className="flex items-center gap-3">
+                                            <span>#</span>
+                                            <span className={`text-sm ${active ? "text-white" : ""}`}>
+                                                {item}
+                                            </span>
+                                        </div>
+
+                                        {active && <span className="text-white">✓</span>}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+
+                    {/* RIGHT CARD */}
+                    <div className="bg-[#0b0b0b] border border-gray-800 rounded-2xl p-6 transition hover:border-gray-600">
+                        <p className="text-xs text-gray-500 tracking-widest uppercase flex items-center gap-2 mb-1">
+                            <span>#</span> HARDWARE MAPPING
+                        </p>
+                        <h2 className="text-white text-lg font-semibold mb-6">
+                            Right Chassis Button
+                        </h2>
+
+                        <div className="space-y-3">
+                            {options.map((item, i) => {
+                                const active = rightSelected === i;
+                                return (
+                                    <div
+                                        key={i}
+                                        onClick={() => setRightSelected(i)}
+                                        className={`flex items-center justify-between px-4 py-3 rounded-xl cursor-pointer transition-all duration-200
+                ${active
+                                                ? "bg-gradient-to-r from-[#1a1a1a] to-[#111] border border-gray-500"
+                                                : "text-gray-500 hover:text-white hover:bg-[#121212]"}`}
+                                    >
+                                        <div className="flex items-center gap-3">
+                                            <span>#</span>
+                                            <span className={`text-sm ${active ? "text-white" : ""}`}>
+                                                {item}
+                                            </span>
+                                        </div>
+
+                                        {active && <span className="text-white">✓</span>}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
 
 
 
 
+            {/* 5 */}
+
+
+
+            <div className="flex flex-col-2 gap-6    ">
+
+
+                <div className="  border border-white rounded-xl p-6  w-[50%]">
+                    <p>Firmware Update Section</p>
+                    <h4 className="font-medium text-lg">System Software </h4>
+
+                    <div className="border border-gray-600 rounded-xl p-4 my-4 px-6 ">
+                        <div className="flex  gap-6">
+                            <p className="text-sm font-medium">OS Build 2.6.4 Available</p>
+                            <button>New</button>
+                        </div>
+
+                        <p className="text-xs mr-8">Resolves multi-point dropouts and improves  ANC adaptive <br /> response times.</p>
+                        <button className="bg-white font-semibold  text-sm w-full  py-3 rounded-full   my-4"> Initiate Update </button>
+                    </div>
+                </div>
 
 
 
 
+                {/*  */}
+                <div  className="  border border-white rounded-xl p-6 px-8 w-[50%]">
 
+                    <p>Support Actions & Reset Options</p>
+                    <h4 className="font-medium text-lg">Diagnostics & Warranty</h4>
+                    {/* a */}
+                    <div className="bg-purple-200  rounded-lg my-2  mt-4 flex p-2 items-center justify-between ">
 
+                        <div className="p-2  ">
+                            <p className="text-xs font-medium"> Factory Reset Options </p>
+                            <p className="text-[0.69rem]"> Restore factory defaults and wipe profiles</p>
+                        </div>
 
+                        <div> # </div>
 
+                    </div>
 
+                    {/* b */}
+                    <div className="bg-purple-200  rounded-lg my-2 flex  p-2  items-center justify-between ">
+
+                        <div className="p-2  ">
+                            <p className="text-xs font-medium">Replacement Request </p>
+                            <p className="text-[0.69rem]"> File a claim for defective hardware </p>
+                        </div>
+
+                        <div> # </div>
+
+                    </div>
+
+                    {/* c */}
+                    <div className="bg-purple-200  rounded-lg my-2 flex  p-2 items-center justify-between ">
+
+                        <div className="p-2  ">
+                            <p className="text-xs font-medium"> Return Status </p>
+                            <p className="text-[0.69rem]"> Track your 7-day return processing </p>
+                        </div>
+
+                        <div> # </div>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </section>
     )
