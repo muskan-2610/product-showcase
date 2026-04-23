@@ -16,6 +16,7 @@ const App = () => {
 
       <NavBar />
 
+
       <Routes>
         <Route path="/features" element={<Features />} />
         <Route path="/buy" element={<BuyPage />} />

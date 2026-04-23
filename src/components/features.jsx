@@ -217,7 +217,7 @@ export default function Features() {
                         <div className=" w-14 h-14 my-8 ml-2 mb-4 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center opacity-20 absolute -mt-4 -ml-4 blur-xl transition-opacity ">
                             {feature.icon}
                         </div>
-                        <h3 className=" text-md font-semibold mt-18">{feature.title}</h3>
+                        <h3 className="textwhite text-md font-semibold mt-18">{feature.title}</h3>
                         <p className=" text-xs my-2  mb-4">{feature.para}</p> 
                         <hr />
 

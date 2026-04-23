@@ -7,9 +7,6 @@ export default function ContrlPanel() {
     const [muted, setMuted] = useState(true);
     const sliderRef = useRef(null);
 
-
-
-
     const modes = [
         { id: "transparency", label: "Transparency Mode" },
         { id: "adaptive", label: "Adaptive Mode" },
@@ -22,7 +19,6 @@ export default function ContrlPanel() {
         else if (id === "adaptive") setIntensity(50);
         else setIntensity(100);
     };
-
 
     // 3
     const frequencies = [
@@ -46,8 +42,6 @@ export default function ContrlPanel() {
         setValues(newVals);
     };
 
-
-
     const options = [
         "Cycle Noise Control",
         "Invoke Assistant",
@@ -63,20 +57,18 @@ export default function ContrlPanel() {
     return (
         <section className="px-58 py-40 ">
 
-            <h2 className="text-3xl font-semibold mb-2">Hardware Controls </h2>
+            <h2 className="text-3xl font-semibold mb-2 textwhite">Hardware Controls </h2>
             <p className="text-sm mb-6">Calibrate your INDEV acoustic experience. </p>
             <hr />
 
             {/* sound */}
             <div className="  my-12 flex justify-center ">
 
-
-
                 <div
-                    className="w-full max-w-6xl rounded-2xl border border-zinc-800 bg-zinc-950 px-10 py-10"
+                    className="w-full max-w-5xl rounded-2xl border border-zinc-800 bg-zinc-950 px-10 py-10"
                     style={{ boxShadow: "0 0 60px rgba(0,0,0,0.8)" }}
                 >
-                    {/* Header Row */}
+
                     <div className="flex items-start justify-between mb-8">
                         <div>
                             <p className="text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-1">
@@ -87,16 +79,15 @@ export default function ContrlPanel() {
                             </h2>
                         </div>
 
-                        {/* Mute Toggle with Checkbox */}
                         <label className="flex items-center gap-2 cursor-pointer group">
-                            {/* Hidden real checkbox */}
+                            {/* checkbox */}
                             <input
                                 type="checkbox"
                                 checked={muted}
                                 onChange={(e) => setMuted(e.target.checked)}
                                 className="sr-only"
                             />
-                            {/* Custom styled button that acts as checkbox */}
+                            {/* checkbox vtn */}
                             <div
                                 className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 select-none
                                                 ${muted
@@ -107,9 +98,9 @@ export default function ContrlPanel() {
                                 title={muted ? "Muted" : "Unmuted"}
                             >
                                 {muted ? (
-                                    /* Muted icon */
+                                    /* Mute icon */
                                     <svg
-                                        xmlns="http://www.w3.org/2000/svg"
+                                        icon="http://www.w3.org/2000/svg"
                                         className="w-5 h-5"
                                         viewBox="0 0 24 24"
                                         fill="none"
@@ -123,7 +114,7 @@ export default function ContrlPanel() {
                                         <line x1="17" y1="9" x2="23" y2="15" />
                                     </svg>
                                 ) : (
-                                    /* Unmuted icon */
+                                    /* Unmute icon */
                                     <svg
                                         icon="http://www.w3.org/2000/svg"
                                         className="w-5 h-5"
@@ -147,7 +138,7 @@ export default function ContrlPanel() {
                         </label>
                     </div>
 
-                    {/* Slider Row */}
+
                     <div className="flex items-center gap-4 mb-8">
                         <span className="text-sm text-zinc-500 w-8 text-right select-none">
                             0%
@@ -161,7 +152,7 @@ export default function ContrlPanel() {
                                 className="absolute top-0 left-0 h-full rounded-full bg-white transition-all duration-150"
                                 style={{ width: `${intensity}%` }}
                             />
-                            {/* Actual range input */}
+                            {/*  range input */}
                             <input
                                 ref={sliderRef}
                                 type="range"
@@ -179,7 +170,7 @@ export default function ContrlPanel() {
                                 className="absolute inset-0 w-full opacity-0 cursor-pointer h-full"
                                 style={{ zIndex: 10 }}
                             />
-                            {/* Thumb visual */}
+                            {/*  */}
                             <div
                                 className="absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-white shadow-md border-2 border-white transition-all duration-150 pointer-events-none"
                                 style={{
@@ -193,7 +184,7 @@ export default function ContrlPanel() {
                         </span>
                     </div>
 
-                    {/* Mode Buttons */}
+                    {/* Btns */}
                     <div className="grid grid-cols-3 gap-3">
                         {modes.map(({ id, label }) => (
                             <button
@@ -212,14 +203,9 @@ ${mode === id
                 </div>
             </div>
 
-
-
-
-
             {/* 3 */}
 
             <div>
-
                 <div className=" flex items-center justify-center p-6">
                     <div className="w-full max-w-6xl bg-[#0b0b0b] rounded-2xl p-8 border border-gray-800">
                         {/* Header */}
@@ -295,18 +281,10 @@ ${mode === id
                         </div>
                     </div>
                 </div>
-
             </div>
 
 
             {/* 4 */}
-            <div>
-
-            </div>
-
-
-
-
 
             <div className="min-h-screen bg-black flex items-center justify-center p-6">
                 <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -384,79 +362,57 @@ ${mode === id
                 </div>
             </div>
 
-
-
-
             {/* 5 */}
-
-
-
             <div className="flex flex-col-2 gap-6    ">
-
-
                 <div className="  border border-white rounded-xl p-6  w-[50%]">
                     <p>Firmware Update Section</p>
-                    <h4 className="font-medium text-lg">System Software </h4>
+                    <h4 className="font-medium text-lg textwhite">System Software </h4>
 
                     <div className="border border-gray-600 rounded-xl p-4 my-4 px-6 ">
                         <div className="flex  gap-6">
-                            <p className="text-sm font-medium">OS Build 2.6.4 Available</p>
-                            <button>New</button>
+                            <p className="text-sm font-medium textwhite">OS Build 2.6.4 Available</p>
+                            <button className="textwhite">New</button>
                         </div>
 
                         <p className="text-xs mr-8">Resolves multi-point dropouts and improves  ANC adaptive <br /> response times.</p>
-                        <button className="bg-white font-semibold  text-sm w-full  py-3 rounded-full   my-4"> Initiate Update </button>
+                        <button className="  textwhite  font-semibold  text-sm w-full  py-3 rounded-full   my-4
+                        border border-white"> Initiate Update </button>
                     </div>
                 </div>
 
-
-
-
                 {/*  */}
-                <div  className="  border border-white rounded-xl p-6 px-8 w-[50%]">
-
+                <div className="  border border-white rounded-xl p-6 px-8 w-[50%]">
                     <p>Support Actions & Reset Options</p>
-                    <h4 className="font-medium text-lg">Diagnostics & Warranty</h4>
+                    <h4 className="font-medium text-lg textwhite">Diagnostics & Warranty</h4>
                     {/* a */}
                     <div className="bg-purple-200  rounded-lg my-2  mt-4 flex p-2 items-center justify-between ">
-
                         <div className="p-2  ">
-                            <p className="text-xs font-medium"> Factory Reset Options </p>
+                            <p className="text-xs font-medium textwhite"> Factory Reset Options </p>
                             <p className="text-[0.69rem]"> Restore factory defaults and wipe profiles</p>
                         </div>
-
                         <div> # </div>
-
                     </div>
 
                     {/* b */}
                     <div className="bg-purple-200  rounded-lg my-2 flex  p-2  items-center justify-between ">
-
                         <div className="p-2  ">
-                            <p className="text-xs font-medium">Replacement Request </p>
+                            <p className="text-xs font-medium textwhite">Replacement Request </p>
                             <p className="text-[0.69rem]"> File a claim for defective hardware </p>
                         </div>
-
                         <div> # </div>
-
                     </div>
 
                     {/* c */}
                     <div className="bg-purple-200  rounded-lg my-2 flex  p-2 items-center justify-between ">
-
                         <div className="p-2  ">
-                            <p className="text-xs font-medium"> Return Status </p>
+                            <p className="text-xs font-medium textwhite"> Return Status </p>
                             <p className="text-[0.69rem]"> Track your 7-day return processing </p>
                         </div>
-
                         <div> # </div>
-
                     </div>
 
                 </div>
-
             </div>
-
         </section>
-    )
+    );
 }
