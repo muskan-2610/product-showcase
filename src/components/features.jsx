@@ -1,8 +1,10 @@
+import { LuBrain } from "react-icons/lu";
+
 export default function Features() {
 
     const features = [
         {
-            icon: 0,
+            icon: <LuBrain />,
             title: "AI Adaptive Engine ",
             para: "Real-time environment detection. ",
             items: [
@@ -212,14 +214,16 @@ export default function Features() {
             {/*  */}
             <div className="grid mt-20 gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  ">
                 {features.map((feature, index) => (
-                    <div key={index} className=" text-left  backdrop-blur-2xl bg-[#0a0a0a]/90 border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-colors pt-10 p-6  cursor-pointer transition-all duration-300 bg-[#050505] ">
+                    <div key={index} className=" text-left  backdrop-blur-2xl bg-[#0a0a0a]/90 border border-white/10 rounded-2xl
+                     overflow-hidden hover:border-white/20 transition-colors pt-10 p-6  cursor-pointer transition-all duration-300 bg-[#050505] ">
 
-                        <div className=" w-14 h-14 my-8 ml-2 mb-4 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center opacity-20 absolute -mt-4 -ml-4 blur-xl transition-opacity ">
-                            {feature.icon}
+                        <div className=" w-14 h-14 my-8 ml-2 mb-4  text-white rounded-xl bg-gradient-to-br from-purple-500 to-purple-600
+                         flex items-center justify-center opacity-20 z-10 text-white absolute -mt-4 -ml-4 blur-xl  transition-opacity ">
+                            <div className="relative z-10 text-white">{feature.icon} </div>
                         </div>
                         <h3 className="textwhite text-md font-semibold mt-18">{feature.title}</h3>
-                        <p className=" text-xs my-2  mb-4">{feature.para}</p> 
-                        <hr className="border border-white/20 "/>
+                        <p className=" text-xs my-2  mb-4">{feature.para}</p>
+                        <hr className="border border-white/20 " />
 
                         {/* hide */}
                         <div className=" text-xs py-4 leading-7 ">

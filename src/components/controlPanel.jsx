@@ -1,4 +1,12 @@
 import { useState, useRef } from "react";
+// icons
+import { GiSoundOff } from "react-icons/gi";
+import { FaMicrophoneAlt } from "react-icons/fa";
+import { FaPlayCircle } from "react-icons/fa";
+import { IoPlaySkipForwardSharp } from "react-icons/io5";
+import { IoPlaySkipBack } from "react-icons/io5";
+import { MdWifiCalling3 } from "react-icons/md";
+
 
 export default function ContrlPanel() {
 

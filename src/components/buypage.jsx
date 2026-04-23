@@ -1,4 +1,14 @@
-import { FaXbox } from "react-icons/fa6";
+import { SiBlueprint } from "react-icons/si";
+import { FaBoxTissue } from "react-icons/fa";
+import { IoCheckboxSharp } from "react-icons/io5";
+import { FaCcAmazonPay } from "react-icons/fa";
+import { GiPayMoney } from "react-icons/gi";
+import { RiCornerUpRightDoubleFill } from "react-icons/ri";
+import { PiArrowBendDoubleUpRightFill } from "react-icons/pi";
+import { TbArrowElbowRight } from "react-icons/tb";
+import { TiArrowForward } from "react-icons/ti";
+import { TbArrowBadgeRightFilled } from "react-icons/tb";
+
 
 export default function BuyPage() {
     return (
@@ -8,27 +18,27 @@ export default function BuyPage() {
             <div className=" py-12 flex  text-center  justify-center gap-8   ">
 
                 <div className="  p-4   text-sm  h-28 w-30 rounded-3xl border border-white/30 hover:border-white/80 shadow-xl">
-                    <div className="bg-white inline-block p-4  mb-2  rounded-full"> < FaXbox /> </div>
+                    <div className="bg-white inline-block p-4  mb-2 text-lg  rounded-full"> < SiBlueprint  /> </div>
                     <p className="textwhite">EDITION</p>
                 </div>
 
                 <div className=" p-4 text-sm h-28 w-30 rounded-3xl  border border-white/0 hover:border-white/80">
-                    <div className="bg-white inline-block p-4 mb-2  rounded-full">##</div>
+                    <div className="bg-white inline-block p-4 mb-2 text-lg rounded-full"> <FaBoxTissue /> </div>
                     <p>SHIPPING  </p>
                 </div>
 
                 <div className=" p-4  text-sm h-28 w-30 rounded-3xl border border-white/0 hover:border-white/80">
-                    <div className="bg-white inline-block p-4  mb-2 rounded-full">##</div>
+                    <div className="bg-white inline-block p-4  mb-2 text-lg rounded-full"><IoCheckboxSharp /></div>
                     <p>REVIEW</p>
                 </div>
 
                 <div className=" p-4   text-sm h-28 w-30 rounded-3xl border border-white/0 hover:border-white/80">
-                    <div className="bg-white  inline-block p-4 mb-2  rounded-full">##</div>
+                    <div className="bg-white  inline-block p-4 mb-2 text-lg  rounded-full"> <FaCcAmazonPay /> </div>
                     <p>PAYMENT</p>
                 </div>
 
                 <div className=" p-4  text-sm h-28 w-34  rounded-3xl border border-white/0 hover:border-white/80">
-                    <div className="bg-white inline-block p-4 mb-2 rounded-full">##</div>
+                    <div className="bg-white inline-block p-4 mb-2 text-lg rounded-full"> <GiPayMoney /> </div>
                     <p>CONFIRMATION</p>
                 </div>
 
@@ -43,8 +53,8 @@ export default function BuyPage() {
                 <div className="   flex  gap-8  p-4  rounded-3xl  text-center pl-0 ">
 
                     <div className=" text-sm  flex flex-col items-center gap-2">
-                        <div className="  rounded-full h-16 w-16 bg-[#0F0F0F]" > </div>
-                        <p className="textwhite">Matte Black</p>
+                        <div className=" border border-white shadow-2xl  rounded-full h-16 w-16 bg-[#0F0F0F]" > </div>
+                        <p className="textwhite ">Matte Black</p>
                     </div>
 
                     <div className=" text-sm  flex flex-col items-center gap-2">
@@ -72,14 +82,14 @@ export default function BuyPage() {
                     </div>
                     {/*  */}
                     <div  >
-                        <div className="text-sm mb-2 flex gap-3">
-                            @ <p>40h Battery</p>
+                        <div className="text-sm mb-2 flex items-center gap-3">
+                            < RiCornerUpRightDoubleFill className="text-xl" /> <p>40h Battery</p>
                         </div>
-                        <div className="text-sm mb-2 flex gap-3">
-                            @ <p> Adaptive ANC </p>
+                        <div className="text-sm mb-2 flex items-center gap-3">
+                            <RiCornerUpRightDoubleFill className="text-lg" /> <p> Adaptive ANC </p>
                         </div>
-                        <div className="text-sm mb-2 flex gap-3">
-                            @ <p> BT 5.3 LE </p>
+                        <div className="text-sm mb-2 flex items-center gap-3">
+                            < RiCornerUpRightDoubleFill className="text-lg" /> <p> BT 5.3 LE </p>
                         </div>
                     </div>
                 </div>
@@ -96,25 +106,25 @@ export default function BuyPage() {
 
                     <div>
                         <div className="text-sm mb-2 flex gap-3" >
-                            @ <p> 60h Battery</p>
+                            < RiCornerUpRightDoubleFill className="text-lg" />  <p> 60h Battery</p>
                         </div>
                         <div className="text-sm mb-2 flex gap-3" >
-                            @ <p> Adaptive ANC </p>
+                            < RiCornerUpRightDoubleFill className="text-lg" />  <p> Adaptive ANC </p>
                         </div>
                         <div className="text-sm mb-2 flex gap-3" >
-                            @ <p> BT 5.3 LE </p>
+                            < RiCornerUpRightDoubleFill className="text-lg" />  <p> BT 5.3 LE </p>
                         </div>
                         <div className="text-sm mb-2 flex gap-3" >
-                            @ <p>Aerospace Aluminum </p>
+                            < RiCornerUpRightDoubleFill className="text-lg" />  <p>Aerospace Aluminum </p>
                         </div>
                         <div className="text-sm mb-2 flex gap-3" >
-                            @ <p> Hard Case</p>
+                            < RiCornerUpRightDoubleFill className="text-lg" />  <p> Hard Case</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <hr className="mx-78 mr-98 opacity-20 " />
-            <button className="bg-white p-3 px-10  rounded-full ml-230 my-6  hover:bg-gray-200  "> Continue + </button>
+            <hr className="mx-78 mr-98 opacity-10 " />
+            <button className="bg-white p-3 px-10  rounded-full ml-230 my-6  hover:bg-gray-200 flex items-center gap-1  "> Continue <TbArrowBadgeRightFilled  className="text-lg" /> </button>
 
         </section>
     )

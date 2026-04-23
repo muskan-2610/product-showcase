@@ -1,5 +1,17 @@
 import { ChartLineDefault } from "./graph"
 
+/// icons 
+import { CiBatteryFull } from "react-icons/ci";
+import { MdBluetoothAudio } from "react-icons/md";
+import { PiPlugsConnectedFill } from "react-icons/pi";
+
+import { GiSandsOfTime } from "react-icons/gi";
+import { IoIosTimer } from "react-icons/io";
+import { SiAlwaysdata } from "react-icons/si";
+import { GiMedal } from "react-icons/gi";
+
+
+
 export default function Dashboard() {
     return (
         <section className="py-30">
@@ -7,26 +19,20 @@ export default function Dashboard() {
 
 
             <div className="flex items-center justify-center">
-                <ChartLineDefault className="bg-black text-white w-4xl"/>
+                <ChartLineDefault className="bg-black text-white w-4xl" />
             </div>
 
-
-
-
-
-
-
-
+            {/* Device Status */}
             <div className="flex justify-between  mx-auto max-w-6xl">
                 <div>
                     <h2 className="text-3xl font-semibold textwhite">Analytics</h2>
                     <p>Monitor your acoustic environment and usage.</p>
                 </div>
 
-                <div className="flex justify-between p-4 rounded-lg bg-[#0a0a0a]/80 backdrop-blur-xl border border-gray-800 mt-6 w-full max-w-md  ">
-                    #  <span> 82%</span>  <hr className="rotate-[90deg]" />
-                    #  <span>Multipoint Active</span>  <hr />
-                    #  <span>Connected</span>  <hr />
+                <div className="flex justify-between   items-center p-4 rounded-lg bg-[#0a0a0a]/80 backdrop-blur-xl border border-gray-800 mt-6 w-full max-w-md  ">
+                    <CiBatteryFull />  <span> 82%</span>  <hr className="rotate-[90deg]" />
+                    <MdBluetoothAudio />  <span> Multipoint Active</span>  <hr />
+                    <PiPlugsConnectedFill />  <span>Connected</span>  <hr />
                 </div>
             </div>
 
@@ -126,24 +132,28 @@ export default function Dashboard() {
 
                         {[
                             {
+                                icon: <GiSandsOfTime />,
                                 title: "PEAK FOCUS TIME",
                                 value: "10 AM - 12 PM",
                                 sub: "+12% efficiency",
                                 color: "text-green-500",
                             },
                             {
+                                icon: <IoIosTimer />,
                                 title: "AVERAGE SESSION",
                                 value: "2.5 Hours",
                                 sub: "+8% duration",
                                 color: "text-green-500",
                             },
                             {
+                                icon: <SiAlwaysdata />,
                                 title: "WEEKLY USAGE",
                                 value: "42.2 Hours",
                                 sub: "Active",
                                 color: "text-gray-500",
                             },
                             {
+                                icon: <GiMedal />,
                                 title: "ISOLATION STREAK",
                                 value: "12 Days",
                                 sub: "Personal Best",
@@ -157,7 +167,7 @@ export default function Dashboard() {
                                             transition duration-300 group"
                             >
                                 <div className="mb-4 text-gray-500 group-hover:text-purple-400 transition">
-                                    #
+                                    {card.icon}
                                 </div>
 
                                 <p className="text-xs text-gray-500 tracking-widest">   {card.title}  </p>

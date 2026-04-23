@@ -1,38 +1,58 @@
+import { LuBrain } from "react-icons/lu";
+import { FaBatteryFull } from "react-icons/fa6";
+import { SiGsmarenadotcom } from "react-icons/si";
+import { BsGearWideConnected } from "react-icons/bs";
+import { HiMiniInboxStack } from "react-icons/hi2";
+import { IoWifi } from "react-icons/io5";
+import { GoHeartFill } from "react-icons/go";
+import { MdOutlineUpdate } from "react-icons/md";
+import { GrUpdate } from "react-icons/gr";
+import { PiNumberCircleSevenFill } from "react-icons/pi";
+import { FaMapLocationDot } from "react-icons/fa6";
+//
+
+import { BiSolidBrain } from "react-icons/bi";
+import { AiFillSound } from "react-icons/ai";
+import { BsFillFileSpreadsheetFill } from "react-icons/bs";
+import { CiBatteryFull } from "react-icons/ci";
+import { GiStarsStack } from "react-icons/gi";
+import { FaHeadphones } from "react-icons/fa";
+
 export default function HeroSection() {
 
     const features = [
         {
-            star: 0,
+            star: <BiSolidBrain />,
             title: "AI Adaptive Engine",
             para: "Real-time environmental detection adapts to your surroundings instantly with multi-microphone arrays.",
         },
 
         {
-            star: 0,
+            star: <AiFillSound />,
             title: "High-Fidelity Audio",
             para: "40mm custom drivers deliver a wide soundstage, deep bass, and crystal-clear highs.",
         },
 
         {
-            star: 0,
+            star: <BsFillFileSpreadsheetFill />,
             title: "Adaptive EQ",
             para: "Learns your listening preferences and adjusts the frequency response automatically.",
         },
 
         {
-            star: 0,
+            star: <CiBatteryFull />,
             title: "Endurance Battery",
             para: "Up to 40 hours of continuous high-resolution playback, with quick-charge capabilities.",
         },
 
         {
-            star: 0,
+            star: <GiStarsStack />,
             title: "Premium Build",
             para: "Expertly calibrated for diverse Indian environments and critical listening preference",
         },
 
         {
-            star: 0,
+            star: <FaHeadphones />,
             title: "Made for India",
             para: "Expertly calibrated for diverse Indian environments and critical listening preferences.",
         },
@@ -57,17 +77,17 @@ export default function HeroSection() {
     ];
     // data
     const scrollfeatures = [
-        "AI Adaptive Environmental Noise Cancellation Engine",
-        "40 Hour Battery",
-        "40mm Drivers",
-        "Adaptive Equalizer",
-        "Dual Customizable Buttons",
-        "3 Device Pairing",
-        "Ergonomic Comfort",
-        "Long Term Updates ",
-        "Easy Replacement",
-        "7 Day No Questions Return ",
-        " Made in India for Indian Environments",
+        { icon: <LuBrain />, text: "AI Adaptive Environmental Noise Cancellation Engine" },
+        { icon: <FaBatteryFull />, text: "40 Hour Battery" },
+        { icon: <SiGsmarenadotcom />, text: "40mm Drivers" },
+        { icon: <BsGearWideConnected />, text: "Adaptive Equalizer" },
+        { icon: <HiMiniInboxStack />, text: "Dual Customizable Buttons" },
+        { icon: <IoWifi />, text: "3 Device Pairing" },
+        { icon: <GoHeartFill />, text: "Ergonomic Comfort" },
+        { icon: <MdOutlineUpdate />, text: "Long Term Updates " },
+        { icon: <GrUpdate />, text: "Easy Replacement" },
+        { icon: <PiNumberCircleSevenFill />, text: "7 Day No Questions Return " },
+        { icon: <FaMapLocationDot />, text: " Made in India for Indian Environments" },
     ];
 
     return (
@@ -85,12 +105,12 @@ export default function HeroSection() {
                                 className="flex items-center gap-3 min-w-max text-white"
                             >
                                 {/* Icon */}
-                                <div className="w-8 h-8 flex items-center justify-center rounded-full border border-purple-500/40 text-purple-400 text-sm">
-                                    #
+                                <div className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/15 border border-purple-500/40 text-purple-400 text-sm">
+                                    {item.icon}
                                 </div>
                                 {/* Text */}
                                 <p className="text-xs  text-gray-300 whitespace-nowrap  mr-6 ">
-                                    {item}
+                                    {item.text}
                                 </p>
                             </div>
                         ))}
