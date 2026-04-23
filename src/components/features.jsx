@@ -203,7 +203,7 @@ export default function Features() {
     return (
         <section className="py-40 text-center px-48 ">
 
-            <h1 className=" mx-auto font-bold text-5xl ">Intelligent features for <br />
+            <h1 className=" mx-auto font-bold text-5xl textwhite ">Intelligent features for <br />
                 <span className="  text-purple-600">modern professionals.</span>
             </h1>
 
@@ -219,7 +219,7 @@ export default function Features() {
                         </div>
                         <h3 className="textwhite text-md font-semibold mt-18">{feature.title}</h3>
                         <p className=" text-xs my-2  mb-4">{feature.para}</p> 
-                        <hr />
+                        <hr className="border border-white/20 "/>
 
                         {/* hide */}
                         <div className=" text-xs py-4 leading-7 ">
@@ -232,7 +232,7 @@ export default function Features() {
                         {/* span */}
                         <div>
                             {feature.tags.map((tag, idx) => (
-                                <span key={idx} className="inline-block border border-white/20  text-gray-700 text-[0.7rem] px-3 py-1 rounded-full mr-2">
+                                <span key={idx} className="inline-block text-[#696E77] border border-white/20   text-[0.7rem] px-3 py-1 rounded-full mr-2">
                                     {tag.tag}
                                 </span>
                             ))}

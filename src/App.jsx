@@ -7,7 +7,7 @@ import Features from './components/features';
 import LandingPage from './components/landingPage';
 import ControlPanel from './components/controlPanel';
 import Dashboard from './components/dashboard';
-
+import CustomCursor from './components/customCursor';
 
 
 const App = () => {
@@ -15,7 +15,7 @@ const App = () => {
     <div >
 
       <NavBar />
-
+      <CustomCursor />
 
       <Routes>
         <Route path="/features" element={<Features />} />

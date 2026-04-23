@@ -1,3 +1,5 @@
+import { FaXbox } from "react-icons/fa6";
+
 export default function BuyPage() {
     return (
         <section className="py-30">
@@ -6,7 +8,7 @@ export default function BuyPage() {
             <div className=" py-12 flex  text-center  justify-center gap-8   ">
 
                 <div className="  p-4   text-sm  h-28 w-30 rounded-3xl border border-white/30 hover:border-white/80 shadow-xl">
-                    <div className="bg-white inline-block p-4  mb-2  rounded-full"> ## </div>
+                    <div className="bg-white inline-block p-4  mb-2  rounded-full"> < FaXbox /> </div>
                     <p className="textwhite">EDITION</p>
                 </div>
 

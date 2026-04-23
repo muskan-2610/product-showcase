@@ -55,7 +55,7 @@ export default function ContrlPanel() {
     const [rightSelected, setRightSelected] = useState(1);
 
     return (
-        <section className="px-58 py-40 ">
+        <section className=" py-40   max-w-5xl mx-auto  ">
 
             <h2 className="text-3xl font-semibold mb-2 textwhite">Hardware Controls </h2>
             <p className="text-sm mb-6">Calibrate your INDEV acoustic experience. </p>
@@ -270,7 +270,7 @@ ${mode === id
                             ))}
                         </div>
 
-                        {/* Footer */}
+
                         <div className="flex justify-between items-center mt-10">
                             <button className="text-xs text-gray-500 uppercase tracking-wider">
                                 Reset Flat
@@ -286,15 +286,15 @@ ${mode === id
 
             {/* 4 */}
 
-            <div className="min-h-screen bg-black flex items-center justify-center p-6">
-                <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className=" my-4 mb-8 flex items-center justify-center p-6">
+                <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-12">
 
-                    {/* LEFT CARD */}
+
                     <div className="bg-[#0b0b0b] border border-gray-800 rounded-2xl p-6 transition hover:border-gray-600">
                         <p className="text-xs text-gray-500 tracking-widest uppercase flex items-center gap-2 mb-1">
                             <span>#</span> HARDWARE MAPPING
                         </p>
-                        <h2 className="text-white text-lg font-semibold mb-6">
+                        <h2 className="text-white text-md font-semibold mb-6">
                             Left Chassis Button
                         </h2>
 
@@ -305,14 +305,14 @@ ${mode === id
                                     <div
                                         key={i}
                                         onClick={() => setLeftSelected(i)}
-                                        className={`flex items-center justify-between px-4 py-3 rounded-xl cursor-pointer transition-all duration-200
+                                        className={`flex  items-center justify-between px-4 py-2 rounded-xl cursor-pointer transition-all duration-200
                     ${active
                                                 ? "bg-gradient-to-r from-[#1a1a1a] to-[#111] border border-gray-500"
                                                 : "text-gray-500 hover:text-white hover:bg-[#121212]"}`}
                                     >
                                         <div className="flex items-center gap-3">
                                             <span>#</span>
-                                            <span className={`text-sm ${active ? "text-white" : ""}`}>
+                                            <span className={`text-xs ${active ? "text-white" : ""}`}>
                                                 {item}
                                             </span>
                                         </div>
@@ -324,12 +324,12 @@ ${mode === id
                         </div>
                     </div>
 
-                    {/* RIGHT CARD */}
+
                     <div className="bg-[#0b0b0b] border border-gray-800 rounded-2xl p-6 transition hover:border-gray-600">
                         <p className="text-xs text-gray-500 tracking-widest uppercase flex items-center gap-2 mb-1">
                             <span>#</span> HARDWARE MAPPING
                         </p>
-                        <h2 className="text-white text-lg font-semibold mb-6">
+                        <h2 className="text-white text-md font-semibold mb-6">
                             Right Chassis Button
                         </h2>
 
@@ -340,14 +340,14 @@ ${mode === id
                                     <div
                                         key={i}
                                         onClick={() => setRightSelected(i)}
-                                        className={`flex items-center justify-between px-4 py-3 rounded-xl cursor-pointer transition-all duration-200
+                                        className={`flex items-center justify-between px-4 py-2 rounded-xl cursor-pointer transition-all duration-200
                 ${active
                                                 ? "bg-gradient-to-r from-[#1a1a1a] to-[#111] border border-gray-500"
                                                 : "text-gray-500 hover:text-white hover:bg-[#121212]"}`}
                                     >
                                         <div className="flex items-center gap-3">
                                             <span>#</span>
-                                            <span className={`text-sm ${active ? "text-white" : ""}`}>
+                                            <span className={`text-xs ${active ? "text-white" : ""}`}>
                                                 {item}
                                             </span>
                                         </div>
@@ -363,8 +363,8 @@ ${mode === id
             </div>
 
             {/* 5 */}
-            <div className="flex flex-col-2 gap-6    ">
-                <div className="  border border-white rounded-xl p-6  w-[50%]">
+            <div className="flex justify-center  flex-col-2 gap-8  max-w-5xl mx-auto">
+                <div className="  border border-white rounded-xl p-6 w-[45%] ">
                     <p>Firmware Update Section</p>
                     <h4 className="font-medium text-lg textwhite">System Software </h4>
 
@@ -381,7 +381,7 @@ ${mode === id
                 </div>
 
                 {/*  */}
-                <div className="  border border-white rounded-xl p-6 px-8 w-[50%]">
+                <div className="  border border-white rounded-xl p-6 px-8 w-[45%]">
                     <p>Support Actions & Reset Options</p>
                     <h4 className="font-medium text-lg textwhite">Diagnostics & Warranty</h4>
                     {/* a */}
