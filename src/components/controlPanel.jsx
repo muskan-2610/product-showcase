@@ -63,17 +63,17 @@ export default function ContrlPanel() {
     const [rightSelected, setRightSelected] = useState(1);
 
     return (
-        <section className=" py-40   max-w-5xl mx-auto  ">
+        <section className=" py-40  mx-8 max-w-4xl mx-auto  ">
 
             <h2 className="text-3xl font-semibold mb-2 textwhite">Hardware Controls </h2>
             <p className="text-sm mb-6">Calibrate your INDEV acoustic experience. </p>
-            <hr />
+            <hr className="opacity-15" />
 
             {/* sound */}
             <div className="  my-12 flex justify-center ">
 
                 <div
-                    className="w-full max-w-5xl rounded-2xl border border-zinc-800 bg-zinc-950 px-10 py-10"
+                    className="w-full max-w-5xl rounded-2xl border border-zinc-800 bg-zinc-950 px-10 py-8"
                     style={{ boxShadow: "0 0 60px rgba(0,0,0,0.8)" }}
                 >
 
@@ -82,7 +82,7 @@ export default function ContrlPanel() {
                             <p className="text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-1">
                                 Active Noise Cancellation
                             </p>
-                            <h2 className="text-xl font-bold text-white tracking-tight">
+                            <h2 className="text-lg font-bold text-white tracking-tight">
                                 Isolation Intensity
                             </h2>
                         </div>
@@ -198,9 +198,8 @@ export default function ContrlPanel() {
                             <button
                                 key={id}
                                 onClick={() => handleModeChange(id)}
-                                className={`py-3 px-4 rounded-xl text-sm font-semibold tracking-wide transition-all duration-200 border
-${mode === id
-                                        ? "bg-white text-black border-white shadow-lg"
+                                className={`py-3 px-4 rounded-xl text-xs font-medium tracking-wide transition-all duration-200 border
+                                    ${mode === id ? "bg-white text-black border-white shadow-lg"
                                         : "bg-transparent text-zinc-300 border-zinc-700 hover:border-zinc-500 hover:text-white"
                                     }`}
                             >
@@ -302,7 +301,7 @@ ${mode === id
                         <p className="text-xs text-gray-500 tracking-widest uppercase flex items-center gap-2 mb-1">
                             <span>#</span> HARDWARE MAPPING
                         </p>
-                        <h2 className="text-white text-md font-semibold mb-6">
+                        <h2 className="text-white text-sm font-semibold mb-6">
                             Left Chassis Button
                         </h2>
 
@@ -320,7 +319,7 @@ ${mode === id
                                     >
                                         <div className="flex items-center gap-3">
                                             <span>#</span>
-                                            <span className={`text-xs ${active ? "text-white" : ""}`}>
+                                            <span className={`text-[0.7rem] ${active ? "text-white" : ""}`}>
                                                 {item}
                                             </span>
                                         </div>
@@ -337,7 +336,7 @@ ${mode === id
                         <p className="text-xs text-gray-500 tracking-widest uppercase flex items-center gap-2 mb-1">
                             <span>#</span> HARDWARE MAPPING
                         </p>
-                        <h2 className="text-white text-md font-semibold mb-6">
+                        <h2 className="text-white text-sm font-semibold mb-6">
                             Right Chassis Button
                         </h2>
 
@@ -355,7 +354,7 @@ ${mode === id
                                     >
                                         <div className="flex items-center gap-3">
                                             <span>#</span>
-                                            <span className={`text-xs ${active ? "text-white" : ""}`}>
+                                            <span className={`text-[0.7rem] ${active ? "text-white" : ""}`}>
                                                 {item}
                                             </span>
                                         </div>
@@ -370,11 +369,11 @@ ${mode === id
                 </div>
             </div>
 
-            {/* 5 */}
-            <div className="flex justify-center  flex-col-2 gap-8  max-w-5xl mx-auto">
+            {/* 5
+            <div className=" justify-center  grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10   max-w-5xl mx-auto sm:p-6 md:p-10">
                 <div className="  border border-white rounded-xl p-6 w-[45%] ">
-                    <p>Firmware Update Section</p>
-                    <h4 className="font-medium text-lg textwhite">System Software </h4>
+                    <p className="text-xs uppercase mb-1.5">Firmware Update Section</p>
+                    <h4 className="font-medium text-md textwhite">System Software </h4>
 
                     <div className="border border-gray-600 rounded-xl p-4 my-4 px-6 ">
                         <div className="flex  gap-6">
@@ -389,11 +388,11 @@ ${mode === id
                 </div>
 
                 {/*  */}
-                <div className="  border border-white rounded-xl p-6 px-8 w-[45%]">
-                    <p>Support Actions & Reset Options</p>
-                    <h4 className="font-medium text-lg textwhite">Diagnostics & Warranty</h4>
+            {/* <div className="  border border-white rounded-xl p-6 px-8 w-[45%]">
+                    <p className="text-xs uppercase mb-1.5">Support Actions & Reset Options</p>
+                    <h4 className="font-medium text-md textwhite">Diagnostics & Warranty</h4>
                     {/* a */}
-                    <div className="bg-purple-200  rounded-lg my-2  mt-4 flex p-2 items-center justify-between ">
+            {/* <div className="bg-purple-200  rounded-lg my-2  mt-4 flex p-2 items-center justify-between ">
                         <div className="p-2  ">
                             <p className="text-xs font-medium textwhite"> Factory Reset Options </p>
                             <p className="text-[0.69rem]"> Restore factory defaults and wipe profiles</p>
@@ -402,25 +401,207 @@ ${mode === id
                     </div>
 
                     {/* b */}
-                    <div className="bg-purple-200  rounded-lg my-2 flex  p-2  items-center justify-between ">
+            {/* <div className="bg-purple-200  rounded-lg my-2 flex  p-2  items-center justify-between ">
                         <div className="p-2  ">
                             <p className="text-xs font-medium textwhite">Replacement Request </p>
                             <p className="text-[0.69rem]"> File a claim for defective hardware </p>
                         </div>
                         <div> # </div>
-                    </div>
+                    </div> */}
 
-                    {/* c */}
+            {/* c
                     <div className="bg-purple-200  rounded-lg my-2 flex  p-2 items-center justify-between ">
                         <div className="p-2  ">
                             <p className="text-xs font-medium textwhite"> Return Status </p>
                             <p className="text-[0.69rem]"> Track your 7-day return processing </p>
                         </div>
                         <div> # </div>
+                    </div> */}
+            {/* 
+                </div>
+            </div> */}
+
+
+
+
+
+
+            {/* 5 */}
+
+
+            <div className="  flex items-center justify-center p-4  sm:p-6 md:p-10">
+
+                {/* GRID CONTAINER */}
+                <div className=" grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 ">
+
+                    {/* LEFT CARD */}
+                    <div className="border border-white/20 rounded-2xl p-5 sm:p-6 md:p-8">
+
+                        <p className=" text-xs uppercase ">
+                            Firmware Update Section
+                        </p>
+
+                        <h2 className="text-md  font-semibold mt-1  text-white">
+                            System Software
+                        </h2>
+
+                        {/* Inner Box */}
+                        <div className="mt-5 border border-white/20 rounded-xl p-4 sm:p-5 md:p-6">
+
+                            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                                <h3 className="text-xs font-medium">
+                                    OS Build 2.6.4 Available
+                                </h3>
+                                <span className="text-xs text-gray-300">New</span>
+                            </div>
+
+                            <p className="text-[0.7rem] mt-3">
+                                Resolves multi-point dropouts and improves ANC adaptive response times.
+                            </p>
+
+                            <button className="mt-5 w-full text-xs py-2 border border-white/30 rounded-full hover:bg-white hover:text-black transition">
+                                Initiate Update
+                            </button>
+
+                        </div>
+                    </div>
+
+                    {/* RIGHT CARD */}
+                    <div className="border border-white/20 rounded-2xl p-5 sm:p-6 md:p-8">
+
+                        <p className="  text-xs uppercase">
+                            Support Actions & Reset Options
+                        </p>
+
+                        <h2 className="text-md  font-semibold mt-1  text-white">
+                            Diagnostics & Warranty
+                        </h2>
+
+                        {/* OPTIONS */}
+                        <div className="mt-5 space-y-3">
+
+                            {[
+                                "Factory Reset Options",
+                                "Replacement Request",
+                                "Return Status",
+                            ].map((item, i) => (
+                                <div
+                                    key={i}
+                                    className="bg-purple-200/80 text-black rounded-xl p-4 flex items-center justify-between"
+                                >
+                                    <div>
+                                        <p className="font-medium text-xs">
+                                            {item}
+                                        </p>
+                                        <p className="text-[0.7rem] opacity-70">
+                                            {i === 0 && "Restore factory defaults and wipe profiles"}
+                                            {i === 1 && "File a claim for defective hardware"}
+                                            {i === 2 && "Track your 7-day return processing"}
+                                        </p>
+                                    </div>
+
+                                    <span className="text-md">#</span>
+                                </div>
+                            ))}
+
+                        </div>
                     </div>
 
                 </div>
             </div>
+
+
+
+
+
+
+
+
         </section>
     );
 }
+
+// export default function FirmwareUI() {
+//     return (
+//         <div className="min-h-screen bg-black text-white flex items-center justify-center p-4 sm:p-6 md:p-10">
+
+//             {/* GRID CONTAINER */}
+//             <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+
+//                 {/* LEFT CARD */}
+//                 <div className="border border-white/20 rounded-2xl p-5 sm:p-6 md:p-8">
+
+//                     <p className="text-gray-400 text-sm sm:text-base">
+//                         Firmware Update Section
+//                     </p>
+
+//                     <h2 className="text-lg sm:text-xl md:text-2xl font-semibold mt-1">
+//                         System Software
+//                     </h2>
+
+//                     {/* Inner Box */}
+//                     <div className="mt-5 border border-white/20 rounded-xl p-4 sm:p-5 md:p-6">
+
+//                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+//                             <h3 className="text-sm sm:text-base md:text-lg font-medium">
+//                                 OS Build 2.6.4 Available
+//                             </h3>
+//                             <span className="text-sm text-gray-300">New</span>
+//                         </div>
+
+//                         <p className="text-gray-400 text-xs sm:text-sm mt-2">
+//                             Resolves multi-point dropouts and improves ANC adaptive response times.
+//                         </p>
+
+//                         <button className="mt-5 w-full sm:w-auto px-6 py-2 border border-white/30 rounded-full hover:bg-white hover:text-black transition">
+//                             Initiate Update
+//                         </button>
+
+//                     </div>
+//                 </div>
+
+//                 {/* RIGHT CARD */}
+//                 <div className="border border-white/20 rounded-2xl p-5 sm:p-6 md:p-8">
+
+//                     <p className="text-gray-400 text-sm sm:text-base">
+//                         Support Actions & Reset Options
+//                     </p>
+
+//                     <h2 className="text-lg sm:text-xl md:text-2xl font-semibold mt-1">
+//                         Diagnostics & Warranty
+//                     </h2>
+
+//                     {/* OPTIONS */}
+//                     <div className="mt-5 space-y-3">
+
+//                         {[
+//                             "Factory Reset Options",
+//                             "Replacement Request",
+//                             "Return Status",
+//                         ].map((item, i) => (
+//                             <div
+//                                 key={i}
+//                                 className="bg-purple-200/80 text-black rounded-xl p-4 sm:p-5 flex items-center justify-between"
+//                             >
+//                                 <div>
+//                                     <p className="font-medium text-sm sm:text-base">
+//                                         {item}
+//                                     </p>
+//                                     <p className="text-xs sm:text-sm opacity-70">
+//                                         {i === 0 && "Restore factory defaults and wipe profiles"}
+//                                         {i === 1 && "File a claim for defective hardware"}
+//                                         {i === 2 && "Track your 7-day return processing"}
+//                                     </p>
+//                                 </div>
+
+//                                 <span className="text-lg">#</span>
+//                             </div>
+//                         ))}
+
+//                     </div>
+//                 </div>
+
+//             </div>
+//         </div>
+//     );
+// }
