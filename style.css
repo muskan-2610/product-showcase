@@ -17,9 +17,21 @@ body {
     color: #fff;
 }
 
+h4 {
+    color: #C07AFF;
+}
 
-
-
+/* 
+custom css */
+/* .dummy-card {
+background: linear-gradient(to left, #090909 50%, #C07AFF 10%);
+background-size: 300%  200%;
+background-position: right center;
+transition: background-position 0.5s ease;
+}
+.dummy-card:hover {
+background-position: left center;
+} */
 
 
 

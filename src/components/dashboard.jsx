@@ -23,7 +23,8 @@ export default function Dashboard() {
             </div>
 
             {/* Device Status */}
-            <div className="flex justify-between  mx-auto max-w-6xl">
+            {/* add responsiveness  */}
+            <div className="flex      justify-between  mx-auto max-w-6xl ">
                 <div>
                     <h2 className="text-3xl font-semibold textwhite">Analytics</h2>
                     <p>Monitor your acoustic environment and usage.</p>

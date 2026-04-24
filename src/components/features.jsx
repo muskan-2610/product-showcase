@@ -1,4 +1,6 @@
 import { LuBrain } from "react-icons/lu";
+import { RiVoiceAiLine } from "react-icons/ri";
+import { RiVoiceprintFill } from "react-icons/ri";
 
 export default function Features() {
 
@@ -8,10 +10,10 @@ export default function Features() {
             title: "AI Adaptive Engine ",
             para: "Real-time environment detection. ",
             items: [
-                { label: "Multi-microphone array for constant analysis " },
-                { label: "Detects ambient frequencies within milliseconds " },
-                { label: "Automatic dynamic noise adjustment " },
-                { label: "Machine learning improves cancellation over time " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Multi-microphone array for constant analysis " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Detects ambient frequencies within milliseconds " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Automatic dynamic noise adjustment " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Machine learning improves cancellation over time " },
             ],
             tags: [
                 { tag: "ACTIVE" },
@@ -24,10 +26,10 @@ export default function Features() {
             title: "Adaptive Equalizer ",
             para: "Learns your user preference. ",
             items: [
-                { label: "AI learns your music taste and habits " },
-                { label: "Save unlimited custom sound profiles " },
-                { label: "Genre-specific mastering presets " },
-                { label: "Hardware-level DSP frequency adjustments " },
+                { icon: <RiVoiceprintFill className="text-purple-500" />, label: "AI learns your music taste and habits " },
+                { icon: <RiVoiceprintFill className="text-purple-500" />, label: "Save unlimited custom sound profiles " },
+                { icon: <RiVoiceprintFill className="text-purple-500" />, label: "Genre-specific mastering presets " },
+                { icon: <RiVoiceprintFill className="text-purple-500" />, label: "Hardware-level DSP frequency adjustments " },
             ],
             tags: [
                 { tag: "TUNING " },
@@ -40,10 +42,10 @@ export default function Features() {
             title: "Focus Modes ",
             para: "Presets for every scenario. ",
             items: [
-                { label: "Deep Work: Maximum noise cancellation " },
-                { label: "Commute: Traffic and siren alert system " },
-                { label: "Relax: Enhanced ambient sound pass-through " },
-                { label: "Instant conversation mode toggle " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Deep Work: Maximum noise cancellation " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Commute: Traffic and siren alert system " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Relax: Enhanced ambient sound pass-through " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Instant conversation mode toggle " },
             ],
             tags: [
                 { tag: "DEEP WORK" },
@@ -56,10 +58,10 @@ export default function Features() {
             title: "Hardware Details ",
             para: "Studio-grade reproduction. ",
             items: [
-                { label: "Custom 40mm titanium-coated drivers " },
-                { label: "Expanded frequency response: 10Hz - 40kHz " },
-                { label: " Distortion < 0.1% at maximum volume" },
-                { label: "Tuned for high-resolution lossless audio " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Custom 40mm titanium-coated drivers " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Expanded frequency response: 10Hz - 40kHz " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: " Distortion < 0.1% at maximum volume" },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Tuned for high-resolution lossless audio " },
             ],
             tags: [
                 { tag: "40MM DRIVERS " },
@@ -72,10 +74,10 @@ export default function Features() {
             title: " Endurance Battery",
             para: "Uninterrupted listening sessions. ",
             items: [
-                { label: "40 hours of continuous playback (ANC On) " },
-                { label: "60 hours of standard playback " },
-                { label: "Fast charge: 10 minutes yields 5 hours " },
-                { label: "USB-C standard power delivery " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "40 hours of continuous playback (ANC On) " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "60 hours of standard playback " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Fast charge: 10 minutes yields 5 hours " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "USB-C standard power delivery " },
             ],
             tags: [
                 { tag: "40H ANC " },
@@ -89,10 +91,10 @@ export default function Features() {
             title: "Ergonomic Comfort ",
             para: "Engineered for absolute comfort. ",
             items: [
-                { label: "High-density acoustic memory foam " },
-                { label: "Ultra-light 248g aluminum chassis " },
-                { label: "Low-clamping-force headband " },
-                { label: "Breathable synthetic leather earcups " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "High-density acoustic memory foam " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Ultra-light 248g aluminum chassis " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Low-clamping-force headband " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Breathable synthetic leather earcups " },
             ],
             tags: [
                 { tag: "ALUMINUM " },
@@ -105,10 +107,10 @@ export default function Features() {
             title: "Smart Controls ",
             para: "Customizable button mapping. ",
             items: [
-                { label: "Dual programmable hardware buttons " },
-                { label: "Zero-latency capacitive touch surface " },
-                { label: "Map any function to any gesture " },
-                { label: "Wear-detection auto pause/play " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Dual programmable hardware buttons " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Zero-latency capacitive touch surface " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Map any function to any gesture " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Wear-detection auto pause/play " },
             ],
             tags: [
                 { tag: "TOUCH " },
@@ -122,10 +124,10 @@ export default function Features() {
             title: "Seamless Connectivity ",
             para: "Multi-device pairing. ",
             items: [
-                { label: "Simultaneous connection to 3 devices " },
-                { label: "Instant audio source switching " },
-                { label: "Ultra-low latency Bluetooth 5.3 " },
-                { label: "High-bitrate codec transmission " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Simultaneous connection to 3 devices " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Instant audio source switching " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Ultra-low latency Bluetooth 5.3 " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "High-bitrate codec transmission " },
             ],
             tags: [
                 { tag: "BT 5.3 " },
@@ -139,10 +141,10 @@ export default function Features() {
             title: "Long Term Support ",
             para: "Evolving capabilities via OTA. ",
             items: [
-                { label: "Over-the-air firmware updates " },
-                { label: "Continuous ANC algorithm refinement " },
-                { label: "New feature drops via mobile app " },
-                { label: "3+ years of guaranteed software updates " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Over-the-air firmware updates " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Continuous ANC algorithm refinement " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "New feature drops via mobile app " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "3+ years of guaranteed software updates " },
             ],
             tags: [
                 { tag: "OTA " },
@@ -155,15 +157,15 @@ export default function Features() {
             title: "Premium Warranty ",
             para: "Comprehensive protection. ",
             items: [
-                { label: "2-year manufacturer guarantee " },
-                { label: "Easy advanced replacement program " },
-                { label: "7-day no-questions return policy " },
-                { label: "Dedicated premium support line " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "2-year manufacturer guarantee " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Easy advanced replacement program " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "7-day no-questions return policy " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Dedicated premium support line " },
             ],
             tags: [
                 { tag: "2 YEAR " },
                 { tag: "7 DAY RETURN " },
-                { tag: "REPLACEMENT " },
+                { tag: "PREMIUM " },
             ]
         },
         {
@@ -171,10 +173,10 @@ export default function Features() {
             title: "Acoustic Analytics ",
             para: "Monitor your listening habits. ",
             items: [
-                { label: "Real-time environment level monitoring " },
-                { label: "Daily focus score insights " },
-                { label: "Noise environment logging " },
-                { label: "Health-recommended limit alerts " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Real-time environment level monitoring " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Daily focus score insights " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Noise environment logging " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Health-recommended limit alerts " },
             ],
             tags: [
                 { tag: "FOCUS STORE " },
@@ -187,10 +189,10 @@ export default function Features() {
             title: "Made for India ",
             para: "Designed for Indian environments. ",
             items: [
-                { label: "Algorithms trained on heavy urban noise " },
-                { label: "Materials tested for tropical humidity " },
-                { label: "Engineered & assembled locally " },
-                { label: "Tuned for Indian music and languages " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Algorithms trained on heavy urban noise " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Materials tested for tropical humidity " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Engineered & assembled locally " },
+                { icon: <RiVoiceAiLine className="text-purple-500" />, label: "Tuned for Indian music and languages " },
             ],
             tags: [
                 { tag: "URBAN " },
@@ -203,32 +205,37 @@ export default function Features() {
 
 
     return (
-        <section className="py-40 text-center px-48 ">
+        <section className="py-40  text-center max-w-5xl mx-auto">
 
-            <h1 className=" mx-auto font-bold text-5xl textwhite ">Intelligent features for <br />
-                <span className="  text-purple-600">modern professionals.</span>
+            <h1 className=" mx-8   mx-auto font-bold text-5xl textwhite font-sans ">Intelligent features for
+                <p className="  text-purple-600">modern professionals. </p>
             </h1>
 
-            <p className="mx-auto my-6 ">Every detail of the INDEV ecosystem is meticulously crafted to keep you <br /> focused, comfortable, and in absolute control.</p>
+            <p className="  mx-8 mx-auto my-6   ">Every detail of the INDEV ecosystem is meticulously crafted to keep you <br /> focused, comfortable, and in absolute control.</p>
 
             {/*  */}
-            <div className="grid mt-20 gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  ">
+            <div className="grid mt-20 gap-6 mx-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3   ">
                 {features.map((feature, index) => (
-                    <div key={index} className=" text-left  backdrop-blur-2xl bg-[#0a0a0a]/90 border border-white/10 rounded-2xl
-                     overflow-hidden hover:border-white/20 transition-colors pt-10 p-6  cursor-pointer transition-all duration-300 bg-[#050505] ">
+                    <div key={index} className=" group  text-left  backdrop-blur-2xl bg-[#0a0a0a]/90 border border-white/10 rounded-2xl shadow-2xl
+                    overflow-hidden hover:border-white/20 transition-colors pt-10 p-6  cursor-pointer transition-all duration-300 bg-[#050505]
+                        hover:border-purple-400 hover:shadow-[0_0_20px_rgba(168,85,247,0.6)] ">
 
                         <div className=" w-14 h-14 my-8 ml-2 mb-4  text-white rounded-xl bg-gradient-to-br from-purple-500 to-purple-600
-                         flex items-center justify-center opacity-20 z-10 text-white absolute -mt-4 -ml-4 blur-xl  transition-opacity ">
+                        flex items-center justify-center opacity-20 z-10 text-white absolute -mt-4 -ml-4 blur-xl  transition-opacity ">
                             <div className="relative z-10 text-white">{feature.icon} </div>
                         </div>
-                        <h3 className="textwhite text-md font-semibold mt-18">{feature.title}</h3>
-                        <p className=" text-xs my-2  mb-4">{feature.para}</p>
-                        <hr className="border border-white/20 " />
+                        <h3 className="textwhite text-sm font-medium mt-18">{feature.title}</h3>
+                        <p className=" text-xs mt-1.5  "> {feature.para}</p>
 
                         {/* hide */}
-                        <div className=" text-xs py-4 leading-7 ">
+
+
+                        <div className=" text-xs py-4 leading-7 
+                        opacity-0 max-h-0 overflow-hidden    group-hover:opacity-100 group-hover:max-h-44    transition-all duration-500">
+
+                            <hr className="border border-white/10 mb-4  " />
                             {feature.items.map((item, idx) => (
-                                <p key={idx}  >{item.label}</p>
+                                <p key={idx} className="flex gap-2 items-center text-[0.6rem] text-white/70" > {item.icon} {item.label}</p>
                             ))}
                         </div>
 
@@ -236,7 +243,7 @@ export default function Features() {
                         {/* span */}
                         <div>
                             {feature.tags.map((tag, idx) => (
-                                <span key={idx} className="inline-block text-[#696E77] border border-white/20   text-[0.7rem] px-3 py-1 rounded-full mr-2">
+                                <span key={idx} className="inline-block text-white/60 border border-white/20   text-[0.6rem] px-3 py-1 rounded-full mr-2">
                                     {tag.tag}
                                 </span>
                             ))}

@@ -96,7 +96,7 @@ export default function HeroSection() {
             {/* 1a */}
             <div className="w-full  pt-40 bg-black py-6 px-4 md:px-10">
                 {/* Container */}
-                <div className="max-w-6xl mx-auto">
+                <div className="max-w-4xl mx-auto mx-8 ">
                     {/* Feature Row */}
                     <div className="flex items-center gap-6 overflow-x-auto scrollbar-hide pb-4">
                         {scrollfeatures.map((item, i) => (
@@ -119,38 +119,38 @@ export default function HeroSection() {
             </div>
 
             {/* 1 */}
-            <div className="py-24 px-94   ">
+            <div className="py-24  mx-8 max-w-2xl mx-auto  ">
 
                 <div className=" mb-18">
                     <h4>The Problem</h4>
-                    <h2 className="font-bold text-4xl my-4 mt-3 textwhite">Noise is everywhere.</h2>
+                    <h2 className="font-bold text-4xl my-4 mt-3 textwhite font-sans">Noise is everywhere.</h2>
                     <p className="">From bustling Indian streets to crowded offices, constant distractions break your focus and drain your energy. Generic noise cancellation doesn't adapt to your unique, ever-changing environment.</p>
                 </div>
 
                 <div>
                     <h4>The Solution</h4>
-                    <h2 className="font-bold text-4xl my-4 mt-3 textwhite" >Intelligent adaptation.</h2>
+                    <h2 className="font-bold text-4xl my-4 mt-3 textwhite font-sans" >Intelligent adaptation.</h2>
                     <p>INDEV's AI-powered adaptive engine learns your surroundings in real-time. Whether you're commuting through heavy traffic or focused in a quiet room, INDEV adjusts automatically to deliver the perfect audio experience.</p>
                 </div>
             </div>
 
             {/* 2 */}
             <div className=" ">
-                <div className=" bg-[#050505] py-20 w-full px-58 ">
-                    <div className="grid gap-8  md:grid-cols-3  ">
+                <div className=" bg-[#050505] py-20 mx-8 max-w-5xl mx-auto  ">
+                    <div className="grid gap-6  md:grid-cols-2  lg:grid-cols-3 ">
                         {features.map((feature, index) => (
-                            <div key={index} className=" bg-pink-300   rounded-br-4xl rounded-tl-4xl   p-6 shadow-xl  
+                            <div key={index} className="  dummy-card   rounded-br-4xl rounded-tl-4xl   border border-gray-600/40   p-6 shadow-xl  
                             hover:scale-105  duration-400  ">
-                                <div className="mb-4 text-3xl p-3 inline-block  px-6 shadow-md rounded-bl-4xl rounded-tr-4xl color">{feature.star}</div>
-                                <h2 className="mb-2 text-lg font-semibold textwhite">{feature.title}</h2>
-                                <p className=" text-sm">{feature.para}</p>
+                                <div className="mb-4 text-2xl p-3 inline-block bg-purple-500/15  border border-purple-500/40 text-purple-500  px-6 shadow-md rounded-bl-4xl rounded-tr-4xl color">{feature.star}</div>
+                                <h2 className="mb-2 text-sm font-medium textwhite font-sans">{feature.title}</h2>
+                                <p className=" text-xs">{feature.para}</p>
                             </div>
                         ))}
                     </div>
                 </div>
 
                 {/* 3 */}
-                <div bg-yellow-500 className="grid gap-6  px-58  ">
+                <div bg-yellow-500 className="grid gap-6  mx-8  ">
 
                     <div className="pb-28  pt-24 flex items-center justify-center px-4">
                         <div className="w-full max-w-4xl">

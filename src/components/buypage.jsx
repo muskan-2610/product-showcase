@@ -17,28 +17,28 @@ export default function BuyPage() {
             {/* 1 */}
             <div className=" py-12 flex  text-center  justify-center gap-8   ">
 
-                <div className="  p-4   text-sm  h-28 w-30 rounded-3xl border border-white/30 hover:border-white/80 shadow-xl">
-                    <div className="bg-white inline-block p-4  mb-2 text-lg  rounded-full"> < SiBlueprint  /> </div>
+                <div className="  p-4   text-sm  h-28 w-30 rounded-3xl border border-white/80 shadow-xl">
+                    <div className="bg-white inline-block p-4 text-black mb-2 text-lg shadow-2xl rounded-full"> < SiBlueprint  /> </div>
                     <p className="textwhite">EDITION</p>
                 </div>
 
-                <div className=" p-4 text-sm h-28 w-30 rounded-3xl  border border-white/0 hover:border-white/80">
-                    <div className="bg-white inline-block p-4 mb-2 text-lg rounded-full"> <FaBoxTissue /> </div>
+                <div className=" p-4 text-sm h-28 w-30 rounded-3xl  border  border-white/0 hover:border-white/80">
+                    <div className=" inline-block p-4 mb-2 shadow-xl border border-white/15 text-lg rounded-full"> <FaBoxTissue /> </div>
                     <p>SHIPPING  </p>
                 </div>
 
                 <div className=" p-4  text-sm h-28 w-30 rounded-3xl border border-white/0 hover:border-white/80">
-                    <div className="bg-white inline-block p-4  mb-2 text-lg rounded-full"><IoCheckboxSharp /></div>
+                    <div className=" inline-block p-4  mb-2 shadow-xl  border border-white/15 text-lg rounded-full"><IoCheckboxSharp /></div>
                     <p>REVIEW</p>
                 </div>
 
                 <div className=" p-4   text-sm h-28 w-30 rounded-3xl border border-white/0 hover:border-white/80">
-                    <div className="bg-white  inline-block p-4 mb-2 text-lg  rounded-full"> <FaCcAmazonPay /> </div>
+                    <div className="  inline-block p-4 mb-2 shadow-xl border border-white/15 text-lg  rounded-full"> <FaCcAmazonPay /> </div>
                     <p>PAYMENT</p>
                 </div>
 
                 <div className=" p-4  text-sm h-28 w-34  rounded-3xl border border-white/0 hover:border-white/80">
-                    <div className="bg-white inline-block p-4 mb-2 text-lg rounded-full"> <GiPayMoney /> </div>
+                    <div className=" inline-block p-4 mb-2  shadow-xl border border-white/15 text-lg rounded-full"> <GiPayMoney /> </div>
                     <p>CONFIRMATION</p>
                 </div>
 
@@ -48,13 +48,13 @@ export default function BuyPage() {
             <div className="py-6 text-left px-78 ">
                 <h2 className="text-3xl textwhite  font-semibold mb-2"> Configure INDEV. </h2>
                 <p className="text-sm mb-8">Select your preferred edition and finish.</p>
-                <p className="text-sm  font-semibold"> Color Finish </p>
+                <p className="text-sm  font-semibold uppercase "> Color Finish </p>
 
                 <div className="   flex  gap-8  p-4  rounded-3xl  text-center pl-0 ">
 
                     <div className=" text-sm  flex flex-col items-center gap-2">
                         <div className=" border border-white shadow-2xl  rounded-full h-16 w-16 bg-[#0F0F0F]" > </div>
-                        <p className="textwhite ">Matte Black</p>
+                        <p className="textwhite  ">Matte Black</p>
                     </div>
 
                     <div className=" text-sm  flex flex-col items-center gap-2">
