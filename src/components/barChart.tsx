@@ -39,7 +39,7 @@ export function ChartBarDefault() {
     return (
         <Card className="bg-[#020202] border border-white/10 shadow-[0_0_30px_rgba(255,255,255,0.02)]">
             <CardHeader>
-                <CardTitle>Utilization (Hours)</CardTitle>
+                <CardTitle className="text-white/50">Utilization (Hours)</CardTitle>
 
             </CardHeader>
             <CardContent>

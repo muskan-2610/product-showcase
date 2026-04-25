@@ -5,7 +5,6 @@ import { ChartBarDefault } from './barChart'
 import { CiBatteryFull } from "react-icons/ci";
 import { MdBluetoothAudio } from "react-icons/md";
 import { PiPlugsConnectedFill } from "react-icons/pi";
-
 import { GiSandsOfTime } from "react-icons/gi";
 import { IoIosTimer } from "react-icons/io";
 import { SiAlwaysdata } from "react-icons/si";
@@ -17,13 +16,13 @@ import { PiBowlSteam } from "react-icons/pi";
 
 export default function Dashboard() {
     return (
-        <section className="py-34">
+        <section className="py-34 pb-30">
 
             {/* Device Status */}
-            <div className="flex justify-between   mx-auto max-w-4xl mb-8 ">
+            <div className="flex justify-between   mx-auto max-w-5xl mb-8 ">
                 <div>
                     <h2 className="text-3xl font-semibold textwhite">Analytics</h2>
-                    <p className='text-sm'>Monitor your acoustic environment and usage.</p>
+                    <p className='text-xs mt-2'>Monitor your acoustic environment and usage.</p>
                 </div>
                 {/*  */}
                 <div className="w-full flex  px-3 sm:px-4 justify-end ">
@@ -51,14 +50,13 @@ export default function Dashboard() {
             </div>
 
             {/* Line Chart */}
-            <div className=' max-w-4xl mx-auto '>
+            <div className=' max-w-5xl mx-auto '>
                 <ChartLineInteractive />
             </div>
 
             {/*SCORE METER  */}
             <div >
                 <div className=" max-w-5xl mx-auto  text-white  md:p-8  ">
-                    {/* Glow Background */}
                     <div className="fixed inset-0 -z-10">
                         <div className="absolute top-10 left-10 w-72 h-72 bg-purple-700/20 blur-3xl rounded-full"></div>
                         <div className="absolute bottom-10 right-10 w-72 h-72 bg-purple-500/20 blur-3xl rounded-full"></div>
@@ -73,12 +71,9 @@ export default function Dashboard() {
 
                             {/* Circle*/}
                             <div className="relative w-44 h-44 flex items-center justify-center">
-
                                 {/* Glow Ring */}
                                 <div className="absolute w-full h-full rounded-full border-4 border-purple-500/30 blur-sm"></div>
-                                {/* Progress  */}
                                 <div className="absolute w-full h-full rounded-full border-4 border-purple-600 animate-pulse"></div>
-
                                 <div className="text-center z-10">
                                     <h1 className="text-5xl font-light text-purple-300 drop-shadow-[0_0_10px_rgba(168,85,247,0.8)]">
                                         91

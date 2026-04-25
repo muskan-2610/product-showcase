@@ -46,7 +46,12 @@ export default function ControlPanel() {
     const [rightSelected, setRightSelected] = useState(1);
 
     return (
-        <section className=" py-34  mx-8 max-w-4xl mx-auto  ">
+        <section className=" py-34  mx-8 max-w-4xl mx-auto   ">
+            <div className="fixed inset-0 -z-10">
+                <div className="absolute top-10 left-10 w-92 h-72 bg-purple-700/20 blur-3xl rounded-full"></div>
+                <div className="absolute bottom-10 right-10 w-92 h-72 bg-purple-500/20 blur-3xl rounded-full"></div>
+            </div>
+
 
             <h2 className="text-3xl font-semibold mb-2 textwhite">Hardware Controls </h2>
             <p className="text-sm mb-6">Calibrate your INDEV acoustic experience. </p>

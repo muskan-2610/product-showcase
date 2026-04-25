@@ -1,39 +1,41 @@
 import { useState, useEffect, useRef } from "react";
+import { MdOutlineDeviceHub } from "react-icons/md";
+import { PiDeviceMobileSpeakerFill } from "react-icons/pi";
+import { AiFillFire } from "react-icons/ai";
+import { FaInstalod } from "react-icons/fa6";
 
-// ═══════════════════════════════════════════════════════════
-//  SLIDER IMAGES — Apni images yahan replace karein
-//  Slot 1 → index 0 ka src
-//  Slot 2 → index 1 ka src
-//  Slot 3 → index 2 ka src
-//  Slot 4 → index 3 ka src
-// ═══════════════════════════════════════════════════════════
+import { PiNumberSquareSevenFill } from "react-icons/pi";
+import { MdNearMe } from "react-icons/md";
+import { RiPinDistanceFill } from "react-icons/ri";
+import { BsFillStopwatchFill } from "react-icons/bs";
+
 const SLIDER_IMAGES = [
     {
         id: 1,
-        src: "/img1.jpeg",
+        src: "/img3.png",
         alt: "Headphone showcase 1",
     },
     {
         id: 2,
-        src: "/img2.jpg",
+        src: "/img4.png",
         alt: "Headphone showcase 2",
     },
     {
         id: 3,
-        src: "/img3.png",
+        src: "/img1.jpeg",
         alt: "Headphone showcase 3",
     },
     {
         id: 4,
-        src: "/img4.png",
+        src: "/img5.png",
         alt: "Headphone showcase 4",
     },
-        {
+    {
         id: 5,
-        src: "/img5.png",
+        src: "/img2.jpg",
         alt: "Headphone showcase 5",
     },
-        {
+    {
         id: 6,
         src: "/img6.png",
         alt: "Headphone showcase 6",
@@ -41,17 +43,17 @@ const SLIDER_IMAGES = [
 ];
 
 const FEATURES = [
-    { icon: "#", label: "AI Adaptive", sub: "ANC Engine" },
-    { icon: "#", label: "40 Hrs", sub: "Battery Life" },
-    { icon: "#", label: "40mm", sub: "Drivers" },
-    { icon: "#", label: "3 Device", sub: "Pairing" },
+    { icon: <FaInstalod />, label: "AI Adaptive", sub: "ANC Engine" },
+    { icon: <PiDeviceMobileSpeakerFill />, label: "40 Hrs", sub: "Battery Life" },
+    { icon: <AiFillFire />, label: "40mm", sub: "Drivers" },
+    { icon: <MdOutlineDeviceHub />, label: "3 Device", sub: "Pairing" },
 ];
 
 const BADGES = [
-    { icon: "#", label: "7 Days", sub: "No Questions Return" },
-    { icon: "#", label: "Easy", sub: "No Replacement" },
-    { icon: "#", label: "Made in India", sub: "For Indian Environment" },
-    { icon: "#", label: "Long Term", sub: "Software Support" },
+    { icon: <MdNearMe />, label: "7 Days", sub: "No Questions Return" },
+    { icon: <BsFillStopwatchFill />, label: "Easy", sub: "No Replacement" },
+    { icon: <RiPinDistanceFill />, label: "Made in India", sub: "For Indian Environment" },
+    { icon: < BsFillStopwatchFill />, label: "Long Term", sub: "Software Support" },
 ];
 
 const NAV_LINKS = ["HOME", "SHOWCASE", "FEATURES", "PURCHASE"];
@@ -130,12 +132,6 @@ export default function Hero() {
                 />
             </div>
 
-            {/* Google Fonts */}
-            {/* <link
-                href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap"
-                rel="stylesheet"
-            /> */}
-
             {/* ── Background atmospheric glow ── */}
             {/* <div
                 className="absolute inset-0 pointer-events-none"
@@ -143,12 +139,6 @@ export default function Hero() {
                     background:
                         "radial-gradient(ellipse 75% 60% at 65% 90%, rgba(255, 113, 253, 0.85) 0%, transparent 65%), radial-gradient(ellipse 45% 45% at 15% 45%, rgba(4,12,55,0.6) 0%, transparent 65%), radial-gradient(ellipse 60% 70% at 70% 50%, rgba(0,180,200,0.05) 0%, transparent 70%)",
                 }}
-            /> */}
-
-            {/* ── Outer glowing border frame ── */}
-            {/* <div
-                className="fixed inset-[6px] pointer-events-none z-50"
-                style={{ border: "1.5px solid rgba(30,100,255,0.5)" }}
             /> */}
 
             {/* ── SCROLL TO EXPLORE — left vertical ── */}
@@ -235,7 +225,7 @@ export default function Hero() {
                         ))}
                     </div>
 
-                    {/* ── CTA Buttons ── */}
+                    {/* ──  Buttons ── */}
                     <div className="flex flex-wrap gap-3 mb-5">
                         <button
                             className="px-7 py-2.5 rounded-full text-sm font-bold tracking-[0.06em] text-white border-none cursor-pointer transition-transform duration-200 hover:scale-105"
@@ -287,7 +277,7 @@ export default function Hero() {
                 {/* ── RIGHT PANEL — IMAGE SLIDER ── */}
                 <div className="flex-1 w-full flex flex-col items-center justify-center gap-4">
 
-                    {/* Slider Viewport */}
+                    {/* Slider  */}
                     <div
                         className="relative w-full overflow-hidden rounded-2xl"
                         style={{
@@ -297,10 +287,6 @@ export default function Hero() {
                                 "0 0 0 1px rgba(0,140,255,0.15), 0 0 60px rgba(0,80,200,0.22), 0 0 120px rgba(0,200,220,0.07)",
                         }}
                     >
-                        {/* ── SLIDES ──
-                Yahan images render hoti hain.
-                Apni images laane ke liye upar SLIDER_IMAGES array mein src replace karein.
-            */}
                         {SLIDER_IMAGES.map((img, idx) => {
                             const isActive = idx === current;
                             const isExit = idx === prevIdx;
@@ -319,14 +305,12 @@ export default function Hero() {
                                         willChange: "opacity, transform",
                                     }}
                                 >
-                                    {/* ── IMAGE IS HERE — replace src in SLIDER_IMAGES array at top ── */}
                                     <img
                                         src={img.src}
                                         alt={img.alt}
                                         className="w-full h-full object-cover object-center block"
                                         loading={idx === 0 ? "eager" : "lazy"}
                                     />
-                                    {/* Teal colour grade overlay */}
                                     <div
                                         className="absolute inset-0"
                                         style={{

@@ -95,13 +95,10 @@ export default function HeroSection() {
     return (
         <section className="">
 
-
-
             <div><Hero /></div>
 
-
             {/* 1a */}
-            <div className="w-full  pt-40 bg-black py-6 px-4 md:px-10">
+            <div className="w-full  bg-black py-10 px-4 md:px-10">
                 {/* Container */}
                 <div className="max-w-4xl mx-auto mx-8 ">
                     {/* Feature Row */}
@@ -126,7 +123,7 @@ export default function HeroSection() {
             </div>
 
             {/* 1 */}
-            <div className="py-24  mx-8 max-w-2xl mx-auto  ">
+            <div className="py-20  mx-8 max-w-2xl mx-auto  ">
 
                 <div className=" mb-18">
                     <h4>The Problem</h4>

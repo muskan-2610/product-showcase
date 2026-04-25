@@ -234,7 +234,7 @@ export default function Features() {
             <div className=" grid mt-16 gap-6 mx-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3   ">
                 {features.map((feature, index) => (
                     <div key={index} className=" group  text-left  backdrop-blur-2xl bg-[#0a0a0a]/90 border border-white/10 rounded-2xl shadow-2xl
-                    overflow-hidden hover:border-white/20 transition-colors pt-10 p-6  cursor-pointer transition-all duration-300 bg-[#050505]
+                    overflow-hidden hover:border hover:border-purple-500/30  transition-colors pt-10 p-6  cursor-pointer transition-all duration-300 bg-[#050505]
                         hover:border-purple-400 hover:shadow-[0_0_20px_rgba(168,85,247,0.6)] ">
 
                         {/* <div className=" w-14 h-14 my-8 ml-2 mb-4  text-white rounded-xl bg-gradient-to-br from-purple-500 to-purple-600
