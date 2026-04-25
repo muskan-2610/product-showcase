@@ -1,0 +1,414 @@
+import { useState, useEffect, useRef } from "react";
+
+// ═══════════════════════════════════════════════════════════
+//  SLIDER IMAGES — Apni images yahan replace karein
+//  Slot 1 → index 0 ka src
+//  Slot 2 → index 1 ka src
+//  Slot 3 → index 2 ka src
+//  Slot 4 → index 3 ka src
+// ═══════════════════════════════════════════════════════════
+const SLIDER_IMAGES = [
+    {
+        id: 1,
+        src: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=900&q=80",
+        alt: "Headphone showcase 1",
+    },
+    {
+        id: 2,
+        src: "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=900&q=80",
+        alt: "Headphone showcase 2",
+    },
+    {
+        id: 3,
+        src: "https://images.unsplash.com/photo-1487215078519-e21cc028cb29?w=900&q=80",
+        alt: "Headphone showcase 3",
+    },
+    {
+        id: 4,
+        src: "https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?w=900&q=80",
+        alt: "Headphone showcase 4",
+    },
+];
+
+const FEATURES = [
+    { icon: "#", label: "AI Adaptive", sub: "ANC Engine" },
+    { icon: "#", label: "40 Hrs", sub: "Battery Life" },
+    { icon: "#", label: "40mm", sub: "Drivers" },
+    { icon: "#", label: "3 Device", sub: "Pairing" },
+];
+
+const BADGES = [
+    { icon: "#", label: "7 Days", sub: "No Questions Return" },
+    { icon: "#", label: "Easy", sub: "No Replacement" },
+    { icon: "#", label: "Made in India", sub: "For Indian Environment" },
+    { icon: "#", label: "Long Term", sub: "Software Support" },
+];
+
+const NAV_LINKS = ["HOME", "SHOWCASE", "FEATURES", "PURCHASE"];
+const SLIDE_INTERVAL = 3500;
+
+export default function HeroSection() {
+    const [current, setCurrent] = useState(0);
+    const [prevIdx, setPrevIdx] = useState(null);
+    const timerRef = useRef(null);
+
+    const goTo = (idx) => {
+        if (idx === current) return;
+        setPrevIdx(current);
+        setCurrent(idx);
+        setTimeout(() => setPrevIdx(null), 700);
+    };
+
+    const goNext = () => goTo((current + 1) % SLIDER_IMAGES.length);
+    const goPrev = () => goTo((current - 1 + SLIDER_IMAGES.length) % SLIDER_IMAGES.length);
+
+    const resetTimer = () => {
+        clearInterval(timerRef.current);
+        timerRef.current = setInterval(goNext, SLIDE_INTERVAL);
+    };
+
+    useEffect(() => {
+        timerRef.current = setInterval(goNext, SLIDE_INTERVAL);
+        return () => clearInterval(timerRef.current);
+    }, [current]);
+
+    return (
+        <div
+            className="relative min-h-screen w-full overflow-hidden text-white  pt-28"
+            style={{
+                fontFamily: "'Rajdhani', sans-serif",
+                background: "#020812",
+            }}
+        >
+            {/* Google Fonts */}
+            {/* <link
+                href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap"
+                rel="stylesheet"
+            /> */}
+
+            {/* ── Background atmospheric glow ── */}
+            <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                    background:
+                        "radial-gradient(ellipse 75% 60% at 65% 90%, rgba(255, 113, 253, 0.85) 0%, transparent 65%), radial-gradient(ellipse 45% 45% at 15% 45%, rgba(4,12,55,0.6) 0%, transparent 65%), radial-gradient(ellipse 60% 70% at 70% 50%, rgba(0,180,200,0.05) 0%, transparent 70%)",
+                }}
+            />
+
+            {/* ── Outer glowing border frame ── */}
+            {/* <div
+                className="fixed inset-[6px] pointer-events-none z-50"
+                style={{ border: "1.5px solid rgba(30,100,255,0.5)" }}
+            /> */}
+
+            {/* ── SCROLL TO EXPLORE — left vertical ── */}
+            <div className="absolute left-5 top-1/2 -translate-y-1/2 z-30 hidden md:flex flex-col items-center gap-3">
+                <span
+                    className="text-[9px] tracking-[0.3em] uppercase select-none"
+                    style={{
+                        writingMode: "vertical-rl",
+                        transform: "rotate(180deg)",
+                        color: "rgba(150,180,255,0.4)",
+                    }}
+                >
+                    SCROLL TO EXPLORE
+                </span>
+            </div>
+
+            {/* ── RIGHT NAV — vertical ── */}
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 z-30 hidden lg:flex flex-col items-center gap-8">
+                {NAV_LINKS.map((link, i) => (
+                    <a
+                        key={link}
+                        href="#"
+                        className="text-[9px] tracking-[0.3em] uppercase transition-colors duration-200 hover:text-white"
+                        style={{
+                            writingMode: "vertical-rl",
+                            color: i === 0 ? "#ffffff" : "rgba(140,170,255,0.4)",
+                        }}
+                    >
+                        {link}
+                    </a>
+                ))}
+            </div>
+
+            {/* ── HEADER ── */}
+            {/* <header className="relative z-30 flex items-center justify-between px-10 md:px-16 lg:px-24 pt-5 pb-2">
+                <span
+                    className="text-white tracking-[0.18em] text-[2.1rem]"
+                    style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                >
+                    SONIQ
+                </span>
+                <div className="flex flex-col items-end">
+                    <span className="text-[9px] tracking-[0.28em] text-blue-400 uppercase font-semibold">
+                        ✦ NEXT-GEN AUDIO
+                    </span>
+                    <span className="hidden sm:block text-[8px] tracking-[0.2em] text-gray-500 uppercase mt-0.5">
+                        SONIQ Headphones Landing Page
+                    </span>
+                </div>
+            </header> */}
+
+            {/* ── MAIN CONTENT ── */}
+            <main className="relative z-20 flex flex-col lg:flex-row items-center  px-10 md:px-14 lg:px-20 xl:px-28 pb-10 gap-8 lg:gap-6">
+
+                {/* ── LEFT PANEL ── */}
+                <div className="flex-none w-full lg:w-[46%] xl:w-[43%] flex flex-col justify-center pt-2 lg:pt-0">
+
+                    {/* Hero Heading */}
+                    <h1
+                        className="leading-[0.88] tracking-[0.01em] text-white mb-4"
+                        style={{
+                            fontFamily: "'Bebas Neue', sans-serif",
+                            fontSize: "5rem",
+                            textShadow: "0 0 100px rgba(0,100,255,0.2)",
+                        }}
+                    >
+                        Hear Only
+                        <br />
+                        What Matters.
+                    </h1>
+
+                    {/* Subtitle */}
+                    <p
+                        className="text-gray-300 leading-relaxed max-w-[420px] mb-5"
+                        style={{ fontSize: "clamp(13px, 1.4vw, 15px)" }}
+                    >
+                        AI-powered Adaptive Noise Cancellation that senses your environment
+                        and delivers studio-quality sound, so you can focus on what truly matters.
+                    </p>
+
+                    {/* ── Feature Icons ── */}
+                    <div className="flex flex-wrap gap-5 mb-5">
+                        {FEATURES.map((f) => (
+                            <div key={f.label} className="flex flex-col items-center gap-1">
+                                <div
+                                    className="w-[34px] h-[34px] rounded-[9px] flex items-center justify-center font-extrabold text-[13px] text-blue-300"
+                                    style={{
+                                        background: "rgba(15,40,150,0.35)",
+                                        border: "1px solid rgba(60,120,255,0.35)",
+                                    }}
+                                >
+                                    {f.icon}
+                                </div>
+                                <span className="text-[10px] font-bold text-white text-center leading-tight">
+                                    {f.label}
+                                </span>
+                                <span className="text-[9px] text-slate-500 text-center leading-tight">
+                                    {f.sub}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* ── CTA Buttons ── */}
+                    <div className="flex flex-wrap gap-3 mb-5">
+                        <button
+                            className="px-7 py-2.5 rounded-full text-sm font-bold tracking-[0.06em] text-white border-none cursor-pointer transition-transform duration-200 hover:scale-105"
+                            style={{
+                                background: "linear-gradient(135deg, #1e5bff 0%, #1040cc 100%)",
+                                boxShadow: "0 0 24px rgba(30,91,255,0.6), 0 2px 10px rgba(0,0,0,0.4)",
+                            }}
+                        >
+                            Buy Now – ₹7,999
+                        </button>
+                        <button
+                            className="px-6 py-2.5 rounded-full text-sm font-semibold tracking-[0.04em] cursor-pointer transition-all duration-200 hover:bg-blue-900/25"
+                            style={{
+                                background: "transparent",
+                                border: "1.5px solid rgba(80,140,255,0.5)",
+                                color: "rgba(130,185,255,0.9)",
+                            }}
+                        >
+                            Explore Features
+                        </button>
+                    </div>
+
+                    {/* ── Badges ── */}
+                    <div className="flex flex-wrap gap-x-4 gap-y-3">
+                        {BADGES.map((b) => (
+                            <div key={b.label} className="flex items-center gap-1.5">
+                                <div
+                                    className="w-[26px] h-[26px] rounded-full flex items-center justify-center font-extrabold text-[10px] text-blue-300 flex-shrink-0"
+                                    style={{
+                                        border: "1px solid rgba(60,120,255,0.4)",
+                                        background: "rgba(15,40,150,0.3)",
+                                    }}
+                                >
+                                    {b.icon}
+                                </div>
+                                <div>
+                                    <div className="text-[10px] font-bold leading-tight" style={{ color: "#dde8ff" }}>
+                                        {b.label}
+                                    </div>
+                                    <div className="text-[8px] leading-tight text-slate-500">
+                                        {b.sub}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* ── RIGHT PANEL — IMAGE SLIDER ── */}
+                <div className="flex-1 w-full flex flex-col items-center justify-center gap-4">
+
+                    {/* Slider Viewport */}
+                    <div
+                        className="relative w-full overflow-hidden rounded-2xl"
+                        style={{
+                            height: "clamp(240px, 48vw, 500px)",
+                            maxWidth: "600px",
+                            boxShadow:
+                                "0 0 0 1px rgba(0,140,255,0.15), 0 0 60px rgba(0,80,200,0.22), 0 0 120px rgba(0,200,220,0.07)",
+                        }}
+                    >
+                        {/* ── SLIDES ──
+                Yahan images render hoti hain.
+                Apni images laane ke liye upar SLIDER_IMAGES array mein src replace karein.
+            */}
+                        {SLIDER_IMAGES.map((img, idx) => {
+                            const isActive = idx === current;
+                            const isExit = idx === prevIdx;
+                            return (
+                                <div
+                                    key={img.id}
+                                    className="absolute inset-0 transition-all duration-700 ease-in-out"
+                                    style={{
+                                        opacity: isActive ? 1 : 0,
+                                        transform: isActive
+                                            ? "scale(1) translateX(0px)"
+                                            : isExit
+                                                ? "scale(0.96) translateX(-20px)"
+                                                : "scale(1.06) translateX(30px)",
+                                        zIndex: isActive ? 2 : 1,
+                                        willChange: "opacity, transform",
+                                    }}
+                                >
+                                    {/* ── IMAGE IS HERE — replace src in SLIDER_IMAGES array at top ── */}
+                                    <img
+                                        src={img.src}
+                                        alt={img.alt}
+                                        className="w-full h-full object-cover object-center block"
+                                        loading={idx === 0 ? "eager" : "lazy"}
+                                    />
+                                    {/* Teal colour grade overlay */}
+                                    <div
+                                        className="absolute inset-0"
+                                        style={{
+                                            background:
+                                                "linear-gradient(135deg, rgba(0,200,220,0.07) 0%, rgba(0,60,180,0.15) 60%, rgba(0,0,20,0.5) 100%)",
+                                        }}
+                                    />
+                                </div>
+                            );
+                        })}
+
+                        {/* Bottom fade */}
+                        <div
+                            className="absolute bottom-0 left-0 right-0 h-[35%] pointer-events-none z-10"
+                            style={{
+                                background: "linear-gradient(to top, rgba(2,8,18,0.7), transparent)",
+                            }}
+                        />
+
+                        {/* Slide counter */}
+                        <div
+                            className="absolute top-3 right-4 z-20 text-[10px] tracking-[0.25em]"
+                            style={{
+                                fontFamily: "'Rajdhani', sans-serif",
+                                color: "rgba(160,210,255,0.55)",
+                            }}
+                        >
+                            {String(current + 1).padStart(2, "0")} / {String(SLIDER_IMAGES.length).padStart(2, "0")}
+                        </div>
+
+                        {/* Left Arrow */}
+                        <button
+                            onClick={() => { goPrev(); resetTimer(); }}
+                            aria-label="Previous slide"
+                            className="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-[30px] h-[30px] rounded-full flex items-center justify-center text-blue-300 text-lg cursor-pointer transition-all duration-200 hover:scale-110"
+                            style={{
+                                background: "rgba(10,40,160,0.45)",
+                                border: "1px solid rgba(80,150,255,0.4)",
+                            }}
+                        >
+                            ‹
+                        </button>
+
+                        {/* Right Arrow */}
+                        <button
+                            onClick={() => { goNext(); resetTimer(); }}
+                            aria-label="Next slide"
+                            className="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-[30px] h-[30px] rounded-full flex items-center justify-center text-blue-300 text-lg cursor-pointer transition-all duration-200 hover:scale-110"
+                            style={{
+                                background: "rgba(10,40,160,0.45)",
+                                border: "1px solid rgba(80,150,255,0.4)",
+                            }}
+                        >
+                            ›
+                        </button>
+                    </div>
+
+                    {/* ── Dot Indicators ── */}
+                    <div className="flex items-center gap-2.5">
+                        {SLIDER_IMAGES.map((_, idx) => (
+                            <button
+                                key={idx}
+                                onClick={() => { goTo(idx); resetTimer(); }}
+                                aria-label={`Slide ${idx + 1}`}
+                                className="p-0 border-none cursor-pointer transition-all duration-300 rounded-full"
+                                style={{
+                                    width: idx === current ? "20px" : "7px",
+                                    height: "7px",
+                                    borderRadius: "9999px",
+                                    background: idx === current ? "#3b82f6" : "rgba(255,255,255,0.25)",
+                                    boxShadow: idx === current ? "0 0 8px #3b82f6" : "none",
+                                    transform: idx === current ? "scale(1)" : "scale(1)",
+                                }}
+                            />
+                        ))}
+                    </div>
+
+                    {/* ── Thumbnail strip ── */}
+                    <div className="flex gap-2 mt-1">
+                        {SLIDER_IMAGES.map((img, idx) => (
+                            <button
+                                key={img.id}
+                                onClick={() => { goTo(idx); resetTimer(); }}
+                                className="relative overflow-hidden rounded-lg cursor-pointer transition-all duration-300 border-2 p-0"
+                                style={{
+                                    width: "52px",
+                                    height: "36px",
+                                    borderColor: idx === current ? "#3b82f6" : "rgba(80,120,255,0.2)",
+                                    opacity: idx === current ? 1 : 0.55,
+                                }}
+                            >
+                                <img
+                                    src={img.src}
+                                    alt={img.alt}
+                                    className="w-full h-full object-cover"
+                                />
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            </main>
+
+            {/* ── Bottom Right Buy Now ── */}
+            <div className="absolute bottom-6 right-10 md:right-14 z-30">
+                <button
+                    className="px-5 py-2 rounded-full text-xs font-bold tracking-[0.06em] text-white border-none cursor-pointer transition-transform duration-200 hover:scale-105"
+                    style={{
+                        background: "linear-gradient(135deg, #1e5bff 0%, #1040cc 100%)",
+                        boxShadow: "0 0 20px rgba(30,91,255,0.55)",
+                    }}
+                >
+                    Buy Now
+                </button>
+            </div>
+
+        </div>
+    );
+}

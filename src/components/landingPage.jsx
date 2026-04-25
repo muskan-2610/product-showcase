@@ -1,3 +1,5 @@
+
+
 import { LuBrain } from "react-icons/lu";
 import { FaBatteryFull } from "react-icons/fa6";
 import { SiGsmarenadotcom } from "react-icons/si";
@@ -93,6 +95,11 @@ export default function HeroSection() {
     return (
         <section className="">
 
+
+
+
+
+
             {/* 1a */}
             <div className="w-full  pt-40 bg-black py-6 px-4 md:px-10">
                 {/* Container */}
@@ -123,7 +130,7 @@ export default function HeroSection() {
 
                 <div className=" mb-18">
                     <h4>The Problem</h4>
-                    <h2 className="font-bold text-4xl my-4 mt-3 textwhite font-sans">Noise is everywhere.</h2>
+                    <h2 className="font-bold text-4xl my-4 mt-3 textwhite font-sans  ">Noise is everywhere.</h2>
                     <p className="">From bustling Indian streets to crowded offices, constant distractions break your focus and drain your energy. Generic noise cancellation doesn't adapt to your unique, ever-changing environment.</p>
                 </div>
 
@@ -134,15 +141,20 @@ export default function HeroSection() {
                 </div>
             </div>
 
-            {/* 2 */}
-            <div className=" ">
-                <div className=" bg-[#050505] py-20 mx-8 max-w-5xl mx-auto  ">
-                    <div className="grid gap-6  md:grid-cols-2  lg:grid-cols-3 ">
+            {/* cards */}
+            <div className="bg-[#050505] ">
+                <div className="  py-20 mx-8 max-w-5xl mx-auto  ">
+                    <div className="grid gap-6  md:grid-cols-2  lg:grid-cols-3  ">
                         {features.map((feature, index) => (
-                            <div key={index} className="  dummy-card   rounded-br-4xl rounded-tl-4xl   border border-gray-600/40   p-6 shadow-xl  
-                            hover:scale-105  duration-400  ">
-                                <div className="mb-4 text-2xl p-3 inline-block bg-purple-500/15  border border-purple-500/40 text-purple-500  px-6 shadow-md rounded-bl-4xl rounded-tr-4xl color">{feature.star}</div>
-                                <h2 className="mb-2 text-sm font-medium textwhite font-sans">{feature.title}</h2>
+                            <div key={index} className="group  dummy-card  rounded-br-4xl rounded-tl-4xl   border border-gray-600/40   p-6 shadow-xl  
+                                    hover:scale-105   duration-300 ease-in-out hover:text-white  
+                            ">
+                                <div className="mb-4 text-2xl p-3 inline-block bg-purple-500/15  border  text-purple-500 
+                                border-purple-500 shadow-[0_0_30px_rgba(168,85,247,0.4)] 
+                                            transition duration-300  px-6 shadow-md
+                                rounded-bl-4xl rounded-tr-4xl color group-hover:bg-black  text-white
+                                ">{feature.star}</div>
+                                <h2 className="mb-2 text-sm font-medium text-white font-sans group-hover:text-black ">{feature.title}</h2>
                                 <p className=" text-xs">{feature.para}</p>
                             </div>
                         ))}
@@ -150,15 +162,16 @@ export default function HeroSection() {
                 </div>
 
                 {/* 3 */}
-                <div bg-yellow-500 className="grid gap-6  mx-8  ">
+                <div bg-yellow-500 className="grid gap-6  mx-8 bg-[#020202] ">
 
                     <div className="pb-28  pt-24 flex items-center justify-center px-4">
                         <div className="w-full max-w-4xl">
-                            <h2 className="text-center text-sm tracking-[0.3em]  text-purple-400 mb-12">
+                            <h2 className="text-center text-sm tracking-[0.3em]  text-purple-400 mb-12
+                            ">
                                 TECHNICAL SPECIFICATIONS
                             </h2>
 
-                            <div className="relative rounded-2xl  border border-purple-700/30 p-8 bg-black shadow-[0_0_40px_rgba(168,85,247,0.15)]">
+                            <div className="relative rounded-2xl  border border-purple-700/30 p-8 bg-[#050505] shadow-[0_0_40px_rgba(168,85,247,0.15)]">
 
                                 {/* Glow effect */}
                                 <div className="absolute inset-0 rounded-2xl pointer-events-none shadow-[0_0_60px_rgba(168,85,247,0.2)]"></div>

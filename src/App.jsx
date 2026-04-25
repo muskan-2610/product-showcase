@@ -8,7 +8,7 @@ import LandingPage from './components/landingPage';
 import ControlPanel from './components/controlPanel';
 import Dashboard from './components/dashboard';
 import CustomCursor from './components/customCursor';
-
+import HeroSection from './components/herosection';
 
 const App = () => {
   return (
@@ -20,9 +20,11 @@ const App = () => {
       <Routes>
         <Route path="/features" element={<Features />} />
         <Route path="/buy" element={<BuyPage />} />
+
         <Route path="/" element={<LandingPage />} />
         <Route path="/controls" element={<ControlPanel />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/hero" element={<HeroSection />} />
       </Routes>
 
 

@@ -1,14 +1,16 @@
 import { useState, useRef } from "react";
+import Equalizer from "./soundPanel";
 // icons
-import { GiSoundOff } from "react-icons/gi";
+import { PiSoundcloudLogoBold } from "react-icons/pi";
 import { FaMicrophoneAlt } from "react-icons/fa";
 import { FaPlayCircle } from "react-icons/fa";
 import { IoPlaySkipForwardSharp } from "react-icons/io5";
 import { IoPlaySkipBack } from "react-icons/io5";
 import { MdWifiCalling3 } from "react-icons/md";
+import { PiHeadsetFill } from "react-icons/pi";
+import { BsBlockquoteLeft } from "react-icons/bs";
 
-
-export default function ContrlPanel() {
+export default function ControlPanel() {
 
     const [intensity, setIntensity] = useState(100);
     const [mode, setMode] = useState("maximum");
@@ -29,41 +31,22 @@ export default function ContrlPanel() {
     };
 
     // 3
-    const frequencies = [
-        "31Hz",
-        "62Hz",
-        "125Hz",
-        "250Hz",
-        "500Hz",
-        "1kHz",
-        "2kHz",
-        "4kHz",
-        "8kHz",
-        "16kHz",
-    ];
 
-    const [values, setValues] = useState([80, 80, 80, 70, 80, 80, 80, 30, 25, 30]);
-
-    const handleChange = (index, val) => {
-        const newVals = [...values];
-        newVals[index] = val;
-        setValues(newVals);
-    };
 
     const options = [
-        "Cycle Noise Control",
-        "Invoke Assistant",
-        "Play / Pause",
-        "Skip Forward",
-        "Skip Backward",
-        "Answer / End Call",
+        { icon: <PiSoundcloudLogoBold />, label: "Cycle Noise Control" },
+        { icon: <FaMicrophoneAlt />, label: "Invoke Assistant" },
+        { icon: <FaPlayCircle />, label: "Play / Pause" },
+        { icon: <IoPlaySkipForwardSharp />, label: "Skip Forward" },
+        { icon: <IoPlaySkipBack />, label: "Skip Backward" },
+        { icon: <MdWifiCalling3 />, label: "Answer / End Call" },
     ];
 
     const [leftSelected, setLeftSelected] = useState(0);
     const [rightSelected, setRightSelected] = useState(1);
 
     return (
-        <section className=" py-40  mx-8 max-w-4xl mx-auto  ">
+        <section className=" py-34  mx-8 max-w-4xl mx-auto  ">
 
             <h2 className="text-3xl font-semibold mb-2 textwhite">Hardware Controls </h2>
             <p className="text-sm mb-6">Calibrate your INDEV acoustic experience. </p>
@@ -79,7 +62,7 @@ export default function ContrlPanel() {
 
                     <div className="flex items-start justify-between mb-8">
                         <div>
-                            <p className="text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-1">
+                            <p className="text-xs font-semibold tracking-widest text-purple-400/60 uppercase mb-1">
                                 Active Noise Cancellation
                             </p>
                             <h2 className="text-lg font-bold text-white tracking-tight">
@@ -211,97 +194,19 @@ export default function ContrlPanel() {
             </div>
 
             {/* 3 */}
-
             <div>
-                <div className=" flex items-center justify-center p-6">
-                    <div className="w-full max-w-6xl bg-[#0b0b0b] rounded-2xl p-8 border border-gray-800">
-                        {/* Header */}
-                        <div className="mb-6">
-                            <p className="text-xs mb-2 text-gray-500 tracking-widest uppercase">
-                                Graph Based Equalizer
-                            </p>
-                            <h1 className="text-2xl text-white font-semibold mt-1">
-                                Acoustic Tuning & Presets
-                            </h1>
-                        </div>
-
-                        {/* Presets */}
-                        <div className="flex gap-3 mb-10 flex-wrap">
-                            {["Studio Reference", "Low Frequency+", "Vocal Clarity", "High Fidelity"].map(
-                                (item, i) => (
-                                    <button
-                                        key={i}
-                                        className="px-4 py-2 text-sm rounded-full border border-gray-700 text-gray-300 hover:bg-gray-800 transition"
-                                    >
-                                        {item}
-                                    </button>
-                                )
-                            )}
-                            <button className="px-5 py-2 text-sm rounded-full bg-white text-black font-medium">
-                                Custom Profile
-                            </button>
-                        </div>
-
-                        {/* Sliders */}
-                        <div className="flex items-end justify-between pt-8  ">
-                            {values.map((val, i) => (
-                                <div key={i} className="flex flex-col items-center w-full">
-                                    <div className="relative flex items-end justify-center h-50 w-3">
-                                        {/* Track */}
-                                        <div className="absolute w-1.5 h-full bg-gray-700 rounded-full" />
-
-                                        {/* Active Track */}
-                                        <div
-                                            className="absolute w-1 bg-blue-500 rounded-full bottom-0"
-                                            style={{ height: `${val}%` }}
-                                        />
-
-                                        {/* Thumb */}
-                                        <input
-                                            type="range"
-                                            min="0"
-                                            max="100"
-                                            value={val}
-                                            onChange={(e) => handleChange(i, e.target.value)}
-                                            className="absolute w-full h-full opacity-0 cursor-pointer"
-                                        />
-
-                                        <div
-                                            className="absolute w-4 h-4 bg-blue-500 rounded-full shadow-lg"
-                                            style={{ bottom: `calc(${val}% - 8px)` }}
-                                        />
-                                    </div>
-
-                                    <span className="text-xs text-gray-500 mt-3">{frequencies[i]}</span>
-                                </div>
-                            ))}
-                        </div>
-
-
-                        <div className="flex justify-between items-center mt-10">
-                            <button className="text-xs text-gray-500 uppercase tracking-wider">
-                                Reset Flat
-                            </button>
-                            <button className="px-6 py-2 rounded-full bg-white text-black text-sm font-medium">
-                                Save to Device
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <Equalizer />
             </div>
-
 
             {/* 4 */}
 
-            <div className=" my-4 mb-8 flex items-center justify-center p-6">
-                <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-12">
-
-
+            <div className=" mt-2  flex items-center justify-center">
+                <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="bg-[#0b0b0b] border border-gray-800 rounded-2xl p-6 transition hover:border-gray-600">
                         <p className="text-xs text-gray-500 tracking-widest uppercase flex items-center gap-2 mb-1">
-                            <span>#</span> HARDWARE MAPPING
+                            <span className="text-md  textwhite"><BsBlockquoteLeft /></span> HARDWARE MAPPING
                         </p>
-                        <h2 className="text-white text-sm font-semibold mb-6">
+                        <h2 className="text-white text-sm font-semibold  mt-2 mb-3">
                             Left Chassis Button
                         </h2>
 
@@ -318,9 +223,9 @@ export default function ContrlPanel() {
                                                 : "text-gray-500 hover:text-white hover:bg-[#121212]"}`}
                                     >
                                         <div className="flex items-center gap-3">
-                                            <span>#</span>
+                                            <span className="text-[0.7rem]  text-purple-400">{item.icon}</span>
                                             <span className={`text-[0.7rem] ${active ? "text-white" : ""}`}>
-                                                {item}
+                                                {item.label}
                                             </span>
                                         </div>
 
@@ -334,9 +239,9 @@ export default function ContrlPanel() {
 
                     <div className="bg-[#0b0b0b] border border-gray-800 rounded-2xl p-6 transition hover:border-gray-600">
                         <p className="text-xs text-gray-500 tracking-widest uppercase flex items-center gap-2 mb-1">
-                            <span>#</span> HARDWARE MAPPING
+                            <span className="text-md  textwhite"><BsBlockquoteLeft /></span> HARDWARE MAPPING
                         </p>
-                        <h2 className="text-white text-sm font-semibold mb-6">
+                        <h2 className="text-white text-sm font-semibold mb-3 mt-2 ">
                             Right Chassis Button
                         </h2>
 
@@ -352,10 +257,12 @@ export default function ContrlPanel() {
                                                 ? "bg-gradient-to-r from-[#1a1a1a] to-[#111] border border-gray-500"
                                                 : "text-gray-500 hover:text-white hover:bg-[#121212]"}`}
                                     >
+
                                         <div className="flex items-center gap-3">
-                                            <span>#</span>
+
+                                            <span className="text-[0.7rem]  text-purple-400">{item.icon}</span>
                                             <span className={`text-[0.7rem] ${active ? "text-white" : ""}`}>
-                                                {item}
+                                                {item.label}
                                             </span>
                                         </div>
 
@@ -369,117 +276,46 @@ export default function ContrlPanel() {
                 </div>
             </div>
 
-            {/* 5
-            <div className=" justify-center  grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10   max-w-5xl mx-auto sm:p-6 md:p-10">
-                <div className="  border border-white rounded-xl p-6 w-[45%] ">
-                    <p className="text-xs uppercase mb-1.5">Firmware Update Section</p>
-                    <h4 className="font-medium text-md textwhite">System Software </h4>
-
-                    <div className="border border-gray-600 rounded-xl p-4 my-4 px-6 ">
-                        <div className="flex  gap-6">
-                            <p className="text-sm font-medium textwhite">OS Build 2.6.4 Available</p>
-                            <button className="textwhite">New</button>
-                        </div>
-
-                        <p className="text-xs mr-8">Resolves multi-point dropouts and improves  ANC adaptive <br /> response times.</p>
-                        <button className="  textwhite  font-semibold  text-sm w-full  py-3 rounded-full   my-4
-                        border border-white"> Initiate Update </button>
-                    </div>
-                </div>
-
-                {/*  */}
-            {/* <div className="  border border-white rounded-xl p-6 px-8 w-[45%]">
-                    <p className="text-xs uppercase mb-1.5">Support Actions & Reset Options</p>
-                    <h4 className="font-medium text-md textwhite">Diagnostics & Warranty</h4>
-                    {/* a */}
-            {/* <div className="bg-purple-200  rounded-lg my-2  mt-4 flex p-2 items-center justify-between ">
-                        <div className="p-2  ">
-                            <p className="text-xs font-medium textwhite"> Factory Reset Options </p>
-                            <p className="text-[0.69rem]"> Restore factory defaults and wipe profiles</p>
-                        </div>
-                        <div> # </div>
-                    </div>
-
-                    {/* b */}
-            {/* <div className="bg-purple-200  rounded-lg my-2 flex  p-2  items-center justify-between ">
-                        <div className="p-2  ">
-                            <p className="text-xs font-medium textwhite">Replacement Request </p>
-                            <p className="text-[0.69rem]"> File a claim for defective hardware </p>
-                        </div>
-                        <div> # </div>
-                    </div> */}
-
-            {/* c
-                    <div className="bg-purple-200  rounded-lg my-2 flex  p-2 items-center justify-between ">
-                        <div className="p-2  ">
-                            <p className="text-xs font-medium textwhite"> Return Status </p>
-                            <p className="text-[0.69rem]"> Track your 7-day return processing </p>
-                        </div>
-                        <div> # </div>
-                    </div> */}
-            {/* 
-                </div>
-            </div> */}
-
-
-
-
-
-
             {/* 5 */}
-
-
-            <div className="  flex items-center justify-center p-4  sm:p-6 md:p-10">
-
-                {/* GRID CONTAINER */}
-                <div className=" grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 ">
-
+            <div className="max-w-5xl mx-auto flex items-center justify-center mt-8 ">
+                <div className=" grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10 ">
                     {/* LEFT CARD */}
-                    <div className="border border-white/20 rounded-2xl p-5 sm:p-6 md:p-8">
-
+                    <div className="border border-white/20 rounded-2xl p-5 sm:p-6 md:p-8  bg-[#090909]">
                         <p className=" text-xs uppercase ">
                             Firmware Update Section
                         </p>
-
                         <h2 className="text-md  font-semibold mt-1  text-white">
                             System Software
                         </h2>
 
-                        {/* Inner Box */}
                         <div className="mt-5 border border-white/20 rounded-xl p-4 sm:p-5 md:p-6">
-
                             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                                <h3 className="text-xs font-medium">
+                                <h3 className="text-xs font-medium text-purple-400/60 uppercase">
                                     OS Build 2.6.4 Available
                                 </h3>
-                                <span className="text-xs text-gray-300">New</span>
+                                <span className=" text-[0.7rem] text-white/80  bg-white/20 px-2 py-0.5 rounded-full">
+                                    New
+                                </span>
                             </div>
-
                             <p className="text-[0.7rem] mt-3">
                                 Resolves multi-point dropouts and improves ANC adaptive response times.
                             </p>
-
-                            <button className="mt-5 w-full text-xs py-2 border border-white/30 rounded-full hover:bg-white hover:text-black transition">
+                            <button className="mt-5 text-white  w-full text-[0.7rem] py-2 border border-white/30 rounded-full hover:bg-white hover:text-black transition">
                                 Initiate Update
                             </button>
-
                         </div>
                     </div>
 
                     {/* RIGHT CARD */}
-                    <div className="border border-white/20 rounded-2xl p-5 sm:p-6 md:p-8">
-
+                    <div className="border border-white/20 rounded-2xl p-5 sm:p-6 md:p-8  bg-[#090909]">
                         <p className="  text-xs uppercase">
                             Support Actions & Reset Options
                         </p>
-
                         <h2 className="text-md  font-semibold mt-1  text-white">
                             Diagnostics & Warranty
                         </h2>
-
                         {/* OPTIONS */}
-                        <div className="mt-5 space-y-3">
-
+                        <div className="mt-5 space-y-3 ">
                             {[
                                 "Factory Reset Options",
                                 "Replacement Request",
@@ -487,29 +323,26 @@ export default function ContrlPanel() {
                             ].map((item, i) => (
                                 <div
                                     key={i}
-                                    className="bg-purple-200/80 text-black rounded-xl p-4 flex items-center justify-between"
+                                    className="  border border-white/30 rounded-xl p-3 flex items-center justify-between"
                                 >
                                     <div>
-                                        <p className="font-medium text-xs">
+                                        <p className=" text-[0.7rem]   text-purple-400/60 ">
                                             {item}
                                         </p>
-                                        <p className="text-[0.7rem] opacity-70">
+                                        <p className="text-[0.6rem] opacity-70 ">
                                             {i === 0 && "Restore factory defaults and wipe profiles"}
                                             {i === 1 && "File a claim for defective hardware"}
                                             {i === 2 && "Track your 7-day return processing"}
                                         </p>
                                     </div>
-
-                                    <span className="text-md">#</span>
+                                    <span className="text-md text-[#C07AFF]"> <PiHeadsetFill /> </span>
                                 </div>
                             ))}
-
                         </div>
                     </div>
-
                 </div>
-            </div>
 
+            </div>
 
 
 
@@ -520,88 +353,3 @@ export default function ContrlPanel() {
         </section>
     );
 }
-
-// export default function FirmwareUI() {
-//     return (
-//         <div className="min-h-screen bg-black text-white flex items-center justify-center p-4 sm:p-6 md:p-10">
-
-//             {/* GRID CONTAINER */}
-//             <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
-
-//                 {/* LEFT CARD */}
-//                 <div className="border border-white/20 rounded-2xl p-5 sm:p-6 md:p-8">
-
-//                     <p className="text-gray-400 text-sm sm:text-base">
-//                         Firmware Update Section
-//                     </p>
-
-//                     <h2 className="text-lg sm:text-xl md:text-2xl font-semibold mt-1">
-//                         System Software
-//                     </h2>
-
-//                     {/* Inner Box */}
-//                     <div className="mt-5 border border-white/20 rounded-xl p-4 sm:p-5 md:p-6">
-
-//                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-//                             <h3 className="text-sm sm:text-base md:text-lg font-medium">
-//                                 OS Build 2.6.4 Available
-//                             </h3>
-//                             <span className="text-sm text-gray-300">New</span>
-//                         </div>
-
-//                         <p className="text-gray-400 text-xs sm:text-sm mt-2">
-//                             Resolves multi-point dropouts and improves ANC adaptive response times.
-//                         </p>
-
-//                         <button className="mt-5 w-full sm:w-auto px-6 py-2 border border-white/30 rounded-full hover:bg-white hover:text-black transition">
-//                             Initiate Update
-//                         </button>
-
-//                     </div>
-//                 </div>
-
-//                 {/* RIGHT CARD */}
-//                 <div className="border border-white/20 rounded-2xl p-5 sm:p-6 md:p-8">
-
-//                     <p className="text-gray-400 text-sm sm:text-base">
-//                         Support Actions & Reset Options
-//                     </p>
-
-//                     <h2 className="text-lg sm:text-xl md:text-2xl font-semibold mt-1">
-//                         Diagnostics & Warranty
-//                     </h2>
-
-//                     {/* OPTIONS */}
-//                     <div className="mt-5 space-y-3">
-
-//                         {[
-//                             "Factory Reset Options",
-//                             "Replacement Request",
-//                             "Return Status",
-//                         ].map((item, i) => (
-//                             <div
-//                                 key={i}
-//                                 className="bg-purple-200/80 text-black rounded-xl p-4 sm:p-5 flex items-center justify-between"
-//                             >
-//                                 <div>
-//                                     <p className="font-medium text-sm sm:text-base">
-//                                         {item}
-//                                     </p>
-//                                     <p className="text-xs sm:text-sm opacity-70">
-//                                         {i === 0 && "Restore factory defaults and wipe profiles"}
-//                                         {i === 1 && "File a claim for defective hardware"}
-//                                         {i === 2 && "Track your 7-day return processing"}
-//                                     </p>
-//                                 </div>
-
-//                                 <span className="text-lg">#</span>
-//                             </div>
-//                         ))}
-
-//                     </div>
-//                 </div>
-
-//             </div>
-//         </div>
-//     );
-// }

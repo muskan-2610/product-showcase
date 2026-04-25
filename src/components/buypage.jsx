@@ -4,9 +4,6 @@ import { IoCheckboxSharp } from "react-icons/io5";
 import { FaCcAmazonPay } from "react-icons/fa";
 import { GiPayMoney } from "react-icons/gi";
 import { RiCornerUpRightDoubleFill } from "react-icons/ri";
-import { PiArrowBendDoubleUpRightFill } from "react-icons/pi";
-import { TbArrowElbowRight } from "react-icons/tb";
-import { TiArrowForward } from "react-icons/ti";
 import { TbArrowBadgeRightFilled } from "react-icons/tb";
 
 
