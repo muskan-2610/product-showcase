@@ -10,23 +10,33 @@ import { useState, useEffect, useRef } from "react";
 const SLIDER_IMAGES = [
     {
         id: 1,
-        src: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=900&q=80",
+        src: "/img1.jpeg",
         alt: "Headphone showcase 1",
     },
     {
         id: 2,
-        src: "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=900&q=80",
+        src: "/img2.jpg",
         alt: "Headphone showcase 2",
     },
     {
         id: 3,
-        src: "https://images.unsplash.com/photo-1487215078519-e21cc028cb29?w=900&q=80",
+        src: "/img3.png",
         alt: "Headphone showcase 3",
     },
     {
         id: 4,
-        src: "https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?w=900&q=80",
+        src: "/img4.png",
         alt: "Headphone showcase 4",
+    },
+        {
+        id: 5,
+        src: "/img5.png",
+        alt: "Headphone showcase 5",
+    },
+        {
+        id: 6,
+        src: "/img6.png",
+        alt: "Headphone showcase 6",
     },
 ];
 
@@ -46,8 +56,9 @@ const BADGES = [
 
 const NAV_LINKS = ["HOME", "SHOWCASE", "FEATURES", "PURCHASE"];
 const SLIDE_INTERVAL = 3500;
+const SLIDE_TRANSITION_MS = 700;
 
-export default function HeroSection() {
+export default function Hero() {
     const [current, setCurrent] = useState(0);
     const [prevIdx, setPrevIdx] = useState(null);
     const timerRef = useRef(null);
@@ -56,7 +67,7 @@ export default function HeroSection() {
         if (idx === current) return;
         setPrevIdx(current);
         setCurrent(idx);
-        setTimeout(() => setPrevIdx(null), 700);
+        setTimeout(() => setPrevIdx(null), SLIDE_TRANSITION_MS);
     };
 
     const goNext = () => goTo((current + 1) % SLIDER_IMAGES.length);
@@ -80,6 +91,45 @@ export default function HeroSection() {
                 background: "#020812",
             }}
         >
+            {/* ── Synced hero background slider ── */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                {SLIDER_IMAGES.map((img, idx) => {
+                    const isActive = idx === current;
+                    const isExit = idx === prevIdx;
+                    return (
+                        <div
+                            key={`bg-${img.id}`}
+                            className="absolute inset-0"
+                            style={{
+                                opacity: isActive ? 0.6 : 0,
+                                transform: isActive
+                                    ? "scale(1) translateX(0px)"
+                                    : isExit
+                                        ? "scale(1.08) translateX(-36px)"
+                                        : "scale(1.12) translateX(36px)",
+                                transition: `opacity ${SLIDE_TRANSITION_MS}ms ease, transform ${SLIDE_TRANSITION_MS}ms ease`,
+                                willChange: "opacity, transform",
+                            }}
+                        >
+                            <img
+                                src={img.src}
+                                alt=""
+                                aria-hidden="true"
+                                className="h-full w-full object-cover object-center"
+                                loading={idx === 0 ? "eager" : "lazy"}
+                            />
+                        </div>
+                    );
+                })}
+                <div
+                    className="absolute inset-0"
+                    style={{
+                        background:
+                            "linear-gradient(120deg, rgba(2,8,18,0.88) 0%, rgba(2,8,18,0.72) 45%, rgba(2,8,18,0.9) 100%)",
+                    }}
+                />
+            </div>
+
             {/* Google Fonts */}
             {/* <link
                 href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap"
@@ -87,13 +137,13 @@ export default function HeroSection() {
             /> */}
 
             {/* ── Background atmospheric glow ── */}
-            <div
+            {/* <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
                     background:
                         "radial-gradient(ellipse 75% 60% at 65% 90%, rgba(255, 113, 253, 0.85) 0%, transparent 65%), radial-gradient(ellipse 45% 45% at 15% 45%, rgba(4,12,55,0.6) 0%, transparent 65%), radial-gradient(ellipse 60% 70% at 70% 50%, rgba(0,180,200,0.05) 0%, transparent 70%)",
                 }}
-            />
+            /> */}
 
             {/* ── Outer glowing border frame ── */}
             {/* <div
@@ -132,23 +182,6 @@ export default function HeroSection() {
                 ))}
             </div>
 
-            {/* ── HEADER ── */}
-            {/* <header className="relative z-30 flex items-center justify-between px-10 md:px-16 lg:px-24 pt-5 pb-2">
-                <span
-                    className="text-white tracking-[0.18em] text-[2.1rem]"
-                    style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-                >
-                    SONIQ
-                </span>
-                <div className="flex flex-col items-end">
-                    <span className="text-[9px] tracking-[0.28em] text-blue-400 uppercase font-semibold">
-                        ✦ NEXT-GEN AUDIO
-                    </span>
-                    <span className="hidden sm:block text-[8px] tracking-[0.2em] text-gray-500 uppercase mt-0.5">
-                        SONIQ Headphones Landing Page
-                    </span>
-                </div>
-            </header> */}
 
             {/* ── MAIN CONTENT ── */}
             <main className="relative z-20 flex flex-col lg:flex-row items-center  px-10 md:px-14 lg:px-20 xl:px-28 pb-10 gap-8 lg:gap-6">

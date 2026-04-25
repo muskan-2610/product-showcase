@@ -1,7 +1,9 @@
 "use client"
 
 import * as React from "react"
-import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
+import { XAxis, YAxis, Area, AreaChart } from "recharts"
+import { Clock3, Volume2 } from "lucide-react"
+
 
 import {
     Card,
@@ -118,52 +120,64 @@ const chartConfig = {
         label: "Page Views",
     },
     desktop: {
-        label: "Desktop",
+        label: "Total Listening Time",
         color: "var(--chart-1)",
     },
     mobile: {
-        label: "Mobile",
+        label: "Noise Exposure",
         color: "var(--chart-2)",
     },
 } satisfies ChartConfig
 
+const chartCardMeta = {
+    desktop: {
+        icon: Clock3,
+        metric: "128 h 42 m",
+        subLabel: "This Month",
+    },
+    mobile: {
+        icon: Volume2,
+        metric: "42 dB",
+        subLabel: "Average",
+    },
+} as const
+
 export function ChartLineInteractive() {
     const [activeChart, setActiveChart] =
-        React.useState<keyof typeof chartConfig>("desktop")
-
-    const total = React.useMemo(
-        () => ({
-            desktop: chartData.reduce((acc, curr) => acc + curr.desktop, 0),
-            mobile: chartData.reduce((acc, curr) => acc + curr.mobile, 0),
-        }),
-        []
-    )
+        React.useState<keyof typeof chartCardMeta>("desktop")
 
     return (
-        <Card className="py-4 sm:py-0">
+        <Card className="py-4 sm:py-0 bg-[#020202] border border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.02)]">
             <CardHeader className="flex flex-col items-stretch border-b p-0! sm:flex-row">
                 <div className="flex flex-1 flex-col justify-center gap-1 px-6 pb-3 sm:pb-0">
-                    <CardTitle  className="text-lg font-semibold" >Listening Insights</CardTitle>
+                    <CardTitle className="text-lg font-semibold text-white" >Listening Insights</CardTitle>
                     <CardDescription>
                         Monitor your acoustic environment and usage.
                     </CardDescription>
                 </div>
-                <div className="flex">
-                    {["desktop", "mobile"].map((key) => {
-                        const chart = key as keyof typeof chartConfig
+                <div className="grid flex-1 grid-cols-1 gap-3 p-4 sm:grid-cols-2 sm:gap-4 sm:p-5">
+                    {(Object.keys(chartCardMeta) as Array<keyof typeof chartCardMeta>).map((chart) => {
+                        const Icon = chartCardMeta[chart].icon
                         return (
                             <button
                                 key={chart}
                                 data-active={activeChart === chart}
-                                className="flex flex-1 flex-col justify-center gap-1 border-t px-6 py-4 text-left even:border-l data-[active=true]:bg-muted/50 sm:border-t-0 sm:border-l sm:px-8 sm:py-6"
+                                className="group relative flex  flex-1 flex-col justify-center gap-3 rounded-2xl border border-white/10 bg-[radial-gradient(130%_120%_at_0%_0%,rgb(221, 93, 243)_0%,rgba(7,10,28,0.98)_52%,rgba(4,8,24,0.98)_100%)]
+                                 hover:border-purple-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] 
+                                            transition duration-300
+                                 px-6 py-3 text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_0_24px_rgba(88,28,135,0.22)] transition duration-300 hover:border-violet-300/45 data-[active=true]:border-violet-300/70 data-[active=true]:shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_0_34px_rgba(139,92,246,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/70"
                                 onClick={() => setActiveChart(chart)}
                             >
-                                <span className="text-xs text-muted-foreground text-purple-600">
+                                <span className="inline-flex items-center gap-2 text-xs text-white/85">
+                                    <span className="inline-flex h-4 w-4 items-center justify-center rounded-full border border-violet-400/40 bg-violet-500/10 text-violet-300 ">
+                                        <Icon className="h-3 w-3" />
+                                    </span>
                                     {chartConfig[chart].label}
                                 </span>
-                                <span className="text-lg leading-none font-bold sm:text-3xl">
-                                    {total[key as keyof typeof total].toLocaleString()}
+                                <span className="text-lg leading-none font-semibold tracking-tight text-white ">
+                                    {chartCardMeta[chart].metric}
                                 </span>
+                                <span className="text-[0.7rem] text-gray-300/80">{chartCardMeta[chart].subLabel}</span>
                             </button>
                         )
                     })}
@@ -174,7 +188,7 @@ export function ChartLineInteractive() {
                     config={chartConfig}
                     className="aspect-auto h-[250px] w-full"
                 >
-                    <LineChart
+                    <AreaChart
                         accessibilityLayer
                         data={chartData}
                         margin={{
@@ -182,7 +196,7 @@ export function ChartLineInteractive() {
                             right: 12,
                         }}
                     >
-                        <CartesianGrid vertical={false} />
+
                         <XAxis
                             dataKey="date"
                             tickLine={false}
@@ -197,6 +211,15 @@ export function ChartLineInteractive() {
                                 })
                             }}
                         />
+                        <YAxis
+                            dataKey={activeChart}
+                            tickLine={false}
+                            axisLine={false}
+                            tickMargin={8}
+                            width={44}
+                            tickFormatter={(value) => Number(value).toLocaleString()}
+                        />
+        
                         <ChartTooltip
                             content={
                                 <ChartTooltipContent
@@ -212,14 +235,16 @@ export function ChartLineInteractive() {
                                 />
                             }
                         />
-                        <Line
+                        <Area
                             dataKey={activeChart}
                             type="monotone"
+                            fill="#A334FF"
+                            fillOpacity={0.2}
                             stroke={`var(--color-${activeChart})`}
                             strokeWidth={2}
                             dot={false}
                         />
-                    </LineChart>
+                    </AreaChart>
                 </ChartContainer>
             </CardContent>
         </Card>

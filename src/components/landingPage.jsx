@@ -1,4 +1,4 @@
-
+import Hero from "./herosection";
 
 import { LuBrain } from "react-icons/lu";
 import { FaBatteryFull } from "react-icons/fa6";
@@ -97,7 +97,7 @@ export default function HeroSection() {
 
 
 
-
+            <div><Hero /></div>
 
 
             {/* 1a */}

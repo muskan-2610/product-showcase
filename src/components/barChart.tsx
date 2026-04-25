@@ -19,13 +19,13 @@ import {
 export const description = "A bar chart"
 
 const chartData = [
-    { day: "Mon", desktop: 186 },
-    { day: "Tue", desktop: 305 },
-    { day: "Wed", desktop: 80 },
-    { day: "Thu", desktop: 240 },
-    { day: "Fri", desktop: 209 },
-    { day: "Sat", desktop: 122 },
-    { day: "Sun", desktop: 315 },
+    { day: "Mon", desktop: 10 },
+    { day: "Tue", desktop: 5 },
+    { day: "Wed", desktop: 8 },
+    { day: "Thu", desktop: 13 },
+    { day: "Fri", desktop: 18 },
+    { day: "Sat", desktop: 7 },
+    { day: "Sun", desktop: 16 },
 ]
 
 const chartConfig = {
@@ -37,7 +37,7 @@ const chartConfig = {
 
 export function ChartBarDefault() {
     return (
-        <Card>
+        <Card className="bg-[#020202] border border-white/10 shadow-[0_0_30px_rgba(255,255,255,0.02)]">
             <CardHeader>
                 <CardTitle>Utilization (Hours)</CardTitle>
 
@@ -45,7 +45,7 @@ export function ChartBarDefault() {
             <CardContent>
                 <ChartContainer config={chartConfig}>
                     <BarChart accessibilityLayer data={chartData}>
-                        <CartesianGrid vertical={false} />
+                        
                         <XAxis
                             dataKey="day"
                             tickLine={false}
@@ -65,7 +65,7 @@ export function ChartBarDefault() {
                             cursor={false}
                             content={<ChartTooltipContent hideLabel />}
                         />
-                        <Bar dataKey="desktop" fill="var(--color-desktop)" radius={8} />
+                        <Bar dataKey="desktop" fill="#B070EA" radius={8} />
                     </BarChart>
                 </ChartContainer>
             </CardContent>

@@ -1,23 +1,7 @@
-// export default function NavBar() {
-//     return (
-//         <div className="bg-pink-200  mb-6 flex justify-between items-center p-4  bg-black/30 px-24  backdrop-blur-lg  mt-3
-//             shadow-md rounded-xl  w-[80vw]  h-14  fixed top-2 left-[50%]  z-100  -translate-x-1/2 ">
-//             <div className=""> <span> # </span> NavBar </div>
-
-//             <div className="flex gap-6">
-//                 <a href="/"> Home </a>
-//                 <a href="/features"> Features</a>
-//                 <a href="/buy">Buy</a>
-//                 <a href="/dashboard">Dashboard</a>
-//                 <a href="/controls">Control Panel</a>
-//             </div>
-
-//         </div>
-//     )
-// }
 
 import { useState } from "react";
 import { TfiMenuAlt } from "react-icons/tfi";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -34,11 +18,11 @@ export default function NavBar() {
 
                 {/* Desktop Nav */}
                 <div className="hidden md:flex gap-5 lg:gap-7 text-xs">
-                    <a href="/" className="hover:text-purple-400 transition">Home</a>
-                    <a href="/features" className="hover:text-purple-400 transition">Features</a>
-                    <a href="/buy" className="hover:text-purple-400 transition">Buy</a>
-                    <a href="/dashboard" className="hover:text-purple-400 transition">Dashboard</a>
-                    <a href="/controls" className="hover:text-purple-400 transition">Control Panel</a>
+                    <Link to="/" className="hover:text-purple-400 transition">Home</Link>
+                    <Link to="/features" className="hover:text-purple-400 transition">Features</Link>
+                    <Link to="/buy" className="hover:text-purple-400 transition">Buy</Link>
+                    <Link to="/dashboard" className="hover:text-purple-400 transition">Dashboard</Link>
+                    <Link to="/controls" className="hover:text-purple-400 transition">Control Panel</Link>
                 </div>
 
                 {/* Mobile / Medium Menu Button */}
