@@ -26,12 +26,36 @@ h4 {
 }
 
 
+.typing-text {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: typingLoop 4s steps(13, end) infinite;
+}
+
+@keyframes typingLoop {
+    0% {
+        width: 0;
+    }
+
+    40% {
+        width: 18ch;
+    }
+
+    75% {
+        width: 18ch;
+    }
+
+    100% {
+        width: 0;
+    }
+}
 
 .dummy-card {
     background: linear-gradient(to left, #000000 50%, #C07AFF 100%);
     background-size: 200% 200%;
     background-position: right center;
-    transition: background-position 0.5s ;
+    transition: background-position 0.5s;
 }
 
 .dummy-card:hover {

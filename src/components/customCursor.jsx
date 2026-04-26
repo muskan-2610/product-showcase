@@ -61,7 +61,7 @@ const CustomCursor = () => {
           transition: 'width 0.2s, height 0.2s',
         }}
       >
-        <IoHeadset className='text-2xl  text-blue-500' />
+        <IoHeadset className='text-2xl  text-[#67FFF1]' />
       </div>
 
       {/* Circle follower */}
@@ -72,7 +72,7 @@ const CustomCursor = () => {
         style={{
           transform: 'translate(-50%, -50%)',
           transition: 'width 0.2s, height 0.2s, border-color 0.2s',
-          boxShadow: '0 0 20px rgba(59, 130, 246, 0.6), 0 0 40px rgba(59, 130, 246, 0.3), inset 0 0 20px rgba(59, 130, 246, 0.2)',
+          boxShadow: '0 0 20px rgba(59, 246, 243, 0.6), 0 0 40px rgba(59, 246, 224, 0.3), inset 0 0 20px rgba(58, 244, 216, 0.52)',
         }}
       />
     </>

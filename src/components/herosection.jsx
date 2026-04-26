@@ -132,14 +132,6 @@ export default function Hero() {
                 />
             </div>
 
-            {/* ── Background atmospheric glow ── */}
-            {/* <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                    background:
-                        "radial-gradient(ellipse 75% 60% at 65% 90%, rgba(163, 85, 162, 0.58) 0%, transparent 65%), radial-gradient(ellipse 45% 45% at 15% 45%, rgba(4,12,55,0.6) 0%, transparent 65%), radial-gradient(ellipse 60% 70% at 70% 50%, rgba(0,180,200,0.05) 0%, transparent 70%)",
-                }}
-            /> */}
 
             {/* {/* ── SCROLL TO EXPLORE — left vertical ──  */}
             <div className="absolute left-5 top-1/2 -translate-y-1/2 z-30 hidden md:flex flex-col items-center gap-3">
@@ -181,7 +173,7 @@ export default function Hero() {
 
                     {/* Hero Heading */}
                     <h1
-                        className="leading-[0.88] tracking-[0.01em]  mb-4"
+                        className="leading-[0.88] tracking-[0.01em]  mb-4 typing-text"
                         style={{
                             fontFamily: "'Bebas Neue', sans-serif",
                             fontSize: "5rem",
@@ -191,7 +183,10 @@ export default function Hero() {
                     >
                         Hear Only
                         <br />
-                        What Matters.
+                        <span className="">
+                            What Matters.
+                        </span>
+
                     </h1>
 
                     <p
