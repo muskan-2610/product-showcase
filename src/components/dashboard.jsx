@@ -117,9 +117,7 @@ export default function Dashboard() {
 
                             {/* Glow Button */}
                             <button className="mt-6 w-full py-3 rounded-full border border-purple-500/30 text-purple-300 
-                            hover:bg-purple-500/10 hover:border-purple-400 
-                            hover:shadow-[0_0_20px_rgba(168,85,247,0.6)] 
-                            transition duration-300">
+                            hover:bg-purple-500/10 hover:border-purple-400  hover:shadow-[0_0_20px_rgba(168,85,247,0.6)]  transition duration-300">
                                 Modify Profile
                             </button>
                         </div>

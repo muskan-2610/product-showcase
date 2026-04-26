@@ -12,7 +12,6 @@ import { GrUpdate } from "react-icons/gr";
 import { PiNumberCircleSevenFill } from "react-icons/pi";
 import { FaMapLocationDot } from "react-icons/fa6";
 //
-
 import { BiSolidBrain } from "react-icons/bi";
 import { AiFillSound } from "react-icons/ai";
 import { BsFillFileSpreadsheetFill } from "react-icons/bs";
@@ -193,7 +192,6 @@ export default function HeroSection() {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 

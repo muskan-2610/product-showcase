@@ -31,8 +31,6 @@ export default function ControlPanel() {
     };
 
     // 3
-
-
     const options = [
         { icon: <PiSoundcloudLogoBold />, label: "Cycle Noise Control" },
         { icon: <FaMicrophoneAlt />, label: "Invoke Assistant" },
@@ -293,7 +291,7 @@ export default function ControlPanel() {
                             System Software
                         </h2>
 
-                        <div className="mt-5 border border-white/20 rounded-xl p-4 sm:p-5 md:p-6">
+                        <div className="mt-5 border border-white/20 rounded-xl p-4 sm:p-5 md:p-6  hover:bg-purple-500/10 hover:border-purple-400  hover:shadow-[0_0_20px_rgba(168,85,247,0.6)]">
                             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                                 <h3 className="text-xs font-medium text-purple-400/60 uppercase">
                                     OS Build 2.6.4 Available
@@ -312,7 +310,8 @@ export default function ControlPanel() {
                     </div>
 
                     {/* RIGHT CARD */}
-                    <div className="border border-white/20 rounded-2xl p-5 sm:p-6 md:p-8  bg-[#090909]">
+                    <div className="border border-white/20 rounded-2xl p-5 sm:p-6 md:p-8  bg-[#090909]
+                    ">
                         <p className="  text-xs uppercase">
                             Support Actions & Reset Options
                         </p>
@@ -328,7 +327,8 @@ export default function ControlPanel() {
                             ].map((item, i) => (
                                 <div
                                     key={i}
-                                    className="  border border-white/30 rounded-xl p-3 flex items-center justify-between"
+                                    className="  border border-white/30 rounded-xl p-3 flex items-center justify-between
+                                    hover:bg-purple-500/10 hover:border-purple-400  hover:shadow-[0_0_20px_rgba(168,85,247,0.6)]"
                                 >
                                     <div>
                                         <p className=" text-[0.7rem]   text-purple-400/60 ">
@@ -348,13 +348,6 @@ export default function ControlPanel() {
                 </div>
 
             </div>
-
-
-
-
-
-
-
         </section>
     );
 }

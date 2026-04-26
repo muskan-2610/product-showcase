@@ -58,7 +58,7 @@ function StepTracker({ currentStep, onStepClick }) {
                             >
                                 <span
                                     className={`inline-flex h-13 w-13 items-center justify-center rounded-full border  text-sm font-semibold transition ${complete
-                                        ? " border-2 border-purple-500 bg-white text-black"
+                                        ? " border-2 border-purple-500 bg-white text-black  "
                                         : "border-white/15 bg-black text-white/35"
                                         }`}
                                 >
@@ -113,7 +113,9 @@ function EditionStep({ finish, setFinish, edition, setEdition, next }) {
                             key={item.id}
                             type="button"
                             onClick={() => setEdition(item.id)}
-                            className={`rounded-3xl border bg-[#090909] p-6 text-left transition ${active ? "border-white/60" : "border-white/10 hover:border-white/35"
+                            className={`rounded-3xl border bg-[#090909]
+                                    hover:bg-purple-500/10 hover:border-purple-400  hover:shadow-[0_0_20px_rgba(168,85,247,0.6)] 
+                                p-6 text-left transition ${active ? "border-white/60" : "border-white/10 hover:border-white/35"
                                 }`}
                         >
                             <div className="mb-6 flex items-center justify-between text-lg font-medium">
@@ -124,7 +126,7 @@ function EditionStep({ finish, setFinish, edition, setEdition, next }) {
                             <div className="space-y-2">
                                 {item.features.map((feature) => (
                                     <p key={feature} className="flex items-center gap-3 text-xs text-white/80">
-                                        <span className="purple"><RiCornerUpRightDoubleFill/></span>
+                                        <span className="purple"><RiCornerUpRightDoubleFill /></span>
                                         {feature}
                                     </p>
                                 ))}
@@ -138,9 +140,10 @@ function EditionStep({ finish, setFinish, edition, setEdition, next }) {
                 <button
                     type="button"
                     onClick={next}
-                    className="inline-flex h-11 gap-1.5 items-center rounded-full bg-white px-8 text-sm font-medium text-black transition hover:bg-white/90"
+                    className="inline-flex h-11 gap-1.5 items-center rounded-full bg-white px-8 text-sm font-medium text-black transition hover:bg-white/90 hover:bg-purple-500/10 hover:border-purple-400 
+                            hover:shadow-[0_0_20px_rgba(168,85,247,0.6)]"
                 >
-                    Continue  <FaRegHandPointRight/>
+                    Continue  <FaRegHandPointRight />
                 </button>
             </div>
         </>
@@ -166,6 +169,7 @@ function ShippingStep({ shipping, setShipping, back, next }) {
                         value={shipping.fullName}
                         onChange={(event) => updateField("fullName", event.target.value)}
                         placeholder="Jane Doe"
+
                     />
                 </label>
                 <label className="text-xs tracking-[0.16em] purple">
@@ -219,7 +223,7 @@ function ShippingStep({ shipping, setShipping, back, next }) {
                     onClick={next}
                     className="inline-flex h-11  gap-1.5 items-center rounded-full bg-white px-8 text-sm font-medium text-black transition hover:bg-white/90"
                 >
-                    Continue <FaRegHandPointRight/>
+                    Continue <FaRegHandPointRight />
                 </button>
             </div>
         </>
@@ -235,7 +239,9 @@ function ReviewStep({ finishLabel, editionData, subtotal, shipping, promoCode, s
 
             <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_0.95fr]">
                 <div className="space-y-6">
-                    <div className="rounded-2xl border border-white/10 p-6">
+                    <div className="rounded-2xl border border-white/10 p-6 
+                    hover:bg-purple-500/10 hover:border-purple-400 
+                            hover:shadow-[0_0_20px_rgba(168,85,247,0.6)] ">
                         <p className="text-xs tracking-[0.2em] text-white/35">HARDWARE</p>
                         <div className="mt-2 flex items-center justify-between text-lg text-white">
                             <p>{editionData.name}</p>
@@ -247,7 +253,9 @@ function ReviewStep({ finishLabel, editionData, subtotal, shipping, promoCode, s
                         </div>
                     </div>
 
-                    <div className="rounded-2xl border border-white/10 p-6">
+                    <div className="rounded-2xl border border-white/10 p-6
+                        hover:bg-purple-500/10 hover:border-purple-400 
+                            hover:shadow-[0_0_20px_rgba(168,85,247,0.6)] ">
                         <p className="text-xs tracking-[0.2em] text-white/35">DESTINATION</p>
                         <div className="mt-2 space-y-2 purple text-sm">
                             <p>{shipping.fullName || "Jane Doe"}</p>
@@ -259,7 +267,9 @@ function ReviewStep({ finishLabel, editionData, subtotal, shipping, promoCode, s
                     </div>
                 </div>
 
-                <div className="rounded-2xl border border-white/10 p-6">
+                <div className="rounded-2xl border border-white/10 p-6
+                    hover:bg-purple-500/10 hover:border-purple-400 
+                            hover:shadow-[0_0_20px_rgba(168,85,247,0.6)] ">
                     <p className="text-xs tracking-[0.2em] text-white">TOTAL</p>
                     <div className="mt-5 space-y-3 text-white/55">
                         <div className="flex justify-between text-sm">
@@ -298,9 +308,11 @@ function ReviewStep({ finishLabel, editionData, subtotal, shipping, promoCode, s
                     <button
                         type="button"
                         onClick={next}
-                        className="mt-5 h-10 w-full flex gap-1.5 justify-center items-center rounded-full bg-white text-base font-medium text-black transition hover:bg-white/90"
+                        className="mt-5 h-10 w-full flex gap-1.5 justify-center items-center rounded-full bg-white text-base font-medium text-black transition hover:bg-white/90
+                        hover:bg-purple-500/10 hover:border-purple-400 
+                            hover:shadow-[0_0_20px_rgba(168,85,247,0.6)] "
                     >
-                        Checkout <FaRegHandPointRight/>
+                        Checkout <FaRegHandPointRight />
                     </button>
                 </div>
             </div>
@@ -323,7 +335,9 @@ function PaymentStep({ card, setCard, amount, back, next }) {
             <h2 className="text-4xl font-semibold purple">Payment.</h2>
             <p className="mt-2 text-white/45 text-sm">Secure encrypted checkout.</p>
 
-            <div className="mt-6 rounded-2xl border border-white/10 bg-[#050505] p-6 sm:p-8">
+            <div className="mt-6 rounded-2xl border border-white/10 bg-[#050505] p-6 sm:p-8
+                hover:bg-purple-500/10 hover:border-purple-400 
+                            hover:shadow-[0_0_20px_rgba(168,85,247,0.6)] ">
                 <p className="text-center text-xs tracking-[0.2em] text-white/35">AMOUNT DUE</p>
                 <p className="mt-2 text-center text-5xl purple ">₹{amount}</p>
 
@@ -370,7 +384,7 @@ function PaymentStep({ card, setCard, amount, back, next }) {
                     </label>
                 </div>
 
-                <p className="mt-5 text-center text-xs text-white/35 flex justify-center gap-2 items-center"><IoMdDoneAll  className="purple "/> This is a simulated checkout.</p>
+                <p className="mt-5 text-center text-xs text-white/35 flex justify-center gap-2 items-center"><IoMdDoneAll className="purple " /> This is a simulated checkout.</p>
             </div>
 
             <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-6">
@@ -380,9 +394,10 @@ function PaymentStep({ card, setCard, amount, back, next }) {
                 <button
                     type="button"
                     onClick={next}
-                    className="inline-flex h-11 flex gap-1.5 justify-center items-center rounded-full bg-white px-10 text-sm font-medium text-black transition hover:bg-white/90"
+                    className="inline-flex h-11 flex gap-1.5 justify-center items-center rounded-full bg-white px-10 text-sm font-medium text-black transition hover:bg-white/90  hover:bg-purple-500/10 hover:border-purple-400 
+                            hover:shadow-[0_0_20px_rgba(168,85,247,0.6)] "
                 >
-                    Authorize Payment  <FaRegHandPointRight/>
+                    Authorize Payment  <FaRegHandPointRight />
                 </button>
             </div>
         </>
@@ -424,7 +439,9 @@ function ConfirmationStep({ amount, shipping }) {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
                 <Link
                     to="/"
-                    className="inline-flex h-11 items-center rounded-full border border-[#9F44FF]/35 px-10 text-sm text-white transition hover:border-[#9F44FF]/70"
+                    className="inline-flex h-11 items-center rounded-full border border-[#9F44FF]/35 px-10 text-sm text-white transition hover:border-[#9F44FF]/70
+                        hover:bg-purple-500/10 hover:border-purple-400 
+                            hover:shadow-[0_0_20px_rgba(168,85,247,0.6)] "
                 >
                     Return Home
                 </Link>

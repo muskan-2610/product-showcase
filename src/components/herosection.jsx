@@ -56,7 +56,7 @@ const BADGES = [
     { icon: < BsFillStopwatchFill />, label: "Long Term", sub: "Software Support" },
 ];
 
-const NAV_LINKS = ["HOME", "FEATURES", "BUY"];
+const NAV_LINKS = ["HOME", "FEATURES", "BUY ", "DASHBOARD"];
 const SLIDE_INTERVAL = 3500;
 const SLIDE_TRANSITION_MS = 700;
 
@@ -87,13 +87,13 @@ export default function Hero() {
 
     return (
         <div
-            className="relative min-h-screen w-full overflow-hidden text-white  pt-28"
+            className="relative min-h-screen w-full overflow-hidden text-white  pt-20 "
             style={{
                 fontFamily: "'Rajdhani', sans-serif",
                 background: "#020812",
             }}
         >
-            {/* ── Synced hero background slider ── */}
+            {/* hero background slider  */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 {SLIDER_IMAGES.map((img, idx) => {
                     const isActive = idx === current;
@@ -137,11 +137,11 @@ export default function Hero() {
                 className="absolute inset-0 pointer-events-none"
                 style={{
                     background:
-                        "radial-gradient(ellipse 75% 60% at 65% 90%, rgba(255, 113, 253, 0.85) 0%, transparent 65%), radial-gradient(ellipse 45% 45% at 15% 45%, rgba(4,12,55,0.6) 0%, transparent 65%), radial-gradient(ellipse 60% 70% at 70% 50%, rgba(0,180,200,0.05) 0%, transparent 70%)",
+                        "radial-gradient(ellipse 75% 60% at 65% 90%, rgba(163, 85, 162, 0.58) 0%, transparent 65%), radial-gradient(ellipse 45% 45% at 15% 45%, rgba(4,12,55,0.6) 0%, transparent 65%), radial-gradient(ellipse 60% 70% at 70% 50%, rgba(0,180,200,0.05) 0%, transparent 70%)",
                 }}
             /> */}
 
-            {/* ── SCROLL TO EXPLORE — left vertical ── */}
+            {/* {/* ── SCROLL TO EXPLORE — left vertical ──  */}
             <div className="absolute left-5 top-1/2 -translate-y-1/2 z-30 hidden md:flex flex-col items-center gap-3">
                 <span
                     className="text-[9px] tracking-[0.3em] uppercase select-none"
@@ -181,11 +181,12 @@ export default function Hero() {
 
                     {/* Hero Heading */}
                     <h1
-                        className="leading-[0.88] tracking-[0.01em] text-white mb-4"
+                        className="leading-[0.88] tracking-[0.01em]  mb-4"
                         style={{
                             fontFamily: "'Bebas Neue', sans-serif",
                             fontSize: "5rem",
                             textShadow: "0 0 100px rgba(0,100,255,0.2)",
+
                         }}
                     >
                         Hear Only
@@ -193,29 +194,27 @@ export default function Hero() {
                         What Matters.
                     </h1>
 
-                    {/* Subtitle */}
                     <p
                         className="text-gray-300 leading-relaxed max-w-[420px] mb-5"
-                        style={{ fontSize: "clamp(13px, 1.4vw, 15px)" }}
-                    >
+                        style={{ fontSize: "clamp(13px, 1.4vw, 15px)" }} >
                         AI-powered Adaptive Noise Cancellation that senses your environment
                         and delivers studio-quality sound, so you can focus on what truly matters.
                     </p>
 
                     {/* ── Feature Icons ── */}
-                    <div className="flex flex-wrap gap-5 mb-5">
+                    <div className="flex flex-wrap gap-10 mb-5">
                         {FEATURES.map((f) => (
-                            <div key={f.label} className="flex flex-col items-center gap-1">
+                            <div key={f.label} className="flex flex-col items-center  gap-1">
                                 <div
-                                    className="w-[34px] h-[34px] rounded-[9px] flex items-center justify-center font-extrabold text-[13px] text-blue-300"
+                                    className="w-[52px] h-[42px] rounded-xl flex items-center justify-center font-roboto font-extrabold text-m4 text-purple-200"
                                     style={{
-                                        background: "rgba(15,40,150,0.35)",
-                                        border: "1px solid rgba(60,120,255,0.35)",
+                                        background: "rgba(158, 36, 186, 0.3)",
+                                        border: "1.5px solid rgba(206, 30, 255, 0.6)",
                                     }}
                                 >
                                     {f.icon}
                                 </div>
-                                <span className="text-[10px] font-bold text-white text-center leading-tight">
+                                <span className="text-xs mt-1 font-bold text-white text-center leading-tight">
                                     {f.label}
                                 </span>
                                 <span className="text-[9px] text-slate-500 text-center leading-tight">
@@ -226,13 +225,13 @@ export default function Hero() {
                     </div>
 
                     {/* ──  Buttons ── */}
-                    <div className="flex flex-wrap gap-3 mb-5">
+                    <div className="flex flex-wrap gap-3 mb-5 mt-">
                         <Link
                             to="/buy"
                             className="px-7 py-2.5 rounded-full text-sm font-bold tracking-[0.06em] text-white border-none cursor-pointer transition-transform duration-200 hover:scale-105"
                             style={{
-                                background: "linear-gradient(135deg, #C17BFF 0%, #8A2BE2 100%)",
-                                boxShadow: "0 0 24px rgba(30,91,255,0.6), 0 2px 10px rgba(0,0,0,0.4)",
+                                background: "linear-gradient(135deg, #e27bff 0%, #a22be2 100%)",
+                                boxShadow: "0 0 24px rgba(255, 30, 251, 0.6), 0 2px 10px rgba(0,0,0,0.4)",
                             }}
                         >
                             Buy Now – ₹4,999
@@ -242,8 +241,8 @@ export default function Hero() {
                             className="px-6 py-2.5 rounded-full text-sm font-semibold tracking-[0.04em] cursor-pointer transition-all duration-200 hover:bg-blue-900/25"
                             style={{
                                 background: "transparent",
-                                border: "1.5px solid rgba(80,140,255,0.5)",
-                                color: "rgba(130,185,255,0.9)",
+                                border: "1.5px solid rgba(206, 30, 255, 0.6)",
+                                color: "#e27bff",
                             }}
                         >
                             Explore Features
@@ -251,20 +250,20 @@ export default function Hero() {
                     </div>
 
                     {/* ── Badges ── */}
-                    <div className="flex flex-wrap gap-x-4 gap-y-3">
+                    <div className="flex flex-wrap gap-x-4 gap-y-3 mt-1">
                         {BADGES.map((b) => (
                             <div key={b.label} className="flex items-center gap-1.5">
                                 <div
-                                    className="w-[26px] h-[26px] rounded-full flex items-center justify-center font-extrabold text-[10px] text-blue-300 flex-shrink-0"
+                                    className="w-[32px] h-[32px] rounded-full flex items-center justify-center font-extrabold text-xs text-purple-200 flex-shrink-0"
                                     style={{
-                                        border: "1px solid rgba(60,120,255,0.4)",
-                                        background: "rgba(15,40,150,0.3)",
+                                        border: "1px solid rgba(213, 60, 255, 0.4)",
+                                        background: "rgba(158, 36, 186, 0.3)",
                                     }}
                                 >
                                     {b.icon}
                                 </div>
                                 <div>
-                                    <div className="text-[10px] font-bold leading-tight" style={{ color: "#dde8ff" }}>
+                                    <div className="text-[10px] font-semibold font-sans leading-tight" style={{ color: "#dde8ff" }}>
                                         {b.label}
                                     </div>
                                     <div className="text-[8px] leading-tight text-slate-500">
@@ -277,7 +276,7 @@ export default function Hero() {
                 </div>
 
                 {/* ── RIGHT PANEL — IMAGE SLIDER ── */}
-                <div className="flex-1 w-full flex flex-col items-center justify-center gap-4">
+                <div className="flex-1 w-full flex flex-col items-center justify-center gap-4 mt-12">
 
                     {/* Slider  */}
                     <div
