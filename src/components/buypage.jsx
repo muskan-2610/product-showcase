@@ -221,7 +221,9 @@ function ShippingStep({ shipping, setShipping, back, next }) {
                 <button
                     type="button"
                     onClick={next}
-                    className="inline-flex h-11  gap-1.5 items-center rounded-full bg-white px-8 text-sm font-medium text-black transition hover:bg-white/90"
+                    className="inline-flex h-11  gap-1.5 items-center rounded-full bg-white px-8 text-sm font-medium text-black transition hover:bg-white/90
+                        hover:bg-purple-500/10 hover:border-purple-400 
+                            hover:shadow-[0_0_20px_rgba(168,85,247,0.6)]"
                 >
                     Continue <FaRegHandPointRight />
                 </button>

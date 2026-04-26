@@ -6,9 +6,9 @@ import { FaHeadset } from "react-icons/fa6";
 export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
     return (
-        <div className="w-[92vw] md:w-[88vw] lg:w-[80vw] h-14 fixed top-3 left-1/2 -translate-x-1/2 z-[100]   border border-purple-500/30 shadow-[0_0_20px_rgba(168,85,247,0.6)] 
+        <div className="w-[92vw] md:w-[88vw] lg:w-[80vw] h-14 fixed top-3 left-1/2 -translate-x-1/2 z-[100]  rounded-2xl border border-purple-500/20 shadow-[0_0_10px_rgba(118,85,247,0.4)] 
         hover:bg-purple-500/10 hover:border-purple-400 ">
-            <div className="flex justify-between text-center items-center px-4 sm:px-6 lg:px-10 h-full rounded-xl bg-black/30 backdrop-blur-lg shadow-md border border-white/10 text-white">
+            <div className="flex justify-between text-center items-center px-4 sm:px-6 lg:px-10 h-full rounded-2xl bg-black/30 backdrop-blur-lg shadow-md border border-white/10 text-white">
 
                 <div flex className="flex gap-2 items-center justify-center font-bold text-lg">
                     <span className="text-purple-400"><FaHeadset /></span> INDEV

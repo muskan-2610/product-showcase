@@ -8,6 +8,7 @@ import LandingPage from './components/landingPage';
 import ControlPanel from './components/controlPanel';
 import Dashboard from './components/dashboard';
 import CustomCursor from './components/customCursor';
+import PremiumFooter from './components/footer';
 
 const App = () => {
   return (
@@ -22,6 +23,8 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/controls" element={<ControlPanel />} />
       </Routes>
+
+      <PremiumFooter />
 
     </div>
   )
