@@ -1,7 +1,19 @@
 import { useMemo, useState } from "react"
 import { Link } from "react-router-dom"
 
+//icons 
+import { BsBoxFill } from "react-icons/bs";
+import { BsFillBox2HeartFill } from "react-icons/bs";
+import { FaUpRightFromSquare } from "react-icons/fa6";
+import { FaCcAmazonPay } from "react-icons/fa";
+import { IoCloudDone } from "react-icons/io5";
+import { RiCornerUpRightDoubleFill } from "react-icons/ri";
+import { FaRegHandPointRight } from "react-icons/fa";
+import { IoMdDoneAll } from "react-icons/io";
+import { IoHeadset } from "react-icons/io5";
+
 const STEP_LABELS = ["EDITION", "SHIPPING", "REVIEW", "PAYMENT", "CONFIRMATION"]
+const STEP_ICONS = [BsBoxFill, BsFillBox2HeartFill, FaUpRightFromSquare, FaCcAmazonPay, IoCloudDone]
 
 const FINISHES = [
     { id: "matte-black", label: "Matte Black", swatch: "bg-[#0F0F0F]" },
@@ -13,13 +25,13 @@ const EDITIONS = [
     {
         id: "standard",
         name: "INDEV Standard",
-        price: 299,
+        price: 4999,
         features: ["40h Battery", "Adaptive ANC", "BT 5.3 LE"],
     },
     {
         id: "pro",
         name: "INDEV Pro Edition",
-        price: 399,
+        price: 5999,
         features: ["60h Battery", "Adaptive ANC", "BT 5.3 LE", "Aerospace Aluminum", "Hard Case"],
     },
 ]
@@ -27,43 +39,16 @@ const EDITIONS = [
 const INPUT_CLASS =
     "h-11 w-full rounded-xl border border-white/10 bg-black px-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-white/30"
 
-function TopRow() {
-    return (
-        <header className="flex items-center justify-between border-b border-white/5 px-4 py-5 sm:px-8">
-            <div className="flex items-center gap-3">
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white text-xs font-semibold text-black">
-                    #
-                </span>
-                <p className="text-lg font-semibold text-white">INDEV</p>
-            </div>
-
-            <nav className="hidden items-center gap-7 text-xs text-white/55 md:flex">
-                <Link to="/" className="transition hover:text-white">
-                    Home
-                </Link>
-                <Link to="/features" className="transition hover:text-white">
-                    Features
-                </Link>
-                <span className="rounded-full bg-white px-4 py-1.5 text-black">Buy</span>
-                <Link to="/dashboard" className="transition hover:text-white">
-                    Dashboard
-                </Link>
-                <Link to="/controls" className="transition hover:text-white">
-                    Control Panel
-                </Link>
-            </nav>
-        </header>
-    )
-}
-
+// btns
 function StepTracker({ currentStep, onStepClick }) {
     return (
-        <div className="overflow-x-auto pb-1">
-            <div className="mx-auto min-w-[690px]">
+        <div className="overflow-x-auto pt-14 pb-1">
+            <div className=" max-w-3xl mx-auto ">
                 <div className="relative flex justify-between">
                     <span className="absolute left-[8%] right-[8%] top-4 h-px bg-white/8" />
                     {STEP_LABELS.map((label, index) => {
                         const complete = index <= currentStep
+                        const Icon = STEP_ICONS[index]
                         return (
                             <button
                                 key={label}
@@ -72,12 +57,12 @@ function StepTracker({ currentStep, onStepClick }) {
                                 type="button"
                             >
                                 <span
-                                    className={`inline-flex h-8 w-8 items-center justify-center rounded-full border text-sm font-semibold transition ${complete
-                                            ? "border-white bg-white text-black"
-                                            : "border-white/15 bg-black text-white/35"
+                                    className={`inline-flex h-13 w-13 items-center justify-center rounded-full border  text-sm font-semibold transition ${complete
+                                        ? " border-2 border-purple-500 bg-white text-black"
+                                        : "border-white/15 bg-black text-white/35"
                                         }`}
                                 >
-                                    #
+                                    {Icon ? <Icon className="text-base" aria-hidden="true" /> : "#"}
                                 </span>
                                 <span className={`text-[10px] tracking-[0.2em] ${complete ? "text-white" : "text-white/35"}`}>
                                     {label}
@@ -91,11 +76,12 @@ function StepTracker({ currentStep, onStepClick }) {
     )
 }
 
+// 1
 function EditionStep({ finish, setFinish, edition, setEdition, next }) {
     return (
         <>
-            <h2 className="text-4xl font-semibold text-white">Configure INDEV.</h2>
-            <p className="mt-2 text-white/45">Select your preferred edition and finish.</p>
+            <h2 className="text-4xl font-semibold purple">Configure INDEV.</h2>
+            <p className="mt-2 text-white/45 text-sm">Select your preferred edition and finish.</p>
 
             <p className="mt-10 text-xs font-semibold tracking-[0.16em] text-white/55">COLOR FINISH</p>
             <div className="mt-5 flex flex-wrap gap-8">
@@ -127,18 +113,18 @@ function EditionStep({ finish, setFinish, edition, setEdition, next }) {
                             key={item.id}
                             type="button"
                             onClick={() => setEdition(item.id)}
-                            className={`rounded-3xl border bg-[#090909] p-7 text-left transition ${active ? "border-white/60" : "border-white/10 hover:border-white/35"
+                            className={`rounded-3xl border bg-[#090909] p-6 text-left transition ${active ? "border-white/60" : "border-white/10 hover:border-white/35"
                                 }`}
                         >
-                            <div className="mb-6 flex items-center justify-between text-lg">
+                            <div className="mb-6 flex items-center justify-between text-lg font-medium">
                                 <p className="text-white">{item.name}</p>
-                                <p className="text-white/85">${item.price}</p>
+                                <p className="purple">₹{item.price}</p>
                             </div>
 
                             <div className="space-y-2">
                                 {item.features.map((feature) => (
-                                    <p key={feature} className="flex items-center gap-3 text-sm text-white/80">
-                                        <span className="text-white/90">#</span>
+                                    <p key={feature} className="flex items-center gap-3 text-xs text-white/80">
+                                        <span className="purple"><RiCornerUpRightDoubleFill/></span>
                                         {feature}
                                     </p>
                                 ))}
@@ -148,19 +134,20 @@ function EditionStep({ finish, setFinish, edition, setEdition, next }) {
                 })}
             </div>
 
-            <div className="mt-10 border-t border-white/10 pt-6 text-right">
+            <div className="mt-10 border-t border-white/10 pt-6 text-right ">
                 <button
                     type="button"
                     onClick={next}
-                    className="inline-flex h-11 items-center rounded-full bg-white px-10 text-sm font-medium text-black transition hover:bg-white/90"
+                    className="inline-flex h-11 gap-1.5 items-center rounded-full bg-white px-8 text-sm font-medium text-black transition hover:bg-white/90"
                 >
-                    Continue
+                    Continue  <FaRegHandPointRight/>
                 </button>
             </div>
         </>
     )
 }
 
+// 2
 function ShippingStep({ shipping, setShipping, back, next }) {
     const updateField = (field, value) => {
         setShipping((prev) => ({ ...prev, [field]: value }))
@@ -168,11 +155,11 @@ function ShippingStep({ shipping, setShipping, back, next }) {
 
     return (
         <>
-            <h2 className="text-4xl font-semibold text-white sm:text-5xl">Shipping details.</h2>
-            <p className="mt-2 text-white/45">Where should we send your INDEV?</p>
+            <h2 className="text-4xl font-semibold purple ">Shipping details.</h2>
+            <p className="mt-2 text-white/45 text-sm">Where should we send your INDEV?</p>
 
-            <div className="mt-12 grid gap-6 sm:grid-cols-2">
-                <label className="text-xs tracking-[0.16em] text-white/45">
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 ">
+                <label className="text-xs tracking-[0.16em] purple">
                     FULL NAME
                     <input
                         className={`${INPUT_CLASS} mt-2`}
@@ -181,7 +168,7 @@ function ShippingStep({ shipping, setShipping, back, next }) {
                         placeholder="Jane Doe"
                     />
                 </label>
-                <label className="text-xs tracking-[0.16em] text-white/45">
+                <label className="text-xs tracking-[0.16em] purple">
                     EMAIL
                     <input
                         className={`${INPUT_CLASS} mt-2`}
@@ -192,7 +179,7 @@ function ShippingStep({ shipping, setShipping, back, next }) {
                 </label>
             </div>
 
-            <label className="mt-6 block text-xs tracking-[0.16em] text-white/45">
+            <label className="mt-6 block text-xs tracking-[0.16em] purple">
                 ADDRESS
                 <input
                     className={`${INPUT_CLASS} mt-2`}
@@ -203,7 +190,7 @@ function ShippingStep({ shipping, setShipping, back, next }) {
             </label>
 
             <div className="mt-6 grid gap-6 sm:grid-cols-2">
-                <label className="text-xs tracking-[0.16em] text-white/45">
+                <label className="text-xs tracking-[0.16em] purple">
                     CITY
                     <input
                         className={`${INPUT_CLASS} mt-2`}
@@ -212,7 +199,7 @@ function ShippingStep({ shipping, setShipping, back, next }) {
                         placeholder="New York"
                     />
                 </label>
-                <label className="text-xs tracking-[0.16em] text-white/45">
+                <label className="text-xs tracking-[0.16em] purple">
                     POSTAL CODE
                     <input
                         className={`${INPUT_CLASS} mt-2`}
@@ -224,44 +211,45 @@ function ShippingStep({ shipping, setShipping, back, next }) {
             </div>
 
             <div className="mt-10 flex items-center justify-between border-t border-white/10 pt-7">
-                <button type="button" onClick={back} className="text-sm text-white/65 transition hover:text-white">
+                <button type="button" onClick={back} className="text-md text-white/65 transition hover:text-white">
                     Back
                 </button>
                 <button
                     type="button"
                     onClick={next}
-                    className="inline-flex h-11 items-center rounded-full bg-white px-12 text-sm font-medium text-black transition hover:bg-white/90"
+                    className="inline-flex h-11  gap-1.5 items-center rounded-full bg-white px-8 text-sm font-medium text-black transition hover:bg-white/90"
                 >
-                    Continue
+                    Continue <FaRegHandPointRight/>
                 </button>
             </div>
         </>
     )
 }
 
-function ReviewStep({ finishLabel, editionData, shipping, promoCode, setPromoCode, next, back }) {
+// 3 
+function ReviewStep({ finishLabel, editionData, subtotal, shipping, promoCode, setPromoCode, next, back }) {
     return (
         <>
-            <h2 className="text-4xl font-semibold text-white sm:text-5xl">Order summary.</h2>
-            <p className="mt-2 text-white/45">Review your configuration before payment.</p>
+            <h2 className="text-4xl font-semibold purple ">Order summary.</h2>
+            <p className="mt-2 text-white/45 text-sm">Review your configuration before payment.</p>
 
             <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_0.95fr]">
                 <div className="space-y-6">
                     <div className="rounded-2xl border border-white/10 p-6">
                         <p className="text-xs tracking-[0.2em] text-white/35">HARDWARE</p>
-                        <div className="mt-5 flex items-center justify-between text-xl text-white">
+                        <div className="mt-2 flex items-center justify-between text-lg text-white">
                             <p>{editionData.name}</p>
-                            <p>${editionData.price}</p>
+                            <p className="purple">₹{editionData.price}</p>
                         </div>
-                        <div className="mt-7 flex items-center justify-between text-sm text-white/60">
+                        <div className="mt-3 flex items-center justify-between text-sm text-white/60">
                             <p>Finish</p>
-                            <p>{finishLabel}</p>
+                            <p >{finishLabel}</p>
                         </div>
                     </div>
 
                     <div className="rounded-2xl border border-white/10 p-6">
                         <p className="text-xs tracking-[0.2em] text-white/35">DESTINATION</p>
-                        <div className="mt-5 space-y-2 text-white/85">
+                        <div className="mt-2 space-y-2 purple text-sm">
                             <p>{shipping.fullName || "Jane Doe"}</p>
                             <p>{shipping.address || "123 Audio Lane"}</p>
                             <p>
@@ -272,58 +260,59 @@ function ReviewStep({ finishLabel, editionData, shipping, promoCode, setPromoCod
                 </div>
 
                 <div className="rounded-2xl border border-white/10 p-6">
-                    <p className="text-xs tracking-[0.2em] text-white/35">TOTAL</p>
+                    <p className="text-xs tracking-[0.2em] text-white">TOTAL</p>
                     <div className="mt-5 space-y-3 text-white/55">
-                        <div className="flex justify-between">
+                        <div className="flex justify-between text-sm">
                             <p>Subtotal</p>
-                            <p>${editionData.price}</p>
+                            <p className="text-white">₹{subtotal}</p>
                         </div>
-                        <div className="flex justify-between">
+                        <div className="flex justify-between text-sm">
                             <p>Shipping</p>
                             <p className="text-white/85">Complimentary</p>
                         </div>
+                        {promoCode === "INDEV10" && (
+                            <div className="flex justify-between">
+                                <p>Promo Discount</p>
+                                <p className="text-green-400">-₹{Math.round(subtotal * 0.1)}</p>
+                            </div>
+                        )}
                     </div>
 
                     <div className="mt-4 border-t border-white/10 pt-4">
                         <div className="flex items-end justify-between">
                             <p className="text-2xl text-white/85">Total Due</p>
-                            <p className="text-5xl font-semibold text-white">${editionData.price}</p>
+                            <p className="text-4xl font-semibold purple">₹{editionData.price}</p>
                         </div>
                     </div>
 
-                    <div className="mt-6 flex gap-2">
+                    <div className="mt-4 flex gap-2">
                         <input
                             value={promoCode}
                             onChange={(event) => setPromoCode(event.target.value)}
-                            className={`${INPUT_CLASS} h-10`}
+                            className={`${INPUT_CLASS} h-6`}
                             placeholder="PROMO CODE"
                         />
-                        <button
-                            type="button"
-                            className="h-10 rounded-lg border border-white/15 px-6 text-xs tracking-[0.16em] text-white/80 transition hover:border-white/35"
-                        >
-                            APPLY
-                        </button>
                     </div>
 
-                    <p className="mt-3 text-xs text-white/35">Try &apos;STUDIO&apos; for 10% off</p>
+                    <p className="mt-3 text-xs text-white/70">Try &apos;INDEV10&apos; for 10% off</p>
                     <button
                         type="button"
                         onClick={next}
-                        className="mt-6 h-12 w-full rounded-full bg-white text-base font-medium text-black transition hover:bg-white/90"
+                        className="mt-5 h-10 w-full flex gap-1.5 justify-center items-center rounded-full bg-white text-base font-medium text-black transition hover:bg-white/90"
                     >
-                        Checkout
+                        Checkout <FaRegHandPointRight/>
                     </button>
                 </div>
             </div>
 
-            <button type="button" onClick={back} className="mt-6 text-sm text-white/65 transition hover:text-white">
+            <button type="button" onClick={back} className=" text-md text-white/65 transition hover:text-white">
                 Back
             </button>
         </>
     )
 }
 
+// 4
 function PaymentStep({ card, setCard, amount, back, next }) {
     const updateField = (field, value) => {
         setCard((prev) => ({ ...prev, [field]: value }))
@@ -331,14 +320,14 @@ function PaymentStep({ card, setCard, amount, back, next }) {
 
     return (
         <>
-            <h2 className="text-4xl font-semibold text-white sm:text-5xl">Payment.</h2>
-            <p className="mt-2 text-white/45">Secure encrypted checkout.</p>
+            <h2 className="text-4xl font-semibold purple">Payment.</h2>
+            <p className="mt-2 text-white/45 text-sm">Secure encrypted checkout.</p>
 
-            <div className="mt-10 rounded-2xl border border-white/10 bg-[#050505] p-6 sm:p-8">
+            <div className="mt-6 rounded-2xl border border-white/10 bg-[#050505] p-6 sm:p-8">
                 <p className="text-center text-xs tracking-[0.2em] text-white/35">AMOUNT DUE</p>
-                <p className="mt-2 text-center text-5xl text-white sm:text-6xl">${amount}</p>
+                <p className="mt-2 text-center text-5xl purple ">₹{amount}</p>
 
-                <div className="mt-7 border-t border-white/10 pt-6">
+                <div className="mt-4 border-t border-white/10 pt-6">
                     <label className="text-xs tracking-[0.16em] text-white/45">
                         CARD NUMBER
                         <input
@@ -381,53 +370,54 @@ function PaymentStep({ card, setCard, amount, back, next }) {
                     </label>
                 </div>
 
-                <p className="mt-5 text-center text-xs text-white/35"># This is a simulated checkout.</p>
+                <p className="mt-5 text-center text-xs text-white/35 flex justify-center gap-2 items-center"><IoMdDoneAll  className="purple "/> This is a simulated checkout.</p>
             </div>
 
             <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-6">
-                <button type="button" onClick={back} className="text-sm text-white/65 transition hover:text-white">
+                <button type="button" onClick={back} className="text-md text-white/65 transition hover:text-white">
                     Back
                 </button>
                 <button
                     type="button"
                     onClick={next}
-                    className="inline-flex h-11 items-center rounded-full bg-white px-10 text-sm font-medium text-black transition hover:bg-white/90"
+                    className="inline-flex h-11 flex gap-1.5 justify-center items-center rounded-full bg-white px-10 text-sm font-medium text-black transition hover:bg-white/90"
                 >
-                    Authorize Payment
+                    Authorize Payment  <FaRegHandPointRight/>
                 </button>
             </div>
         </>
     )
 }
 
+// 5
 function ConfirmationStep({ amount, shipping }) {
     return (
         <div className="py-6 text-center">
-            <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-b from-purple-500 to-violet-700 text-3xl font-medium text-white shadow-[0_0_30px_rgba(168,85,247,0.7)]">
-                #
+            <span className="inline-flex h-16 w-16 items-center justify-center rounded-3xl bg-gradient-to-b from-purple-500 to-violet-700 text-3xl font-medium text-white shadow-[0_0_30px_rgba(168,85,247,0.7)]">
+                < IoHeadset />
             </span>
 
-            <h2 className="mt-8 text-4xl font-semibold text-[#9F44FF] sm:text-5xl">Your focus journey begins.</h2>
-            <p className="mt-3 text-white/45">
+            <h2 className="mt-8 text-4xl font-semibold text-[#9F44FF] ">Your focus journey begins.</h2>
+            <p className="mt-3 text-white/45 text-sm">
                 Your INDEV headphones are being prepared for dispatch. Thank you for choosing absolute focus.
             </p>
 
             <div className="mx-auto mt-10 max-w-[500px] space-y-4 border-y border-white/10 py-6 text-sm">
                 <div className="flex items-center justify-between">
-                    <p className="tracking-[0.16em] text-white/35">ORDER NUMBER</p>
+                    <p className="tracking-[0.16em] text-white/35 text-xs">ORDER NUMBER</p>
                     <p className="text-[#9F44FF]">INV-88771</p>
                 </div>
                 <div className="flex items-center justify-between">
-                    <p className="tracking-[0.16em] text-white/35">DELIVERY ESTIMATE</p>
+                    <p className="tracking-[0.16em] text-white/35 text-xs">DELIVERY ESTIMATE</p>
                     <p className="text-white/85">3-5 Business Days</p>
                 </div>
                 <div className="flex items-center justify-between">
-                    <p className="tracking-[0.16em] text-white/35">SHIPPING TO</p>
+                    <p className="tracking-[0.16em] text-white/35 text-xs">SHIPPING TO</p>
                     <p className="text-white/85">{shipping.address || "123 Audio Lane"}</p>
                 </div>
                 <div className="flex items-center justify-between">
-                    <p className="tracking-[0.16em] text-white/35">TOTAL PAID</p>
-                    <p className="text-white/85">${amount}</p>
+                    <p className="tracking-[0.16em] text-white/35 text-xs">TOTAL PAID</p>
+                    <p className="purple">₹{amount}</p>
                 </div>
             </div>
 
@@ -449,6 +439,7 @@ function ConfirmationStep({ amount, shipping }) {
     )
 }
 
+// st
 export default function BuyPage() {
     const [step, setStep] = useState(0)
     const [selectedFinish, setSelectedFinish] = useState(FINISHES[0].id)
@@ -481,52 +472,48 @@ export default function BuyPage() {
     const prevStep = () => setStep((prev) => Math.max(prev - 1, 0))
 
     return (
-        <section className="min-h-screen bg-[#1D1D1F] px-3 pb-8 pt-24 sm:px-5">
-            <p className="mx-auto max-w-[1120px] text-sm text-white/35">Purchase {step + 1}</p>
+        <div className="mx-auto mt-2  py-10 pb-26 ">
 
-            <div className="mx-auto mt-2 max-w-[1120px] border border-white/8 bg-black">
-                <TopRow />
+            <div className="px-4 pb-10 pt-12 sm:px-7 md:px-12">
+                <StepTracker currentStep={step} />
 
-                <div className="px-4 pb-10 pt-12 sm:px-7 md:px-12">
-                    <StepTracker currentStep={step} onStepClick={setStep} />
-
-                    <div className="mx-auto mt-12 max-w-[840px]">
-                        {step === 0 && (
-                            <EditionStep
-                                finish={selectedFinish}
-                                setFinish={setSelectedFinish}
-                                edition={selectedEdition}
-                                setEdition={setSelectedEdition}
-                                next={nextStep}
-                            />
-                        )}
-                        {step === 1 && (
-                            <ShippingStep shipping={shipping} setShipping={setShipping} back={prevStep} next={nextStep} />
-                        )}
-                        {step === 2 && (
-                            <ReviewStep
-                                finishLabel={finishLabel}
-                                editionData={editionData}
-                                shipping={shipping}
-                                promoCode={promoCode}
-                                setPromoCode={setPromoCode}
-                                next={nextStep}
-                                back={prevStep}
-                            />
-                        )}
-                        {step === 3 && (
-                            <PaymentStep
-                                card={card}
-                                setCard={setCard}
-                                amount={editionData.price}
-                                back={prevStep}
-                                next={nextStep}
-                            />
-                        )}
-                        {step === 4 && <ConfirmationStep amount={editionData.price} shipping={shipping} />}
-                    </div>
+                <div className="mx-auto mt-12 max-w-[840px]">
+                    {step === 0 && (
+                        <EditionStep
+                            finish={selectedFinish}
+                            setFinish={setSelectedFinish}
+                            edition={selectedEdition}
+                            setEdition={setSelectedEdition}
+                            next={nextStep}
+                        />
+                    )}
+                    {step === 1 && (
+                        <ShippingStep shipping={shipping} setShipping={setShipping} back={prevStep} next={nextStep} />
+                    )}
+                    {step === 2 && (
+                        <ReviewStep
+                            finishLabel={finishLabel}
+                            editionData={promoCode === "INDEV10" ? { ...editionData, price: Math.round(editionData.price - editionData.price * 0.1) } : editionData}
+                            shipping={shipping}
+                            subtotal={editionData.price}
+                            promoCode={promoCode}
+                            setPromoCode={setPromoCode}
+                            next={nextStep}
+                            back={prevStep}
+                        />
+                    )}
+                    {step === 3 && (
+                        <PaymentStep
+                            card={card}
+                            setCard={setCard}
+                            amount={promoCode === "INDEV10" ? Math.round(editionData.price - editionData.price * 0.1) : editionData.price}
+                            back={prevStep}
+                            next={nextStep}
+                        />
+                    )}
+                    {step === 4 && <ConfirmationStep amount={promoCode === "INDEV10" ? Math.round(editionData.price - editionData.price * 0.1) : editionData.price} shipping={shipping} />}
                 </div>
             </div>
-        </section>
+        </div>
     )
 }

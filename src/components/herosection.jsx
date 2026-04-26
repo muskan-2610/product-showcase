@@ -4,7 +4,7 @@ import { PiDeviceMobileSpeakerFill } from "react-icons/pi";
 import { AiFillFire } from "react-icons/ai";
 import { FaInstalod } from "react-icons/fa6";
 
-import { PiNumberSquareSevenFill } from "react-icons/pi";
+import { Link } from "react-router-dom";
 import { MdNearMe } from "react-icons/md";
 import { RiPinDistanceFill } from "react-icons/ri";
 import { BsFillStopwatchFill } from "react-icons/bs";
@@ -56,7 +56,7 @@ const BADGES = [
     { icon: < BsFillStopwatchFill />, label: "Long Term", sub: "Software Support" },
 ];
 
-const NAV_LINKS = ["HOME", "SHOWCASE", "FEATURES", "PURCHASE"];
+const NAV_LINKS = ["HOME", "FEATURES", "BUY"];
 const SLIDE_INTERVAL = 3500;
 const SLIDE_TRANSITION_MS = 700;
 
@@ -158,9 +158,9 @@ export default function Hero() {
             {/* ── RIGHT NAV — vertical ── */}
             <div className="absolute right-4 top-1/2 -translate-y-1/2 z-30 hidden lg:flex flex-col items-center gap-8">
                 {NAV_LINKS.map((link, i) => (
-                    <a
+                    <Link
                         key={link}
-                        href="#"
+                        to={`${link.toLowerCase()}`}
                         className="text-[9px] tracking-[0.3em] uppercase transition-colors duration-200 hover:text-white"
                         style={{
                             writingMode: "vertical-rl",
@@ -168,7 +168,7 @@ export default function Hero() {
                         }}
                     >
                         {link}
-                    </a>
+                    </Link>
                 ))}
             </div>
 
@@ -227,16 +227,18 @@ export default function Hero() {
 
                     {/* ──  Buttons ── */}
                     <div className="flex flex-wrap gap-3 mb-5">
-                        <button
+                        <Link
+                            to="/buy"
                             className="px-7 py-2.5 rounded-full text-sm font-bold tracking-[0.06em] text-white border-none cursor-pointer transition-transform duration-200 hover:scale-105"
                             style={{
-                                background: "linear-gradient(135deg, #1e5bff 0%, #1040cc 100%)",
+                                background: "linear-gradient(135deg, #C17BFF 0%, #8A2BE2 100%)",
                                 boxShadow: "0 0 24px rgba(30,91,255,0.6), 0 2px 10px rgba(0,0,0,0.4)",
                             }}
                         >
-                            Buy Now – ₹7,999
-                        </button>
-                        <button
+                            Buy Now – ₹4,999
+                        </Link>
+                        <Link
+                            to="/features"
                             className="px-6 py-2.5 rounded-full text-sm font-semibold tracking-[0.04em] cursor-pointer transition-all duration-200 hover:bg-blue-900/25"
                             style={{
                                 background: "transparent",
@@ -245,7 +247,7 @@ export default function Hero() {
                             }}
                         >
                             Explore Features
-                        </button>
+                        </Link>
                     </div>
 
                     {/* ── Badges ── */}
@@ -412,19 +414,6 @@ export default function Hero() {
                     </div>
                 </div>
             </main>
-
-            {/* ── Bottom Right Buy Now ── */}
-            <div className="absolute bottom-6 right-10 md:right-14 z-30">
-                <button
-                    className="px-5 py-2 rounded-full text-xs font-bold tracking-[0.06em] text-white border-none cursor-pointer transition-transform duration-200 hover:scale-105"
-                    style={{
-                        background: "linear-gradient(135deg, #1e5bff 0%, #1040cc 100%)",
-                        boxShadow: "0 0 20px rgba(30,91,255,0.55)",
-                    }}
-                >
-                    Buy Now
-                </button>
-            </div>
 
         </div>
     );
