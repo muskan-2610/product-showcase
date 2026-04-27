@@ -165,18 +165,18 @@ export default function Hero() {
             </div>
 
 
-            {/* ── MAIN CONTENT ── */}
+            {/*MAIN CONTENT */}
             <main className="relative z-20 flex flex-col lg:flex-row items-center  px-10 md:px-14 lg:px-20 xl:px-28 pb-10 gap-8 lg:gap-6">
 
-                {/* ── LEFT PANEL ── */}
+                {/* left  */}
                 <div className="flex-none w-full lg:w-[46%] xl:w-[43%] flex flex-col justify-center pt-2 lg:pt-0">
 
                     {/* Hero Heading */}
                     <h1
-                        className="leading-[0.88] tracking-[0.01em]  mb-4 typing-text"
+                        className="leading-[0.88] tracking-[0.01em]  mb-4 typing-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl "
                         style={{
                             fontFamily: "'Bebas Neue', sans-serif",
-                            fontSize: "5rem",
+                            // fontSize: "5rem",
                             textShadow: "0 0 100px rgba(0,100,255,0.2)",
 
                         }}
@@ -196,7 +196,7 @@ export default function Hero() {
                         and delivers studio-quality sound, so you can focus on what truly matters.
                     </p>
 
-                    {/* ── Feature Icons ── */}
+                    {/* Icon */}
                     <div className="flex flex-wrap gap-10 mb-5">
                         {FEATURES.map((f) => (
                             <div key={f.label} className="flex flex-col items-center  gap-1">
@@ -219,7 +219,7 @@ export default function Hero() {
                         ))}
                     </div>
 
-                    {/* ──  Buttons ── */}
+                    {/* btn */}
                     <div className="flex flex-wrap gap-3 mb-5 mt-">
                         <Link
                             to="/buy"
@@ -244,7 +244,7 @@ export default function Hero() {
                         </Link>
                     </div>
 
-                    {/* ── Badges ── */}
+                    {/* badge */}
                     <div className="flex flex-wrap gap-x-4 gap-y-3 mt-1">
                         {BADGES.map((b) => (
                             <div key={b.label} className="flex items-center gap-1.5">
@@ -270,7 +270,7 @@ export default function Hero() {
                     </div>
                 </div>
 
-                {/* ── RIGHT PANEL — IMAGE SLIDER ── */}
+                {/* RIGHT PANEL- IMAGE SLIDER */}
                 <div className="flex-1 w-full flex flex-col items-center justify-center gap-4 mt-12">
 
                     {/* Slider  */}
@@ -364,7 +364,7 @@ export default function Hero() {
                         </button>
                     </div>
 
-                    {/* ── Dot Indicators ── */}
+                    {/*  Dot Indicators  */}
                     <div className="flex items-center gap-2.5">
                         {SLIDER_IMAGES.map((_, idx) => (
                             <button
@@ -384,7 +384,7 @@ export default function Hero() {
                         ))}
                     </div>
 
-                    {/* ── Thumbnail strip ── */}
+                    {/*  Thumbnail strip */}
                     <div className="flex gap-2 mt-1">
                         {SLIDER_IMAGES.map((img, idx) => (
                             <button

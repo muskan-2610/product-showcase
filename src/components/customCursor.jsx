@@ -1,17 +1,53 @@
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { IoHeadset } from "react-icons/io5";
 
 
 const CustomCursor = () => {
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === 'undefined') {
+      return false;
+    }
+
+    return window.matchMedia('(max-width: 768px)').matches;
+  });
   const dotRef = useRef(null);
   const circleRef = useRef(null);
   const mousePosition = useRef({ x: 0, y: 0 });
   const circlePosition = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
-    // Hide default cursor
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
+
+    const handleMediaChange = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    setIsMobile(mediaQuery.matches);
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', handleMediaChange);
+    } else {
+      mediaQuery.addListener(handleMediaChange);
+    }
+
+    return () => {
+      if (mediaQuery.removeEventListener) {
+        mediaQuery.removeEventListener('change', handleMediaChange);
+      } else {
+        mediaQuery.removeListener(handleMediaChange);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      document.body.style.cursor = 'auto';
+      return undefined;
+    }
+
     document.body.style.cursor = 'none';
+    let animationFrameId;
 
     // Track mouse position
     const handleMouseMove = (e) => {
@@ -37,21 +73,26 @@ const CustomCursor = () => {
         circleRef.current.style.top = `${circlePosition.current.y}px`;
       }
 
-      requestAnimationFrame(animateCircle);
+      animationFrameId = requestAnimationFrame(animateCircle);
     };
 
+    animationFrameId = requestAnimationFrame(animateCircle);
+
     document.addEventListener('mousemove', handleMouseMove);
-    animateCircle();
 
     return () => {
       document.body.style.cursor = 'auto';
       document.removeEventListener('mousemove', handleMouseMove);
+      cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [isMobile]);
+
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <>
-
       <div
         ref={dotRef}
         className="fixed w-3 h-3 flex justify-center items-center rounded-full pointer-events-none z-[9999]"

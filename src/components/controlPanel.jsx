@@ -179,12 +179,13 @@ export default function ControlPanel() {
                     </div>
 
                     {/* Btns */}
-                    <div className="grid grid-cols-3 gap-3">
+                    <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 sm:gap-3">
                         {modes.map(({ id, label }) => (
                             <button
                                 key={id}
                                 onClick={() => handleModeChange(id)}
-                                className={`py-3 px-4 rounded-xl text-xs font-medium tracking-wide transition-all duration-200 border
+                                className={`w-full rounded-xl px-3 py-2.5 text-[0.7rem] leading-tight font-medium tracking-wide transition-all duration-200 border sm:px-4 sm:py-3 sm:text-xs
+                                    whitespace-normal break-words text-center
                                     ${mode === id ? "bg-white text-black border-white shadow-lg"
                                         : "bg-transparent text-zinc-300 border-zinc-700 hover:border-zinc-500 hover:text-white"
                                     }`}

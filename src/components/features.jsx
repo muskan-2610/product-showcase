@@ -218,8 +218,8 @@ export default function Features() {
     return (
         <section className="py-34  text-center max-w-5xl mx-auto">
 
-            <h1 className=" mx-8   mx-auto font-bold text-5xl textwhite font-sans ">Intelligent features for
-                <p className="  text-purple-600">modern professionals. </p>
+            <h1 className=" mx-8   mx-auto font-bold text-4xl sm:text-5xl textwhite font-sans ">Intelligent features for <br />
+                <p className="  text-purple-600"> modern professionals.   </p> 
             </h1>
             <p className="  mx-8 mx-auto my-6   ">Every detail of the INDEV ecosystem is meticulously crafted to keep you <br /> focused, comfortable, and in absolute control.</p>
             {/*  */}
@@ -245,8 +245,8 @@ export default function Features() {
                         <p className=" text-xs mt-1.5  "> {feature.para}</p>
 
                         {/* hide */}
-                        <div className=" text-xs pt-4 pb-1 leading-7 
-                        opacity-0 max-h-0 overflow-hidden    group-hover:opacity-100 group-hover:max-h-44    transition-all duration-500">
+                        <div className=" text-xs pt-4 pb-1 leading-7
+                        opacity-100 max-h-44 overflow-hidden md:opacity-0 md:max-h-0 md:group-hover:opacity-100 md:group-hover:max-h-44 transition-all duration-500">
                             <hr className="border border-white/10 mb-4  " />
                             {feature.items.map((item, idx) => (
                                 <p key={idx} className="flex gap-2 items-center text-[0.6rem] text-white/70" > {item.icon} {item.label}</p>
@@ -255,7 +255,7 @@ export default function Features() {
                         {/* span */}
                         <div>
                             {feature.tags.map((tag, idx) => (
-                                <span key={idx} className="inline-block text-white/60 border border-white/30 group-hover:border-pink-100   text-[0.6rem] px-3 py-1 rounded-full mr-2">
+                                <span key={idx} className="inline-block text-white/60 border border-white/30 group-hover:border-pink-100   text-[0.6rem] px-3 py-1 rounded-full mr-2 mb-0.5">
                                     {tag.tag}
                                 </span>
                             ))}

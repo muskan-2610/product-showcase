@@ -43,8 +43,8 @@ const INPUT_CLASS =
 function StepTracker({ currentStep, onStepClick }) {
     return (
         <div className="overflow-x-auto pt-14 pb-1">
-            <div className=" max-w-3xl mx-auto ">
-                <div className="relative flex justify-between">
+            <div className="max-w-3xl mx-auto min-w-[520px] sm:min-w-0 px-2 sm:px-0">
+                <div className="relative flex justify-between gap-2 sm:gap-0">
                     <span className="absolute left-[8%] right-[8%] top-4 h-px bg-white/8" />
                     {STEP_LABELS.map((label, index) => {
                         const complete = index <= currentStep
@@ -53,18 +53,18 @@ function StepTracker({ currentStep, onStepClick }) {
                             <button
                                 key={label}
                                 onClick={() => onStepClick(index)}
-                                className="relative z-10 flex flex-col items-center gap-3"
+                                className="relative z-10 flex min-w-[86px] sm:min-w-0 flex-col items-center gap-2 sm:gap-3"
                                 type="button"
                             >
                                 <span
-                                    className={`inline-flex h-13 w-13 items-center justify-center rounded-full border  text-sm font-semibold transition ${complete
+                                    className={`inline-flex h-10 w-10 sm:h-13 sm:w-13 items-center justify-center rounded-full border text-sm font-semibold transition ${complete
                                         ? " border-2 border-purple-500 bg-white text-black  "
                                         : "border-white/15 bg-black text-white/35"
                                         }`}
                                 >
-                                    {Icon ? <Icon className="text-base" aria-hidden="true" /> : "#"}
+                                    {Icon ? <Icon className="text-sm sm:text-base" aria-hidden="true" /> : "#"}
                                 </span>
-                                <span className={`text-[10px] tracking-[0.2em] ${complete ? "text-white" : "text-white/35"}`}>
+                                <span className={`text-[8px] sm:text-[10px] tracking-[0.12em] sm:tracking-[0.2em] text-center whitespace-nowrap ${complete ? "text-white" : "text-white/35"}`}>
                                     {label}
                                 </span>
                             </button>

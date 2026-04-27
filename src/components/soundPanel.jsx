@@ -100,15 +100,15 @@ export default function Equalizer() {
                 </div>
 
                 {/* Sliders */}
-                <div className="flex justify-between items-end px-2 mb-6">
+                <div className="grid grid-cols-5 gap-x-2 gap-y-4 px-2 mb-6 sm:flex sm:justify-between sm:items-end sm:gap-y-0">
                     {BANDS.map((band, i) => (
-                        <div key={band} className="flex flex-col items-center gap-3" style={{ width: "7%" }}>
+                        <div key={band} className="flex flex-col items-center gap-3 w-full sm:w-[7%]">
                             {/* Vertical Slider Container */}
                             <div className="relative flex justify-center" style={{ height: "200px", width: "24px" }}>
                                 {/* Track background */}
                                 <div className="absolute top-0 bottom-0 w-1 rounded-full bg-zinc-700" style={{ left: "50%", transform: "translateX(-50%)" }} />
 
-                                {/* {/* Filled part  */}
+                                {/* {/* Filled  */}
                                 <div
                                     className="absolute w-1 rounded-full bg-purple-500"
                                     style={{

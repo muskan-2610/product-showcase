@@ -25,23 +25,23 @@ export default function Dashboard() {
                     <p className='text-xs mt-2'>Monitor your acoustic environment and usage.</p>
                 </div>
                 {/*  */}
-                <div className="w-full flex  px-3 sm:px-4 justify-end ">
-                    <div className="flex items-center justify-between px-3 my-4 rounded-xl bg-[#0a0a0a]/80 backdrop-blur-xl border border-gray-800 w-full max-w-md text-white flex-wrap sm:flex-nowrap">
+                <div className="w-full flex px-3 sm:px-4 justify-end">
+                    <div className="flex items-center justify-center sm:justify-between gap-2 sm:gap-0 px-3 py-1 sm:py-2 my-4 rounded-xl bg-[#0a0a0a]/80 backdrop-blur-xl border border-gray-800 w-full max-w-md text-white flex-wrap sm:flex-nowrap">
                         {/* Battery */}
-                        <div className="flex items-center gap-1 sm:gap-2 whitespace-nowrap">
+                        <div className="flex items-center gap-1 sm:gap-2 py-1 whitespace-nowrap">
                             <CiBatteryFull className="text-sm" />
                             <span className="text-xs" >82%</span>
                         </div>
 
                         <div className="hidden sm:block h-4 sm:h-5 w-px bg-gray-700" />
-                        <div className="flex items-center gap-1 sm:gap-2 whitespace-nowrap">
+                        <div className="flex items-center gap-1 sm:gap-2 py-1 whitespace-nowrap">
                             <MdBluetoothAudio className="text-sm" />
                             <span className="text-xs">Multipoint Active</span>
                         </div>
 
                         <div className="hidden sm:block h-4 sm:h-5 w-px bg-gray-700" />
                         {/* Connected */}
-                        <div className="flex items-center gap-1 sm:gap-2 whitespace-nowrap">
+                        <div className="flex items-center gap-1 sm:gap-2 py-1 whitespace-nowrap">
                             <PiPlugsConnectedFill className="text-sm" />
                             <span className="text-xs">Connected</span>
                         </div>
