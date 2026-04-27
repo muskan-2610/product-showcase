@@ -12,48 +12,49 @@ import { GrUpdate } from "react-icons/gr";
 import { PiNumberCircleSevenFill } from "react-icons/pi";
 import { FaMapLocationDot } from "react-icons/fa6";
 //
-import { BiSolidBrain } from "react-icons/bi";
-import { AiFillSound } from "react-icons/ai";
-import { BsFillFileSpreadsheetFill } from "react-icons/bs";
-import { CiBatteryFull } from "react-icons/ci";
-import { GiStarsStack } from "react-icons/gi";
-import { FaHeadphones } from "react-icons/fa";
 
+import { AiTwotoneSound } from "react-icons/ai";
+import { SiSoundcharts } from "react-icons/si";
+import { HiBattery50 } from "react-icons/hi2";
+import { TbStars } from "react-icons/tb";
+import { GiHeadphones } from "react-icons/gi";
+
+//st 
 export default function HeroSection() {
 
     const features = [
         {
-            star: <BiSolidBrain />,
+            star: < LuBrain />,
             title: "AI Adaptive Engine",
             para: "Real-time environmental detection adapts to your surroundings instantly with multi-microphone arrays.",
         },
 
         {
-            star: <AiFillSound />,
+            star: <AiTwotoneSound />,
             title: "High-Fidelity Audio",
             para: "40mm custom drivers deliver a wide soundstage, deep bass, and crystal-clear highs.",
         },
 
         {
-            star: <BsFillFileSpreadsheetFill />,
+            star: <SiSoundcharts />,
             title: "Adaptive EQ",
             para: "Learns your listening preferences and adjusts the frequency response automatically.",
         },
 
         {
-            star: <CiBatteryFull />,
+            star: < HiBattery50 />,
             title: "Endurance Battery",
             para: "Up to 40 hours of continuous high-resolution playback, with quick-charge capabilities.",
         },
 
         {
-            star: <GiStarsStack />,
+            star: < TbStars />,
             title: "Premium Build",
             para: "Expertly calibrated for diverse Indian environments and critical listening preference",
         },
 
         {
-            star: <FaHeadphones />,
+            star: < GiHeadphones />,
             title: "Made for India",
             para: "Expertly calibrated for diverse Indian environments and critical listening preferences.",
         },
@@ -122,15 +123,15 @@ export default function HeroSection() {
             </div>
 
             {/* 1 */}
-            <div className="py-20  mx-8 max-w-2xl mx-auto  ">
+            <div className="py-20  max-w-2xl mx-auto  ">
 
-                <div className=" mb-18">
+                <div className=" mb-18  mx-4 ">
                     <h4>The Problem</h4>
                     <h2 className="font-bold text-4xl my-4 mt-3 textwhite font-sans  ">Noise is everywhere.</h2>
                     <p className="">From bustling Indian streets to crowded offices, constant distractions break your focus and drain your energy. Generic noise cancellation doesn't adapt to your unique, ever-changing environment.</p>
                 </div>
 
-                <div>
+                <div className=" mx-4">
                     <h4>The Solution</h4>
                     <h2 className="font-bold text-4xl my-4 mt-3 textwhite font-sans" >Intelligent adaptation.</h2>
                     <p>INDEV's AI-powered adaptive engine learns your surroundings in real-time. Whether you're commuting through heavy traffic or focused in a quiet room, INDEV adjusts automatically to deliver the perfect audio experience.</p>
@@ -145,7 +146,7 @@ export default function HeroSection() {
                             <div key={index} className="group  dummy-card  rounded-br-4xl rounded-tl-4xl   border border-gray-600/40   p-6 shadow-xl  
                                     hover:scale-105   duration-300 ease-in-out hover:text-white  
                             ">
-                                <div className="mb-4 text-2xl p-3 inline-block bg-purple-500/15  border  text-purple-500 
+                                <div className="mb-4 text-xl p-3 inline-block bg-purple-500/15  border  text-purple-500 
                                 border-purple-500 shadow-[0_0_30px_rgba(168,85,247,0.4)] 
                                             transition duration-300  px-6 shadow-md
                                 rounded-bl-4xl rounded-tr-4xl color group-hover:bg-black  text-white
