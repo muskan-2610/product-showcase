@@ -32,11 +32,11 @@ export default function NavBar() {
 
             {menuOpen && (
                 <div className="md:hidden mt-2 rounded-xl bg-black/80 backdrop-blur-xl border border-white/10 text-white flex flex-col p-4 gap-3 shadow-lg">
-                    <a href="/" className="hover:text-purple-400 transition">Home</a>
-                    <a href="/features" className="hover:text-purple-400 transition">Features</a>
-                    <a href="/buy" className="hover:text-purple-400 transition">Buy</a>
-                    <a href="/dashboard" className="hover:text-purple-400 transition">Dashboard</a>
-                    <a href="/controls" className="hover:text-purple-400 transition">Control Panel</a>
+                    <Link to="/" className="hover:text-purple-400 transition">Home</Link>
+                    <Link to="/features" className="hover:text-purple-400 transition">Features</Link>
+                    <Link to="/buy" className="hover:text-purple-400 transition">Buy</Link>
+                    <Link to="/dashboard" className="hover:text-purple-400 transition">Dashboard</Link>
+                    <Link to="/controls" className="hover:text-purple-400 transition">Control Panel</Link>
                 </div>
             )}
         </div>

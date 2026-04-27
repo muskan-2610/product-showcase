@@ -171,12 +171,10 @@ export default function Hero() {
                 {/* left  */}
                 <div className="flex-none w-full lg:w-[46%] xl:w-[43%] flex flex-col justify-center pt-2 lg:pt-0">
 
-                    {/* Hero Heading */}
                     <h1
-                        className="leading-[0.88] tracking-[0.01em]  mb-4 typing-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl "
+                        className="leading-[0.88] tracking-[0.01em] pt-2 mb-4 typing-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl "
                         style={{
                             fontFamily: "'Bebas Neue', sans-serif",
-                            // fontSize: "5rem",
                             textShadow: "0 0 100px rgba(0,100,255,0.2)",
 
                         }}
